@@ -1,0 +1,6 @@
+django
+djangorestframework
+Pillow
+drf-oidc-auth
+gunicorn
+requests
