@@ -41,4 +41,4 @@ def exchange_access_token(request):
             return Response(data={"access_token": token[0].key})
 
     else:
-        return Response(status=400)
+        return Response(status=400) # Bad request (invalid serializer)

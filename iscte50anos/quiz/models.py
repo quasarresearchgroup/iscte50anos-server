@@ -53,6 +53,8 @@ class QuizQuestion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
 
+# TODO migrate
 class Trial(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    num_trial = models.IntegerField()
+    number = models.IntegerField()
+    current_question = models.IntegerField(default=0)

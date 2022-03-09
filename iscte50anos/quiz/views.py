@@ -7,6 +7,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from quiz.models import Trial
+
+
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_user_quiz_list(request):
@@ -14,11 +17,20 @@ def get_user_quiz_list(request):
     return Response(data=QuizListSerializer(quizzes, many=True).data)
 
 # Get and start quiz
-def start_quiz(request, quiz_id):
-    pass
-    # Check if more trials are available (or if score is max)
-    # if trials are available, create next trial (check level) (or max 3)
-    # Create next available trial
+def start_quiz_trial(request, quiz_num):
+
+    quiz = Quiz.objects.get_or_404(user=request.user, number=quiz_num)
+
+    # Count trials for quiz
+    trial_count = Trial.objects.filter(quiz=quiz).count()
+
+    # Cannot create more trials
+    # TODO already max score
+    if trial_count >= 3:
+        return Response(status=400) # Bad request
+
+    new_trial = Trial.objects.create(quiz=quiz, number=trial_count+1)
+
     # Send questions
 
 # Questions?

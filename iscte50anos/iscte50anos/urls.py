@@ -18,10 +18,17 @@ from django.urls import path, include
 
 from quiz.models import Question
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+apipatterns = [
     path('topics/', include('topics.urls')),
     path('content/', include('content.urls')),
     path('auth/', include('login.urls')),
     path('quizzes/', include('quiz.urls')),
+    path('events/', include('events.urls')),
 ]
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(apipatterns)),
+]
+
+

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'topics',
     'users',
     'content',
+    'events',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
