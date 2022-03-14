@@ -43,4 +43,18 @@ def create_quiz(user, level):
 # Best out of the trials
 # Depending on best trial, subtract percentage of total quiz score (first trial, no subtract. last, more subtract)
 def calculate_user_score(user):
-    pass
+    total_score = 0
+    for quiz in user.quizzes:
+        quiz_score = 0
+        for trial in quiz.trials:
+            trial_score = 0
+            for trial_question in trial.questions:
+                question = trial_question.question
+                if question.type == "S":
+                    choice = trial_question.answer
+                else:
+                    pass
+
+        total_score += quiz_score
+
+    return total_score

@@ -1,16 +1,16 @@
 from django.contrib import admin
 
 # Register your models here.
-from quiz.models import Question, Quiz, Answer, QuizQuestion, QuizImage
+from quiz.models import Question, Quiz, Choice, QuizQuestion, QuizImage, Trial
 
 admin.site.site_header = '50 Anos Iscte'
 
-class AnswerInline(admin.TabularInline):
-    model = Answer
+class ChoiceInline(admin.TabularInline):
+    model = Choice
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [
-        AnswerInline,
+        ChoiceInline,
     ]
 
 class QuestionInline(admin.TabularInline):
@@ -27,3 +27,11 @@ admin.site.register(QuizImage)
 
 # TEST
 admin.site.register(Quiz, QuizAdmin)
+admin.site.register(Trial)
+
+print("-------Admin quiz-------------")
+quiz = Quiz.objects.get(user__username="admin")
+
+print(quiz.questions.all())
+
+print("--------------------")

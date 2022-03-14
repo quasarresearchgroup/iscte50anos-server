@@ -7,7 +7,7 @@ class Content(models.Model):
     link = models.CharField(max_length=100, blank=True)
     topics = models.ManyToManyField(Topic, related_name='content')
 
-    date = models.DateField(null=True, blank=True)
+   # date = models.DateField(null=True, blank=True)
 
     type = models.CharField(
         max_length=12,

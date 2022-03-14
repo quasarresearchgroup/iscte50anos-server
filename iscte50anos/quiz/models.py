@@ -26,8 +26,8 @@ class Question(models.Model):
 
 
 # TODO Change to Choice
-class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="answers")
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="choices")
     text = models.CharField(max_length=200, null=False)
     is_correct = models.BooleanField(null=False)
 
@@ -37,7 +37,7 @@ class Answer(models.Model):
 
 class Quiz(models.Model):
     number = models.IntegerField(default=0)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="quizzes")
     level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
     questions = models.ManyToManyField(Question, through='QuizQuestion')
 
@@ -53,8 +53,21 @@ class QuizQuestion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
 
-# TODO migrate
+
 class Trial(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     number = models.IntegerField()
-    current_question = models.IntegerField(default=0)
+
+
+class TrialQuestion(models.Model):
+    trial = models.ForeignKey(Trial, on_delete=models.CASCADE, related_name="questions")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    access_time = models.DateTimeField(auto_now_add=True)
+
+
+class Answer(models.Model):
+    trial_question = models.ForeignKey(TrialQuestion, on_delete=models.CASCADE, related_name="answers")
+    answer_date = models.DateTimeField(auto_now_add=True)
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+
