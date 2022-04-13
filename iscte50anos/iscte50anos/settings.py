@@ -30,7 +30,7 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.1.124"]
 
 CSRF_TRUSTED_ORIGINS=['https://194.210.120.49']
 
@@ -165,6 +165,7 @@ SOCIAL_AUTH_PIPELINE = (
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication'
     ],
 }

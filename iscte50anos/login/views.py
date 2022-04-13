@@ -35,6 +35,7 @@ def exchange_access_token(request):
                 user = User.objects.create(username=profile_data["preferred_username"],
                                            first_name=profile_data["given_name"],
                                            last_name=profile_data["family_name"])
+                # TODO Get affiliation
                 profile = Profile.objects.create(user=user)
 
             token = Token.objects.get_or_create(user=user)
@@ -42,3 +43,8 @@ def exchange_access_token(request):
 
     else:
         return Response(status=400) # Bad request (invalid serializer)
+
+
+@api_view(['POST'])
+def openday_login(request):
+    pass

@@ -7,7 +7,7 @@ class ContentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Content
-        fields = ['title', 'link', 'type', 'scope', 'date']
+        fields = ['title', 'link', 'type']
 
 
 

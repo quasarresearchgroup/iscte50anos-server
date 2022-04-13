@@ -24,6 +24,7 @@ apipatterns = [
     path('auth/', include('login.urls')),
     path('quizzes/', include('quiz.urls')),
     path('events/', include('events.urls')),
+    path('users/', include('users.urls')),
 ]
 
 urlpatterns = [

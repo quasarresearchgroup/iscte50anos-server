@@ -6,6 +6,7 @@ from pathlib import Path
 
 p = Path(__file__).parent / 'files' / 'timeline.csv'
 
+
 def translate_scope(scope):
     if scope == "Iscte":
         return "iscte"
@@ -13,6 +14,7 @@ def translate_scope(scope):
         return "portugal"
     else:
         return "world"
+
 
 Event.objects.all().delete()
 with p.open(encoding="utf-16") as csvfile:

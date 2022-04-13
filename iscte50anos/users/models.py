@@ -2,29 +2,27 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
-from topics.models import TopicAccess
-
-import random
 
 class Affiliation(models.Model):
     name = models.CharField(max_length=30)
+    type = models.CharField(
+        max_length=10,
+        choices=(("student", "Student"), ("professor", "Professor"), ("researcher", "Researcher"), ("staff", "Staff")),
+        default="student"
+    )
     cycle = models.CharField(
         max_length=3,
-        choices=(("bsc", "Bachelor's"), ("msc","Master's"), ("phd", "Doctorate"))
+        choices=(("bsc", "Bachelor's"), ("msc", "Master's"), ("phd", "Doctorate"))
     )
+    abbreviation = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
-        return f'{self.name} - {self.cycle}'
+        return f'{self.type} - {self.abbreviation}'
 
 
 class Profile(models.Model):
-    # name, surname, email in django User model
-
+    # name, surname, email, username in django User model
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    type = models.CharField(
-        max_length=10,
-        choices=(("student", "Student"), ("prof", "Professor"), ("researcher", "Researcher"), ("staff", "Staff"))
-    )
     affiliation = models.ForeignKey(Affiliation, on_delete=models.SET_NULL, null=True)
     level = models.IntegerField(default=0)
     points = models.IntegerField(default=0)

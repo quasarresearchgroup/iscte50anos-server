@@ -11,18 +11,21 @@ from topics.serializers import TopicSerializer
 
 from _controllers import quiz_controller
 
+from qrcode.models import QRCode, QRCodeAccess
+
+from qrcode.serializers import QRCodeSerializer
+
 
 @api_view()
 @permission_classes([IsAuthenticated])
-def get_topic(request, pk):
-    topic = Topic.objects.get(id=pk)
-    is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
+def get_qrcode_link(request, uuid):
+    qrcode = QRCode.objects.get(uuid=uuid),
+    is_first_access = not QRCodeAccess.objects.filter(user=request.user, qrcode__uuid=uuid).exists()
     if is_first_access:
         # TODO Validate answered quizzes from previous level
-        TopicAccess.objects.create(user=request.user, topic=topic)
-        quiz_controller.update_level(request.user)
+        TopicAccess.objects.create(user=request.user, qrcode=qrcode)
 
-    serializer = TopicSerializer(topic)
+    serializer = QRCodeSerializer(qrcode)
     return Response(serializer.data)
 
 
