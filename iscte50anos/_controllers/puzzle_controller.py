@@ -42,6 +42,11 @@ def create_quiz(user, level):
 
 # Best out of the trials
 # Depending on best trial, subtract percentage of total quiz score (first trial, no subtract. last, more subtract)
+# TODO score with puzzle completion
+def calculate_user_score_puzzle(user):
+    pass
+
+
 def calculate_user_score(user):
     total_score = 0
     for quiz in user.quizzes:
