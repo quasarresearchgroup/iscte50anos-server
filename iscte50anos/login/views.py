@@ -5,11 +5,13 @@ from rest_framework.authtoken.admin import User
 
 from rest_framework.decorators import api_view
 
-from login.serializers import SocialSerializer
+from login.serializers import SocialSerializer, SignupSerializer, LoginSerializer
 from rest_framework.response import Response
 
-from users.models import Profile
+from users.models import Profile, Affiliation
 from rest_framework.authtoken.models import Token
+
+from django.contrib.auth import authenticate
 
 
 
@@ -39,7 +41,7 @@ def exchange_access_token(request):
                 profile = Profile.objects.create(user=user)
 
             token = Token.objects.get_or_create(user=user)
-            return Response(data={"access_token": token[0].key})
+            return Response(data={"api_token": token[0].key})
 
     else:
         return Response(status=400) # Bad request (invalid serializer)
@@ -47,4 +49,48 @@ def exchange_access_token(request):
 
 @api_view(['POST'])
 def openday_login(request):
-    pass
+    login_serializer = LoginSerializer(data=request.data)
+    if login_serializer.is_valid():
+        user = authenticate(username=login_serializer.validated_data["username"],
+                            password=login_serializer.validated_data["password"])
+        if user is not None:
+            return Response({"message": f"Login bem sucedido: {user.username}",
+                             "api_token": Token.objects.get_or_create(user=user)[0].key})
+        else:
+            return Response({"message": "Credenciais inválidas"}, status=400)
+    else:
+        return Response(status=400)
+
+
+@api_view(['POST'])
+def openday_signup(request):
+    signup_serializer = SignupSerializer(data=request.data)
+    if signup_serializer.is_valid():
+
+        username = signup_serializer.validated_data["username"]
+        email = signup_serializer.validated_data["email"]
+        if User.objects.filter(username=username).exists():
+            return Response(data={"message": "O username já existe"}, status=400)
+        if User.objects.filter(email=email).exists():
+            return Response(data={"message": "O email já está registado numa conta"}, status=400)
+
+        affiliation_name = signup_serializer.validated_data["affiliation_name"]
+        affiliation_type = signup_serializer.validated_data["affiliation_type"]
+
+        password = signup_serializer.validated_data["password"]
+        password_confirmation = signup_serializer.validated_data["password_confirmation"]
+        if password != password_confirmation:
+            return Response(data={"message":"As palavras-passe não coincidem"}, status=400)
+
+        user = User(username=username, email=email)
+        user.set_password(password)
+        user.save()
+
+        affiliation = Affiliation.objects.get_or_create(type=affiliation_type, name=affiliation_name)[0]
+        profile = Profile.objects.create(user=user, affiliation=affiliation)
+
+        token = Token.objects.get_or_create(user=user)
+        return Response(data={"message":"Perfil criado com sucesso", "api_token": token[0].key})
+
+    else:
+        return Response(status=400) # Bad request (invalid serializer)

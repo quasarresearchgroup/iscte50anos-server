@@ -13,9 +13,9 @@ from users.serializers import ProfileSerializer
 @api_view()
 #@permission_classes([IsAuthenticated])
 def get_profile(request):
-    #profile = Profile.objects.get(user=request.user)
-    #serializer = ProfileSerializer(profile)
-    return Response(status=200)#data=serializer.data)
+    profile = Profile.objects.get(user=request.user)
+    serializer = ProfileSerializer(profile)
+    return Response(status=200, data=serializer.data)
 
 @api_view()
 #@permission_classes([IsAuthenticated])
@@ -34,12 +34,7 @@ def get_leaderboard(request):
 
     json_response = []
     for p in profiles:
-        name = p.user.first_name
-        surname = p.user.last_name
-        last_name = ""
-        if surname != "":
-            last_name = surname.split()[-1]
-        profile = {"name": f"{name} {last_name}", "points": p.points, "affiliation": p.affiliation.abbreviation}
+        profile = {"name": f"{p.name()}", "points": p.points, "affiliation": p.affiliation.abbreviation}
         json_response.append(profile)
     return Response(data=json_response)
 

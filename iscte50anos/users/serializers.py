@@ -7,10 +7,14 @@ from users.models import Profile
 class LeaderboardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['' ,  'points']
+        fields = ['',  'points']
 
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['user', 'level', 'points', 'affiliation']
+        fields = ['name', 'level', 'points', 'affiliation_name', 'ranking', 'affiliation_ranking', 'initials']
+
+
+class AffiliationSerializer(serializers.ModelSerializer):
+    pass

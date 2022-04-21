@@ -28,11 +28,11 @@ except KeyError as e:
     SECRET_KEY = 'django-insecure-68s=q%s6@xm&$excwzygo*!j)^oifm#_ycnrs554(trqz0sv!a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["192.168.1.124","https://194.210.120.48"]
+ALLOWED_HOSTS = ["194.210.120.48"]
 
-CSRF_TRUSTED_ORIGINS = ['https://194.210.120.49', 'https://194.210.120.48']
+CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48']
 
 # Application definition
 
@@ -89,10 +89,15 @@ WSGI_APPLICATION = 'iscte50anos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'iscteSpots',
+        'USER': os.environ["MYSQL_USER"],
+        'PASSWORD': os.environ["MYSQL_PASS"],
+        'HOST': os.environ["MYSQL_HOST"],
+        'PORT': os.environ["MYSQL_PORT"],
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,16 +129,24 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = '/var/www/iscte50anos/static/'
+
+MEDIA_URL = 'static/images/'
+
+MEDIA_ROOT = '/var/www/iscte50anos/static/images/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# SOCIAL AUTH CONFIG
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

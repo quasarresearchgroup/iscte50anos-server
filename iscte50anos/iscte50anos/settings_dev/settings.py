@@ -37,6 +37,12 @@ CSRF_TRUSTED_ORIGINS = ['https://194.210.120.49', 'https://194.210.120.48']
 # Application definition
 
 INSTALLED_APPS = [
+    'quiz',
+    'topics',
+    'users',
+    'content',
+    'events',
+    'spots',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,13 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
-    'quiz',
-    'topics',
-    'users',
-    'content',
-    'events',
-    'spots',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
