@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from users.models import Profile
 
-from users.serializers import ProfileSerializer
+from users.serializers import ProfileSerializer, LeaderboardSerializer
 
 
 @api_view()
@@ -37,6 +37,24 @@ def get_leaderboard(request):
         profile = {"name": f"{p.name()}", "points": p.points, "affiliation": p.affiliation.abbreviation}
         json_response.append(profile)
     return Response(data=json_response)
+
+@api_view()
+#@permission_classes([IsAuthenticated])
+def get_openday_leaderboard(request):
+    user_type = request.GET.get("type")
+    affiliation = request.GET.get("affiliation")
+
+    if user_type and affiliation:
+        if affiliation == "*":
+            profiles = Profile.objects.filter(affiliation__type=user_type).order_by("-num_spots_read", "total_time")[:10]
+        else:
+            profiles = Profile.objects.filter(affiliation__type=user_type,
+                                              affiliation__abbreviation=affiliation).order_by("-num_spots_read", "total_time")[:10]
+    else:
+        profiles = Profile.objects.order_by("-num_spots_read", "total_time")[:10]
+
+    serializer = LeaderboardSerializer(profiles, many=True)
+    return Response(data=serializer.data)
 
 
 

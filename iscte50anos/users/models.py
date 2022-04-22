@@ -39,6 +39,9 @@ class Profile(models.Model):
             last_name = surname.split()[-1]
         return f"{self.user.first_name} {last_name}"
 
+    def username(self):
+        return self.user.username
+
     def affiliation_name(self):
         return f"{self.affiliation.full_description}"
 

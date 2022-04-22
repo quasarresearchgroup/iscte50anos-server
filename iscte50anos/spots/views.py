@@ -18,7 +18,10 @@ from spots.models import QRCode, QRCodeAccess, QRCodePermit, Layout
 
 from spots.serializers import SpotSerializer
 
-
+@api_view()
+@permission_classes([IsAuthenticated])
+def get_current_permit(request):
+    permit = list(QRCodePermit.objects.filter(user=request.user))
 
 @api_view()
 @permission_classes([IsAuthenticated])
@@ -39,7 +42,7 @@ def access_qrcode(request, uuid):
             spots_controller.update_total_spots_read(request.user)
             spots_controller.update_total_spot_time(request.user)
 
-            if len(unvisited_qrcodes) == 5:
+            if len(qrcode_accesses) == 5:
                 return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
 
             next_qrcode = random.choice(unvisited_qrcodes)

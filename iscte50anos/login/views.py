@@ -82,6 +82,7 @@ def openday_signup(request):
         if password != password_confirmation:
             return Response(data={"message":"As palavras-passe não coincidem"}, status=400)
 
+        # SUCCESS
         user = User(username=username, email=email)
         user.set_password(password)
         user.save()
