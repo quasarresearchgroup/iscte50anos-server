@@ -23,7 +23,7 @@ Affiliation.objects.all().delete()
 with p.open(encoding="utf-8") as csvfile:
     groups_reader = csv.reader(csvfile, delimiter=";")
     header = next(groups_reader)
-    i = 0
+    i = 1
     for row in groups_reader:
         school = row[0]
         zone = row[1]
