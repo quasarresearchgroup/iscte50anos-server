@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Affiliation(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=300)
     type = models.CharField(
         max_length=10,
         choices=(("student", "Student"), ("professor", "Professor"), ("researcher", "Researcher"), ("staff", "Staff")),
@@ -16,9 +16,9 @@ class Affiliation(models.Model):
     )
 
     # For open day
-    subtype = models.CharField(max_length=30, blank=True)
+    subtype = models.CharField(max_length=50, blank=True)
 
-    abbreviation = models.CharField(max_length=10, blank=True)
+    abbreviation = models.CharField(max_length=30, blank=True)
     full_description = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
