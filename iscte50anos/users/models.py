@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Affiliation(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     type = models.CharField(
         max_length=10,
         choices=(("student", "Student"), ("professor", "Professor"), ("researcher", "Researcher"), ("staff", "Staff")),
