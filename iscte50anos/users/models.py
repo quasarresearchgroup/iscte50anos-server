@@ -14,11 +14,15 @@ class Affiliation(models.Model):
         max_length=3,
         choices=(("bsc", "Bachelor's"), ("msc", "Master's"), ("phd", "Doctorate"))
     )
+
+    # For open day
+    subtype = models.CharField(max_length=30, blank=True)
+
     abbreviation = models.CharField(max_length=10, blank=True)
     full_description = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
-        return f'{self.type} - {self.abbreviation}'
+        return f'{self.type} - {self.name} ({self.abbreviation})'
 
 
 class Profile(models.Model):
@@ -46,14 +50,16 @@ class Profile(models.Model):
         return f"{self.affiliation.full_description}"
 
     def ranking(self):
-        return Profile.objects.filter(num_spots_read__gt=self.num_spots_read).count() + \
-                Profile.objects.filter(num_spots_read=self.num_spots_read,
-                                       total_time__lt=self.total_time).count() + 1
+        return Profile.objects.exclude(num_spots_read=0).filter(num_spots_read__gt=self.num_spots_read).count() + \
+               Profile.objects.exclude(num_spots_read=0).filter(num_spots_read=self.num_spots_read,
+                                                                total_time__lt=self.total_time).count() + 1
 
     def affiliation_ranking(self):
-        return Profile.objects.filter(affiliation=self.affiliation, num_spots_read__gt=self.num_spots_read).count() + \
-               Profile.objects.filter(affiliation=self.affiliation, num_spots_read=self.num_spots_read,
-                                      total_time__lt=self.total_time).count() + 1
+        return Profile.objects.exclude(num_spots_read=0).filter(affiliation=self.affiliation,
+                                                                num_spots_read__gt=self.num_spots_read).count() + \
+               Profile.objects.exclude(num_spots_read=0).filter(affiliation=self.affiliation,
+                                                                num_spots_read=self.num_spots_read,
+                                                                total_time__lt=self.total_time).count() + 1
 
     def initials(self):
         return "".join([name[0] for name in self.name().split(" ")])

@@ -14,7 +14,6 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 
 
-
 @api_view(['POST'])
 # Exchange OAuth2 access token by an in-house access token
 # If the access token is valid and the user is not registered, it will be registered
@@ -67,31 +66,38 @@ def openday_signup(request):
     signup_serializer = SignupSerializer(data=request.data)
     if signup_serializer.is_valid():
 
+        # VALIDATION
         username = signup_serializer.validated_data["username"]
         email = signup_serializer.validated_data["email"]
         if User.objects.filter(username=username).exists():
-            return Response(data={"message": "O username já existe"}, status=400)
+            return Response(data={"message": "O username já existe", "code": 1}, status=400)
         if User.objects.filter(email=email).exists():
-            return Response(data={"message": "O email já está registado numa conta"}, status=400)
-
-        affiliation_name = signup_serializer.validated_data["affiliation_name"]
-        affiliation_type = signup_serializer.validated_data["affiliation_type"]
+            return Response(data={"message": "O email já está registado numa conta", "code": 2}, status=400)
 
         password = signup_serializer.validated_data["password"]
         password_confirmation = signup_serializer.validated_data["password_confirmation"]
         if password != password_confirmation:
-            return Response(data={"message":"As palavras-passe não coincidem"}, status=400)
+            return Response(data={"message": "As palavras-passe não coincidem", "code": 3}, status=400)
+
+        first_name = signup_serializer.validated_data["first_name"]
+        last_name = signup_serializer.validated_data["last_name"]
+
+        affiliation_name = signup_serializer.validated_data["affiliation_name"]
+        affiliation_type = signup_serializer.validated_data["affiliation_type"]
+
+        try:
+            affiliation = Affiliation.objects.get(subtype=affiliation_type, name=affiliation_name)
+        except Affiliation.DoesNotExist:
+            return Response(data={"message": "Afiliação Inválida", "code": 4}, status=400)
 
         # SUCCESS
-        user = User(username=username, email=email)
+        user = User(username=username, first_name=first_name, last_name=last_name, email=email)
         user.set_password(password)
         user.save()
-
-        affiliation = Affiliation.objects.get_or_create(type=affiliation_type, name=affiliation_name)[0]
         profile = Profile.objects.create(user=user, affiliation=affiliation)
-
         token = Token.objects.get_or_create(user=user)
-        return Response(data={"message":"Perfil criado com sucesso", "api_token": token[0].key})
+
+        return Response(data={"message": "Perfil criado com sucesso", "api_token": token[0].key})
 
     else:
-        return Response(status=400) # Bad request (invalid serializer)
+        return Response(data={"message": "Email inválido", "code": 5}, status=400) # Bad request (invalid serializer)

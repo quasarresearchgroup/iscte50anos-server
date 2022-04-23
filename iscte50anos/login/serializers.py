@@ -18,7 +18,9 @@ class LoginSerializer(serializers.Serializer):
 
 class SignupSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=30, required=True, trim_whitespace=True)
-    email = serializers.EmailField()
+    email = serializers.EmailField(error_messages={"message": "Email inválido", "code":5})
+    first_name = serializers.CharField(max_length=30, required=True, trim_whitespace=True)
+    last_name = serializers.CharField(max_length=30, required=True, trim_whitespace=True)
     affiliation_name = serializers.CharField(max_length=100, required=True, trim_whitespace=True)
     affiliation_type = serializers.CharField(max_length=100, required=True, trim_whitespace=True)
     password = serializers.CharField(max_length=30, required=True)

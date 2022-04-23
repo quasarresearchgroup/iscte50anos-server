@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 
-from users.models import Profile
+from users.models import Profile, Affiliation
 
 
 class LeaderboardSerializer(serializers.ModelSerializer):
@@ -13,8 +13,11 @@ class LeaderboardSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['name', 'level', 'points', 'affiliation_name', 'ranking', 'affiliation_ranking', 'initials']
+        fields = ['name', 'level', 'points', 'affiliation_name', 'ranking',
+                  'affiliation_ranking', 'initials', 'num_spots_read', 'total_time']
 
 
 class AffiliationSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = Affiliation
+        fields = "__all__"

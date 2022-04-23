@@ -27,10 +27,10 @@ def get_current_permit(request):
 @permission_classes([IsAuthenticated])
 def access_qrcode(request, uuid):
     qrcode = QRCode.objects.get(uuid=uuid)
-    has_permit = QRCodePermit.objects.filter(user=request.user, qrcode=qrcode).exists()
-    if has_permit:
-        has_access = QRCodeAccess.objects.filter(user=request.user, qrcode=qrcode).exists()
-        if not has_access:
+    has_access = QRCodeAccess.objects.filter(user=request.user, qrcode=qrcode).exists()
+    if not has_access:
+        has_permit = QRCodePermit.objects.filter(user=request.user, qrcode=qrcode).exists()
+        if has_permit:
             QRCodeAccess.objects.create(user=request.user, qrcode=qrcode)
             QRCodePermit.objects.filter(user=request.user, qrcode=qrcode).delete()
 
@@ -59,6 +59,7 @@ def access_qrcode(request, uuid):
             serializer = SpotSerializer(next_spot)
             return Response(serializer.data)
         else:
-            return Response({"error": "Já visitaste este Spot"}, status=403)
+            return Response({"error": "Não podes aceder a este Spot ainda"}, status=403)
     else:
-        return Response({"error": "Não podes aceder a este Spot ainda"}, status=403)
+        return Response({"error": "Já visitaste este Spot"}, status=403)
+

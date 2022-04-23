@@ -1,0 +1,2 @@
+# from __scripts import import_spots, import_openday_affiliations, import_openday_profiles
+from __scripts import import_openday_profiles

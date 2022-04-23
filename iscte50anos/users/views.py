@@ -46,12 +46,14 @@ def get_openday_leaderboard(request):
 
     if user_type and affiliation:
         if affiliation == "*":
-            profiles = Profile.objects.filter(affiliation__type=user_type).order_by("-num_spots_read", "total_time")[:10]
+            profiles = Profile.objects.filter(num_spots_read__gt=0,
+                                              affiliation__subtype=user_type).order_by("-num_spots_read", "total_time")[:10]
         else:
-            profiles = Profile.objects.filter(affiliation__type=user_type,
-                                              affiliation__abbreviation=affiliation).order_by("-num_spots_read", "total_time")[:10]
+            profiles = Profile.objects.filter(num_spots_read__gt=0,
+                                              affiliation__subtype=user_type,
+                                              affiliation__name=affiliation).order_by("-num_spots_read", "total_time")[:10]
     else:
-        profiles = Profile.objects.order_by("-num_spots_read", "total_time")[:10]
+        profiles = Profile.objects.filter(num_spots_read__gt=0).order_by("-num_spots_read", "total_time")[:10]
 
     serializer = LeaderboardSerializer(profiles, many=True)
     return Response(data=serializer.data)
