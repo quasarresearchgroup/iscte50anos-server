@@ -28,7 +28,7 @@ class QRCodeAccess(models.Model):
     access_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.qrcode} - {self.user}'
+        return f'{self.qrcode} - {self.user} (accessed time: {self.access_date})'
 
 
 class Spot(models.Model):
