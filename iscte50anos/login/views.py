@@ -1,6 +1,7 @@
 from django.conf import settings
 
 import requests
+from django.db import transaction
 from rest_framework.authtoken.admin import User
 
 from rest_framework.decorators import api_view
@@ -39,8 +40,9 @@ def exchange_access_token(request):
                 # TODO Get affiliation
                 profile = Profile.objects.create(user=user)
 
-            token = Token.objects.get_or_create(user=user)
-            return Response(data={"api_token": token[0].key})
+            Token.objects.get(user=user).delete()
+            user_token = Token.objects.create(user=user).key
+            return Response(data={"api_token": user_token})
 
     else:
         return Response(status=400) # Bad request (invalid serializer)
@@ -53,15 +55,18 @@ def openday_login(request):
         user = authenticate(username=login_serializer.validated_data["username"],
                             password=login_serializer.validated_data["password"])
         if user is not None:
+            Token.objects.get(user=user).delete()
+            user_token = Token.objects.create(user=user).key
             return Response({"message": f"Login bem sucedido: {user.username}",
-                             "api_token": Token.objects.get_or_create(user=user)[0].key})
+                             "api_token": user_token})
         else:
             return Response({"message": "Credenciais inválidas"}, status=400)
     else:
-        return Response(status=400)
+        return Response({"message": "Pedido inválido"}, status=400)
 
 
 @api_view(['POST'])
+@transaction.atomic
 def openday_signup(request):
     signup_serializer = SignupSerializer(data=request.data)
     if signup_serializer.is_valid():
@@ -91,13 +96,15 @@ def openday_signup(request):
             return Response(data={"message": "Afiliação Inválida", "code": 4}, status=400)
 
         # SUCCESS
-        user = User(username=username, first_name=first_name, last_name=last_name, email=email)
-        user.set_password(password)
-        user.save()
-        profile = Profile.objects.create(user=user, affiliation=affiliation)
-        token = Token.objects.get_or_create(user=user)
-
-        return Response(data={"message": "Perfil criado com sucesso", "api_token": token[0].key})
+        try:
+            user = User(username=username, first_name=first_name, last_name=last_name, email=email)
+            user.set_password(password)
+            user.save()
+            profile = Profile.objects.create(user=user, affiliation=affiliation)
+            token = Token.objects.get_or_create(user=user)
+            return Response(data={"message": "Perfil criado com sucesso", "api_token": token[0].key})
+        except Exception as e:
+            return Response(data={"message": "Erro a criar utilizador. Tentar novamente.", "code": 6}, status=500)
 
     else:
         return Response(data={"message": "Email inválido", "code": 5}, status=400) # Bad request (invalid serializer)

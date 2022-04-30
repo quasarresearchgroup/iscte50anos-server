@@ -146,7 +146,24 @@ MEDIA_ROOT = '/var/www/iscte50anos/static/images/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# SOCIAL AUTH CONFIG
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

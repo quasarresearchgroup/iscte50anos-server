@@ -17,7 +17,7 @@ def get_abbreviation(name):
     return abbreviation
 
 
-affiliation_json = {"-": ["-", "*"]}
+affiliation_json = {"-": ["-"]}
 
 Affiliation.objects.all().delete()
 with p.open(encoding="utf-8") as csvfile:
@@ -37,7 +37,7 @@ with p.open(encoding="utf-8") as csvfile:
             abbr = get_abbreviation(school)
 
         if zone not in affiliation_json:
-            affiliation_json[zone] = ["-", "*"]
+            affiliation_json[zone] = ["-",]
         affiliation_json[zone].append(school)
 
         Affiliation.objects.create(id=i,

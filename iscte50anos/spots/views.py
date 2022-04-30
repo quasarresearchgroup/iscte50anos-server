@@ -1,6 +1,7 @@
 import random
 from datetime import datetime
 
+from django.db import transaction
 from django.shortcuts import render
 
 # Create your views here.
@@ -49,18 +50,20 @@ def get_or_create_permit(request):
 
 @api_view()
 @permission_classes([IsAuthenticated])
+@transaction.atomic
 def access_qrcode(request, uuid):
     try:
         qrcode = QRCode.objects.get(uuid=uuid)
         has_access = QRCodeAccess.objects.filter(user=request.user, qrcode=qrcode).exists()
         num_accesses = QRCodeAccess.objects.filter(user=request.user).count()
 
-        if num_accesses >= 5:
+        if num_accesses >= 4:
             return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
 
         if not has_access:
             has_permit = QRCodePermit.objects.filter(user=request.user, qrcode=qrcode).exists()
             if has_permit:
+
                 QRCodeAccess.objects.create(user=request.user, qrcode=qrcode)
                 qrcode_accesses = list(QRCodeAccess.objects.filter(user=request.user))
                 visited_qrcode_ids = [access.qrcode.id for access in qrcode_accesses]

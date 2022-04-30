@@ -27,6 +27,7 @@ class QRCodeAccess(models.Model):
     qrcode = models.ForeignKey(QRCode, on_delete=models.CASCADE)
     access_date = models.DateTimeField(auto_now_add=True)
 
+
     def __str__(self):
         return f'{self.qrcode} - {self.user} (accessed time: {self.access_date})'
 
