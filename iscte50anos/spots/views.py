@@ -15,36 +15,36 @@ from topics.serializers import TopicSerializer
 
 from _controllers import quiz_controller
 
-from spots.models import QRCode, QRCodeAccess, QRCodePermit, Layout, LayoutPeriod
+from spots.models import QRCode, QRCodeAccess, Layout, LayoutPeriod
 
 from spots.serializers import SpotSerializer
 
 
 @api_view()
 @permission_classes([IsAuthenticated])
+@transaction.atomic
 def get_or_create_permit(request):
     today = datetime.today().strftime('%Y-%m-%d')
+
+    num_accesses = request.user.profile.num_spots_read
+    if num_accesses >= 4:
+        return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
+
+    has_any_access = QRCodeAccess.objects.filter(user=request.user).exists()
+
+    if not has_any_access:
+        qrcode = random.choice(list(QRCode.objects.all()))
+        QRCodeAccess.objects.create(user=request.user, qrcode=qrcode)
+    else:
+        qrcode = QRCodeAccess.objects.filter(user=request.user, has_accessed=False).first().qrcode
+
     try:
-        permit = QRCodePermit.objects.get(user=request.user)
-        try:
-            layout = Layout.objects.get(period__start_date__lte=today,
-                                        period__end_date__gte=today,
-                                        qrcode=permit.qrcode)
-            return Response(data=SpotSerializer(layout.spot).data)
-        except Layout.DoesNotExist:
-            return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
-    except QRCodePermit.DoesNotExist:
-        first_qrcode = random.choice(list(QRCode.objects.all()))
-        try:
-            layout = Layout.objects.get(period__start_date__lte=today,
-                                        period__end_date__gte=today,
-                                        qrcode=first_qrcode)
-
-            QRCodePermit.objects.create(user=request.user, qrcode=first_qrcode)
-            return Response(data=SpotSerializer(layout.spot).data)
-        except Layout.DoesNotExist:
-            return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
-
+        layout = Layout.objects.get(period__start_date__lte=today,
+                                    period__end_date__gte=today,
+                                    qrcode=qrcode)
+        return Response(data=SpotSerializer(layout.spot).data)
+    except Layout.DoesNotExist:
+        return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
 
 
 
@@ -53,45 +53,44 @@ def get_or_create_permit(request):
 @transaction.atomic
 def access_qrcode(request, uuid):
     try:
-        qrcode = QRCode.objects.get(uuid=uuid)
-        has_access = QRCodeAccess.objects.filter(user=request.user, qrcode=qrcode).exists()
-        num_accesses = QRCodeAccess.objects.filter(user=request.user).count()
-
+        num_accesses = request.user.profile.num_spots_read
         if num_accesses >= 4:
             return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
 
-        if not has_access:
-            has_permit = QRCodePermit.objects.filter(user=request.user, qrcode=qrcode).exists()
-            if has_permit:
+        qrcode = QRCode.objects.get(uuid=uuid)
 
-                QRCodeAccess.objects.create(user=request.user, qrcode=qrcode)
-                qrcode_accesses = list(QRCodeAccess.objects.filter(user=request.user))
-                visited_qrcode_ids = [access.qrcode.id for access in qrcode_accesses]
-                unvisited_qrcodes = list(QRCode.objects.exclude(id__in=visited_qrcode_ids))
+        # Lock access to prevent data inconsistency
+        access = QRCodeAccess.objects.select_for_update().filter(user=request.user, qrcode=qrcode).first()
 
-                # UPDATE STATS
-                spots_controller.update_total_spots_read(request.user)
-                spots_controller.update_total_spot_time(request.user)
-
-                next_qrcode = random.choice(unvisited_qrcodes)
-
-                # Check layouts to see where is the next QRCode
-                today = datetime.today().strftime('%Y-%m-%d')
-                try:
-                    layout = Layout.objects.get(period__start_date__lte=today,
-                                                period__end_date__gte=today,
-                                                qrcode=next_qrcode)
-
-                    # SUCCESS
-                    QRCodePermit.objects.create(user=request.user, qrcode=next_qrcode)
-                    QRCodePermit.objects.filter(user=request.user, qrcode=qrcode).delete()
-                    return Response(data=SpotSerializer(layout.spot).data)
-                except Layout.DoesNotExist:
-                    return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
-            else:
-                return Response({"message": "Não podes aceder a este Spot ainda"}, status=403)
-        else:
+        if access is None:
+            return Response({"message": "Não podes aceder a este Spot ainda"}, status=403)
+        elif access.has_accessed:
             return Response({"message": "Já visitaste este Spot"}, status=403)
+
+        access.has_accessed = True
+        access.save() # AUTO SAVES Date
+
+        qrcode_accesses = list(QRCodeAccess.objects.filter(user=request.user))
+        visited_qrcode_ids = [access.qrcode.id for access in qrcode_accesses]
+        unvisited_qrcodes = list(QRCode.objects.exclude(id__in=visited_qrcode_ids))
+
+        # UPDATE STATS
+        spots_controller.update_total_spots_read(request.user)
+        spots_controller.update_total_spot_time(request.user)
+        next_qrcode = random.choice(unvisited_qrcodes)
+
+        # Check layouts to see where is the next QRCode
+        today = datetime.today().strftime('%Y-%m-%d')
+        try:
+            layout = Layout.objects.get(period__start_date__lte=today,
+                                        period__end_date__gte=today,
+                                        qrcode=next_qrcode)
+
+            # SUCCESS
+            QRCodeAccess.objects.create(user=request.user, qrcode=next_qrcode)
+            return Response(data=SpotSerializer(layout.spot).data)
+        except Layout.DoesNotExist:
+            return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
+
     except QRCode.DoesNotExist:
         return Response({"message": "QRCode inválido"}, status=404)
-

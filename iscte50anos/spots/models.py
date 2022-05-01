@@ -11,25 +11,19 @@ class QRCode(models.Model):
     # Serve API in order of content type
 
 
-class QRCodePermit(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    qrcode = models.ForeignKey(QRCode, on_delete=models.CASCADE)
-
-    def location_photo_link(self):
-        return self
-
-    def __str__(self):
-        return f'{self.qrcode} - {self.user}'
-
-
 class QRCodeAccess(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     qrcode = models.ForeignKey(QRCode, on_delete=models.CASCADE)
-    access_date = models.DateTimeField(auto_now_add=True)
 
+    # Changed when accessed
+    has_accessed = models.BooleanField(default=False)
+    access_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.qrcode} - {self.user} (accessed time: {self.access_date})'
+        if self.has_accessed:
+            return f'{self.qrcode} - {self.user} (accessed time: {self.access_date})'
+        else:
+            return f'{self.qrcode} - {self.user} (NOT ACCESSED)'
 
 
 class Spot(models.Model):
