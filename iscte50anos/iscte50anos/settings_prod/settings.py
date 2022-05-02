@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'iscte50anos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'iscteSpots',
+        'NAME': os.environ["MYSQL_DB"],
         'USER': os.environ["MYSQL_USER"],
         'PASSWORD': os.environ["MYSQL_PASS"],
         'HOST': os.environ["MYSQL_HOST"],
@@ -123,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Lisbon'
 
 USE_I18N = True
 

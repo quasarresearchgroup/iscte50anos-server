@@ -4,9 +4,10 @@ import requests
 from django.db import transaction
 from rest_framework.authtoken.admin import User
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 
 from login.serializers import SocialSerializer, SignupSerializer, LoginSerializer
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from users.models import Profile, Affiliation
@@ -49,20 +50,50 @@ def exchange_access_token(request):
 
 
 @api_view(['POST'])
+@transaction.atomic
 def openday_login(request):
     login_serializer = LoginSerializer(data=request.data)
     if login_serializer.is_valid():
         user = authenticate(username=login_serializer.validated_data["username"],
                             password=login_serializer.validated_data["password"])
         if user is not None:
-            Token.objects.get(user=user).delete()
+            profile = Profile.objects.select_for_update().filter(user=user).first()
+
+            if profile.is_logged:
+                return Response({"message": "O utilizador já efetuou Login"})
+
+            profile.is_logged = True
+
+            Token.objects.filter(user=user).delete()
             user_token = Token.objects.create(user=user).key
+
+            profile.save()
+
             return Response({"message": f"Login bem sucedido: {user.username}",
                              "api_token": user_token})
         else:
             return Response({"message": "Credenciais inválidas"}, status=400)
     else:
         return Response({"message": "Pedido inválido"}, status=400)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+@transaction.atomic
+def openday_logout(request):
+    profile = Profile.objects.select_for_update().filter(user=request.user).first()
+
+    if not profile.is_logged:
+        return Response({"message": "Logout já efetuado"}, status=400)
+
+    profile.is_logged = False
+
+    Token.objects.filter(user=request.user).delete()
+    profile.save()
+
+    return Response({"message": "Logout bem sucedido"}, status=200)
+
+
 
 
 @api_view(['POST'])

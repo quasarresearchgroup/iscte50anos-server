@@ -53,11 +53,11 @@ def get_or_create_permit(request):
 @transaction.atomic
 def access_qrcode(request, uuid):
     try:
+        qrcode = QRCode.objects.get(uuid=uuid)
+
         num_accesses = request.user.profile.num_spots_read
         if num_accesses >= 4:
             return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
-
-        qrcode = QRCode.objects.get(uuid=uuid)
 
         # Lock access to prevent data inconsistency
         access = QRCodeAccess.objects.select_for_update().filter(user=request.user, qrcode=qrcode).first()
@@ -70,13 +70,16 @@ def access_qrcode(request, uuid):
         access.has_accessed = True
         access.save() # AUTO SAVES Date
 
-        qrcode_accesses = list(QRCodeAccess.objects.filter(user=request.user))
-        visited_qrcode_ids = [access.qrcode.id for access in qrcode_accesses]
-        unvisited_qrcodes = list(QRCode.objects.exclude(id__in=visited_qrcode_ids))
-
         # UPDATE STATS
         spots_controller.update_total_spots_read(request.user)
         spots_controller.update_total_spot_time(request.user)
+
+        if num_accesses >= 3:
+            return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
+
+        qrcode_accesses = list(QRCodeAccess.objects.filter(user=request.user))
+        visited_qrcode_ids = [access.qrcode.id for access in qrcode_accesses]
+        unvisited_qrcodes = list(QRCode.objects.exclude(id__in=visited_qrcode_ids))
         next_qrcode = random.choice(unvisited_qrcodes)
 
         # Check layouts to see where is the next QRCode

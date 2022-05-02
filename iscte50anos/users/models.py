@@ -35,6 +35,7 @@ class Profile(models.Model):
     # For beta test
     num_spots_read = models.IntegerField(default=0)
     total_time = models.IntegerField(default=0)
+    is_logged = models.BooleanField(default=False)
 
     def name(self):
         last_name = ""
