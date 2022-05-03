@@ -59,15 +59,15 @@ def openday_login(request):
         if user is not None:
             profile = Profile.objects.select_for_update().filter(user=user).first()
 
-            if profile.is_logged:
-                return Response({"message": "O utilizador já efetuou Login"})
+            #if profile.is_logged:
+                #return Response({"message": "O utilizador já efetuou Login"})
 
-            profile.is_logged = True
+            #profile.is_logged = True
 
             Token.objects.filter(user=user).delete()
             user_token = Token.objects.create(user=user).key
 
-            profile.save()
+            #profile.save()
 
             return Response({"message": f"Login bem sucedido: {user.username}",
                              "api_token": user_token})
@@ -83,13 +83,13 @@ def openday_login(request):
 def openday_logout(request):
     profile = Profile.objects.select_for_update().filter(user=request.user).first()
 
-    if not profile.is_logged:
-        return Response({"message": "Logout já efetuado"}, status=400)
+    #if not profile.is_logged:
+        #return Response({"message": "Logout já efetuado"}, status=400)
 
-    profile.is_logged = False
+    #profile.is_logged = False
 
     Token.objects.filter(user=request.user).delete()
-    profile.save()
+    #profile.save()
 
     return Response({"message": "Logout bem sucedido"}, status=200)
 
