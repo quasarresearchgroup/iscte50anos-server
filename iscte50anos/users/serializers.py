@@ -13,6 +13,11 @@ class LeaderboardSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
+        fields = ['name', 'ranking', 'initials', 'num_spots_read', 'total_time']
+
+class ProfileSerializer2(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
         fields = ['name', 'level', 'points', 'affiliation_name', 'ranking',
                   'affiliation_ranking', 'initials', 'num_spots_read', 'total_time']
 

@@ -63,7 +63,7 @@ class Profile(models.Model):
                                                                 total_time__lt=self.total_time).count() + 1
 
     def initials(self):
-        return "".join([name[0] for name in self.name().split(" ")])
+        return self.user.first_name[0]#"".join([name[0] for name in self.name().split(" ")])
 
     def __str__(self):
         return f'{self.user.username}'

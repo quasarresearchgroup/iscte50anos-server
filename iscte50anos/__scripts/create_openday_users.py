@@ -2,7 +2,7 @@ import random
 
 from django.contrib.auth.models import User
 
-from users.models import Profile
+from users.models import Profile, Affiliation
 
 capitalCities = {"Lisboa", "Paris", "Madrid", "Berna", "Kiev", "Berlim", "Atenas", "Bruxelas", "Roma", "Praga",
                  "Dublin", "Oslo", "Amsterdão", "Varsóvia", "Estocolmo", "Zagreb", "Copenhaga", "Sofia", "Viena",
@@ -19,6 +19,9 @@ for city in capitalCities:
 
     user.set_password(password)
     user.save()
+
+    affiliation = Affiliation.objects.get_or_create(subtype="Teste",
+                                          name="Open Day")[0]
 
     Profile.objects.create(user=user)
 
