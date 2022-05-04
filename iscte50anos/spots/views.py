@@ -33,7 +33,11 @@ def get_or_create_permit(request):
     has_any_access = QRCodeAccess.objects.filter(user=request.user).exists()
 
     if not has_any_access:
-        qrcode = random.choice(list(QRCode.objects.all()))
+        layouts = Layout.objects.prefetch_related('qrcode').filter(period__start_date__lte=today,
+                                    period__end_date__gte=today)
+
+        available_qrcodes = [layout.qrcode for layout in layouts]
+        qrcode = random.choice(list(available_qrcodes))
         QRCodeAccess.objects.create(user=request.user, qrcode=qrcode)
     else:
         qrcode = QRCodeAccess.objects.filter(user=request.user, has_accessed=False).first().qrcode
@@ -42,7 +46,9 @@ def get_or_create_permit(request):
         layout = Layout.objects.get(period__start_date__lte=today,
                                     period__end_date__gte=today,
                                     qrcode=qrcode)
-        return Response(data=SpotSerializer(layout.spot).data)
+        message = SpotSerializer(layout.spot).data
+        message["spot_number"] = num_accesses + 1
+        return Response(data=message)
     except Layout.DoesNotExist:
         return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
 
@@ -52,6 +58,7 @@ def get_or_create_permit(request):
 @permission_classes([IsAuthenticated])
 @transaction.atomic
 def access_qrcode(request, uuid):
+    today = datetime.today().strftime('%Y-%m-%d')
     try:
         qrcode = QRCode.objects.get(uuid=uuid)
 
@@ -77,13 +84,20 @@ def access_qrcode(request, uuid):
         if num_accesses >= 3:
             return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
 
-        qrcode_accesses = list(QRCodeAccess.objects.filter(user=request.user))
-        visited_qrcode_ids = [access.qrcode.id for access in qrcode_accesses]
-        unvisited_qrcodes = list(QRCode.objects.exclude(id__in=visited_qrcode_ids))
+        qrcode_accesses = list(QRCodeAccess.objects.prefetch_related("qrcode").filter(user=request.user))
+        visited_qrcodes = [access.qrcode for access in qrcode_accesses]
+
+        layouts = Layout.objects.prefetch_related('qrcode').filter(period__start_date__lte=today,
+                                                                   period__end_date__gte=today)
+
+        available_qrcodes = [layout.qrcode for layout in layouts]
+        unvisited_qrcodes = [qrcode for qrcode in available_qrcodes if qrcode not in visited_qrcodes]
+
+        #unvisited_qrcodes = list(QRCode.objects.exclude(id__in=visited_qrcode_ids))
+
         next_qrcode = random.choice(unvisited_qrcodes)
 
         # Check layouts to see where is the next QRCode
-        today = datetime.today().strftime('%Y-%m-%d')
         try:
             layout = Layout.objects.get(period__start_date__lte=today,
                                         period__end_date__gte=today,
@@ -91,7 +105,9 @@ def access_qrcode(request, uuid):
 
             # SUCCESS
             QRCodeAccess.objects.create(user=request.user, qrcode=next_qrcode)
-            return Response(data=SpotSerializer(layout.spot).data)
+            message = SpotSerializer(layout.spot).data
+            message["spot_number"] = num_accesses + 2
+            return Response(data=message)
         except Layout.DoesNotExist:
             return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
 
