@@ -50,7 +50,7 @@ def get_or_create_permit(request):
         message["spot_number"] = num_accesses + 1
         return Response(data=message)
     except Layout.DoesNotExist:
-        return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
+        return Response({"message": "Não existem QR Codes ativos de momento"}, status=400)
 
 
 
@@ -70,9 +70,9 @@ def access_qrcode(request, uuid):
         access = QRCodeAccess.objects.select_for_update().filter(user=request.user, qrcode=qrcode).first()
 
         if access is None:
-            return Response({"message": "Não podes aceder a este Spot ainda"}, status=403)
+            return Response({"message": "Não podes aceder a este Spot ainda"}, status=400)
         elif access.has_accessed:
-            return Response({"message": "Já visitaste este Spot"}, status=403)
+            return Response({"message": "Já visitaste este Spot"}, status=400)
 
         access.has_accessed = True
         access.save() # AUTO SAVES Date
@@ -109,7 +109,7 @@ def access_qrcode(request, uuid):
             message["spot_number"] = num_accesses + 2
             return Response(data=message)
         except Layout.DoesNotExist:
-            return Response({"message": "Não existem QR Codes ativos de momento"}, status=403)
+            return Response({"message": "Não existem QR Codes ativos de momento"}, status=400)
 
     except QRCode.DoesNotExist:
         return Response({"message": "QRCode inválido"}, status=404)
