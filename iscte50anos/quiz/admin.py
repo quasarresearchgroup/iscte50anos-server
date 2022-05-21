@@ -12,6 +12,9 @@ class QuestionAdmin(admin.ModelAdmin):
     inlines = [
         ChoiceInline,
     ]
+    list_filter = [
+         "topics"
+    ]
 
 class QuestionInline(admin.TabularInline):
     model = QuizQuestion
@@ -20,6 +23,7 @@ class QuizAdmin(admin.ModelAdmin):
     inlines = [
         QuestionInline,
     ]
+
 
 
 admin.site.register(Question, QuestionAdmin)
