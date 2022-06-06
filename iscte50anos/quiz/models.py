@@ -7,9 +7,15 @@ from django.db import models
 from topics.models import Topic, TopicAccess
 from users.models import Level
 
+
 class QuizImage(models.Model):
     description = models.CharField(max_length=200, blank=True)
+    link = models.CharField(max_length=200, blank=True)
     image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.description
+
 
 class Question(models.Model):
     text = models.CharField(max_length=200, null=False)
@@ -19,7 +25,6 @@ class Question(models.Model):
     )
     topics = models.ManyToManyField(Topic, related_name="questions")
     image = models.ForeignKey(QuizImage, on_delete=models.CASCADE, related_name="questions", null=True, blank=True)
-
 
     def __str__(self):
         return self.text
@@ -32,7 +37,7 @@ class Choice(models.Model):
     is_correct = models.BooleanField(null=False)
 
     def __str__(self):
-        return self.text
+        return f"{self.text} - {self.question}"
 
 
 class Quiz(models.Model):
@@ -53,10 +58,12 @@ class QuizQuestion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
 
-
 class Trial(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     number = models.IntegerField()
+
+    def __str__(self):
+        return f"Quiz {self.quiz}: Trial {self.number}"
 
 
 class TrialQuestion(models.Model):

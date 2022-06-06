@@ -17,6 +17,7 @@ from django.contrib.auth import authenticate
 
 
 @api_view(['POST'])
+@transaction.atomic
 # Exchange OAuth2 access token by an in-house access token
 # If the access token is valid and the user is not registered, it will be registered
 def exchange_access_token(request):

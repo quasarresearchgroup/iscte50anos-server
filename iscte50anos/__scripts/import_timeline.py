@@ -17,12 +17,14 @@ def translate_scope(scope):
 
 
 Event.objects.all().delete()
+i = 1
 with p.open(encoding="utf-16") as csvfile:
     timeline_reader = csv.reader(csvfile, delimiter="\t")
     header = next(timeline_reader)
     for row in timeline_reader:
         date = datetime.strptime(row[0], '%d/%m/%Y')
-        if row[2] == "":
-            Event.objects.create(date=date, title=row[1])
+        if row[3] == "":
+            Event.objects.create(id=i, date=date, title=row[2])
         else:
-            Event.objects.create(date=date, title=row[1], scope=translate_scope(row[2]))
+            Event.objects.create(id=i, date=date, title=row[2], scope=translate_scope(row[3]))
+        i += 1
