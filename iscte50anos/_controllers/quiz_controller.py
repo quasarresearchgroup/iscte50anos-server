@@ -23,7 +23,8 @@ def create_quiz(user, level):
     # level = Level.objects.get(profile__user=user)
     if not Quiz.objects.filter(user=user, level=level).exists():
         # Get random questions for accessed topics, user
-        topic_accesses = TopicAccess.objects.filter(user=user)
+        # TODO add selected_related
+        topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
         accessed_topics = [t.topic for t in topic_accesses]
 
         single_questions = list(Question.objects.filter(topics__in=accessed_topics, type="S"))
@@ -41,7 +42,7 @@ def create_quiz(user, level):
 
 
 # Best out of the trials
-# Depending on best trial, subtract percentage of total quiz score (first trial, no subtract. last, more subtract)
+
 # TODO score with puzzle completion
 def calculate_user_score_puzzle(user):
     pass
@@ -50,10 +51,14 @@ def calculate_user_score_puzzle(user):
 def calculate_user_score(user):
     total_score = 0
     for quiz in user.quizzes:
+        # Depending on best trial, subtract percentage of total quiz score
+        # (first trial, no subtract. last, more subtract)
         quiz_score = 0
         for trial in quiz.trials:
+            # For each accessed question in trial, obtain its score
             trial_score = 0
             for trial_question in trial.questions:
+                question_score = 0
                 question = trial_question.question
                 if question.type == "S":
                     choice = trial_question.answer

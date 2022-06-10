@@ -30,7 +30,7 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.1.124", "194.210.120.48"]
+#ALLOWED_HOSTS = ["192.168.1.66", "194.210.120.48"]
 
 CSRF_TRUSTED_ORIGINS = ['https://194.210.120.49', 'https://194.210.120.48']
 

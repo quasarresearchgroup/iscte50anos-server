@@ -84,7 +84,7 @@ def access_qrcode(request, uuid):
         if num_accesses >= 3:
             return Response({"message": "Parabéns, visitaste todos os Spots!"}, status=200)
 
-        qrcode_accesses = list(QRCodeAccess.objects.prefetch_related("qrcode").filter(user=request.user))
+        qrcode_accesses = list(QRCodeAccess.objects.select_related("qrcode").filter(user=request.user))
         visited_qrcodes = [access.qrcode for access in qrcode_accesses]
 
         layouts = Layout.objects.prefetch_related('qrcode').filter(period__start_date__lte=today,

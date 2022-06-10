@@ -10,7 +10,8 @@ from . import views
 urlpatterns = [
     path('', views.get_user_quiz_list),
     path('<int:quiz_num>/trials', views.start_quiz_trial), # Create new trial
-    path('<int:quiz_num>/trials/<int:num_trial>', views.get_next_question), # Get next question
+    path('<int:quiz_num>/trials/<int:num_trial>/next_question', views.get_next_question), # Get next question
+    path('<int:quiz_num>/trials/<int:num_trial>/questions/<int:question_num>/answer', views.answer_question),
     #path('<int:quiz_num>/trial/<int:num_trial>/answer', None),
     # TODO register quiz start and answer
 ]
