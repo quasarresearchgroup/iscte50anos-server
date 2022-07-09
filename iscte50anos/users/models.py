@@ -48,7 +48,9 @@ class Profile(models.Model):
         return self.user.username
 
     def affiliation_name(self):
-        return f"{self.affiliation.full_description}"
+        if self.affiliation:
+            return f"{self.affiliation.name}"
+        return "Sem afiliação"
 
     def ranking(self):
         return Profile.objects.exclude(num_spots_read=0).filter(num_spots_read__gt=self.num_spots_read).count() + \
@@ -72,6 +74,7 @@ class Profile(models.Model):
     class Meta:
         indexes = [
             models.Index(fields=['num_spots_read', '-total_time']),
+            models.Index(fields=['points']),
         ]
 
 

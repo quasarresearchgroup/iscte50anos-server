@@ -27,6 +27,11 @@ class Question(models.Model):
     image = models.ForeignKey(QuizImage, on_delete=models.CASCADE, related_name="questions", null=True, blank=True)
     # choices
 
+    def image_link(self):
+        if self.image:
+            return self.image.link
+        return ""
+
     def __str__(self):
         return f"{self.text}"
 
@@ -45,8 +50,10 @@ class Quiz(models.Model):
     number = models.IntegerField(default=0)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="quizzes")
     level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
-    questions = models.ManyToManyField(Question, through='QuizQuestion')
+    quiz_questions = models.ManyToManyField(Question, through='QuizQuestion')
+
     # trials
+    topics = models.ManyToManyField(Topic)
 
     def __str__(self):
         return f"Quiz {self.level.level} - {self.user}"
@@ -57,7 +64,7 @@ class Quiz(models.Model):
     def is_completed(self):
         return Trial.objects.filter(quiz=self).count() == 3
 
-    def calculate_score(self):
+    def score(self):
         quiz_score = 0
         for trial in self.trials.all():
             trial_score = trial.calculate_score()
@@ -65,8 +72,6 @@ class Quiz(models.Model):
                 best_trial = trial.number
                 quiz_score = trial_score
         return quiz_score
-
-
 
 
 class QuizQuestion(models.Model):
@@ -93,8 +98,8 @@ class Trial(models.Model):
             if question.type == "S":
                 choice = answer.choices.first()
                 if choice is not None and choice.is_correct:
-                    # TODO add score according to level (for now each question has 20 points)
-                    question_score = 20
+                    # TODO add score according to level (for now each question scores 10 points)
+                    question_score = 10
             elif question.type == "M":
                 for choice in answer.choices.all():
                     if choice is not None and choice.is_correct:
@@ -112,7 +117,7 @@ class Trial(models.Model):
 
             trial_score = trial_score + question_score
 
-        return trial_score - (self.number - 1)*0.01*trial_score
+        return trial_score - (self.number - 1)*0.10*trial_score
 
     def __str__(self):
         return f"{self.quiz} || Trial {self.number}"
@@ -127,8 +132,11 @@ class TrialQuestion(models.Model):
     trial = models.ForeignKey(Trial, on_delete=models.CASCADE, related_name="questions")
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     number = models.IntegerField(default=1)
-    access_time = models.DateTimeField(auto_now_add=True)
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE, null=True)
+
+    accessed = models.BooleanField(default=False)
+    access_time = models.DateTimeField(auto_now=True)
+
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE, null=True, related_name="trial_question")
 
     def __str__(self):
         return f"{self.trial} || Question {self.number}: {self.question} || ACCESS: {self.access_time}"

@@ -1,9 +1,10 @@
 import random
-from quiz.models import Quiz, Question
-from topics.models import TopicAccess
+from quiz.models import Quiz, Question, TrialQuestion
+from topics.models import TopicAccess, Topic
 
 from users.models import Profile, Level
 
+QUIZ_SIZE = 8
 
 def update_level(user):
     profile = Profile.objects.get(user=user)
@@ -17,13 +18,11 @@ def update_level(user):
 
 
 # TODO How to use read topics?
-def create_quiz(user, level):
+def create_quiz_old(user, level):
     # If the user does not have a quiz for its current level
 
-    # level = Level.objects.get(profile__user=user)
     if not Quiz.objects.filter(user=user, level=level).exists():
         # Get random questions for accessed topics, user
-        # TODO add selected_related
         topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
         accessed_topics = [t.topic for t in topic_accesses]
 
@@ -41,30 +40,43 @@ def create_quiz(user, level):
         quiz.save()
 
 
-# Best out of the trials
+def create_quiz(user, level):
+    next_quiz_number = Quiz.objects.filter(user=user).count()
 
-# TODO score with puzzle completion
-def calculate_user_score_puzzle(user):
-    pass
+    topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
+    accessed_topics = [t.topic for t in topic_accesses]
+
+    # Create quiz and assign the selected questions
+    quiz = Quiz.objects.create(user=user, number=next_quiz_number, topics=accessed_topics)
+
+
+# TODO check
+def assign_trial_questions(user, trial, topics):
+
+    # TODO check all questions to avoid repetition
+    questions = list(Question.objects.filter(topics__in=topics))
+
+    questions = random.sample(questions, QUIZ_SIZE-1)
+
+    geo_questions = Question.objects.filter(topics__title="Georeferenciação")
+    geo_question = random.choice(geo_questions)
+    questions.append(geo_question)
+
+    print(questions)
+
+    trial_questions = []
+    question_number = 1
+    for question in questions:
+        trial_question = TrialQuestion.objects.create(trial=trial, question=question, number=question_number)
+        trial_questions.append(trial_question)
+        question_number += 1
+
+    trial.questions.set(trial_questions)
+    trial.save()
 
 
 def calculate_user_score(user):
     total_score = 0
-    for quiz in user.quizzes:
-        # Depending on best trial, subtract percentage of total quiz score
-        # (first trial, no subtract. last, more subtract)
-        quiz_score = 0
-        for trial in quiz.trials:
-            # For each accessed question in trial, obtain its score
-            trial_score = 0
-            for trial_question in trial.questions:
-                question_score = 0
-                question = trial_question.question
-                if question.type == "S":
-                    choice = trial_question.answer
-                else:
-                    pass
-
-        total_score += quiz_score
-
+    for quiz in user.quizzes.all():
+        total_score += quiz.score()
     return total_score

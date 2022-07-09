@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion
 
+
 # Serializer for full quiz (with questions and respective answer choices)
 class QuizSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,7 +14,7 @@ class QuizSerializer(serializers.ModelSerializer):
 class QuizListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quiz
-        fields = ['level']
+        fields = ['number', 'num_trials', 'score']
 
 
 # Serializer for possible choices of a question
@@ -29,7 +30,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ['text', 'type', 'choices']
+        fields = ['text', 'type', 'image_link', 'choices']
 
 
 class TrialQuestionSerializer(serializers.ModelSerializer):
@@ -44,4 +45,3 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ['choices']
-
