@@ -52,17 +52,24 @@ class Profile(models.Model):
             return f"{self.affiliation.name}"
         return "Sem afiliação"
 
-    def ranking(self):
+    def open_day_ranking(self):
         return Profile.objects.exclude(num_spots_read=0).filter(num_spots_read__gt=self.num_spots_read).count() + \
                Profile.objects.exclude(num_spots_read=0).filter(num_spots_read=self.num_spots_read,
                                                                 total_time__lt=self.total_time).count() + 1
 
-    def affiliation_ranking(self):
+    def open_day_affiliation_ranking(self):
         return Profile.objects.exclude(num_spots_read=0).filter(affiliation=self.affiliation,
                                                                 num_spots_read__gt=self.num_spots_read).count() + \
                Profile.objects.exclude(num_spots_read=0).filter(affiliation=self.affiliation,
                                                                 num_spots_read=self.num_spots_read,
                                                                 total_time__lt=self.total_time).count() + 1
+
+    def ranking(self):
+        return Profile.objects.exclude(points=0).filter(points__gt=self.points).count() + 1
+
+    def affiliation_ranking(self):
+        return Profile.objects.exclude(points=0).filter(affiliation=self.affiliation,
+                                                        points__gt=self.points).count() + 1
 
     def initials(self):
         return self.user.first_name[0]#"".join([name[0] for name in self.name().split(" ")])

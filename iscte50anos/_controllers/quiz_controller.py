@@ -53,8 +53,13 @@ def create_quiz(user, level):
 # TODO check
 def assign_trial_questions(user, trial, topics):
 
-    # TODO check all questions to avoid repetition
-    questions = list(Question.objects.filter(topics__in=topics))
+    # Get all questions not previously associated
+    questions = list(Question.objects.filter(topics__in=topics)
+                     .exclude(trial_questions__trial__quiz__user=user))
+
+    if len(questions) == 0:
+        pass
+        #questions = list(Question.objects.filter(topics__in=topics))
 
     questions = random.sample(questions, QUIZ_SIZE-1)
 

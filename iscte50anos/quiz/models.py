@@ -32,6 +32,9 @@ class Question(models.Model):
             return self.image.link
         return ""
 
+    def is_timed(self):
+        return not self.topics.filter(title="Georeferenciação").exists()
+
     def __str__(self):
         return f"{self.text}"
 
@@ -60,6 +63,9 @@ class Quiz(models.Model):
 
     def num_trials(self):
         return self.trials.count()
+
+    def topic_names(self):
+        return "; ".join([topic.title for topic in self.topics.all()])
 
     def is_completed(self):
         return Trial.objects.filter(quiz=self).count() == 3
@@ -130,13 +136,16 @@ class Answer(models.Model):
 
 class TrialQuestion(models.Model):
     trial = models.ForeignKey(Trial, on_delete=models.CASCADE, related_name="questions")
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="trial_questions")
     number = models.IntegerField(default=1)
 
     accessed = models.BooleanField(default=False)
     access_time = models.DateTimeField(auto_now=True)
 
     answer = models.ForeignKey(Answer, on_delete=models.CASCADE, null=True, related_name="trial_question")
+
+    def is_answered(self):
+        return self.answer is not None
 
     def __str__(self):
         return f"{self.trial} || Question {self.number}: {self.question} || ACCESS: {self.access_time}"

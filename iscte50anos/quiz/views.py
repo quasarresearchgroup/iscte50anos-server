@@ -19,6 +19,7 @@ from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestion
 from _controllers import quiz_controller
 
 ANSWER_TIME = 45 # segundos
+QUIZ_SIZE = 8
 
 @api_view()
 @permission_classes([IsAuthenticated])
@@ -118,9 +119,13 @@ def get_next_question(request, quiz_num, num_trial):
     if trial is None:
         return Response(status=404, data={"status": "Trial or Quiz do not exist"})
 
-    next_question = trial.questions.select_for_update().filter(accessed=False).first()
+    next_question = trial.questions.select_for_update().filter(accessed=False).select_related("question").first()
 
     if next_question is None:
+        last_question = trial.questions.filter(number=QUIZ_SIZE).select_related("question").first()
+        if not last_question.is_answered():
+            return Response(status=201, data=TrialQuestionSerializer(last_question).data)
+
         user_updated_score = quiz_controller.calculate_user_score(request.user)
         profile = request.user.profile
         profile.points = user_updated_score
@@ -141,7 +146,7 @@ def answer_question(request, quiz_num, num_trial, question_num):
     trial_question = TrialQuestion.objects.select_for_update().filter(trial__quiz__number=quiz_num,
                                                                       trial__quiz__user=request.user,
                                                trial__number=num_trial,
-                                               number=question_num).first()
+                                               number=question_num).select_related("question").first()
     if trial_question is None:
         return Response(status=404, data={"status": "Trial does not exist"})
 
@@ -152,7 +157,7 @@ def answer_question(request, quiz_num, num_trial, question_num):
         return Response(status=400, data={"status": "Question has not accessed"})
 
     # TODO check if timed from question
-    is_timed = True
+    is_timed = trial_question.question.is_timed()
     if is_timed:
         today = datetime.now(timezone.utc)
         time_delta = today - trial_question.access_time
