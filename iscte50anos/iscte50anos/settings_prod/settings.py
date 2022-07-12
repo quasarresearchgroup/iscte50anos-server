@@ -30,9 +30,9 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["194.210.120.48"]
+ALLOWED_HOSTS = ["194.210.120.48", "194.210.120.193"]
 
-CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48']
+CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48', 'https://194.210.120.193']
 
 # Application definition
 
