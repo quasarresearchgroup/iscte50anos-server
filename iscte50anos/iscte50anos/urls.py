@@ -19,7 +19,7 @@ from django.urls import path, include
 from quiz.models import Question
 
 apipatterns = [
-    #path('topics/', include('topics.urls')),
+    path('topics/', include('topics.urls')),
     path('content/', include('content.urls')),
     path('auth/', include('login.urls')),
     path('quizzes/', include('quiz.urls')),
