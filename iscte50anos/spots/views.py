@@ -2,7 +2,7 @@ import random
 from datetime import datetime
 
 from django.db import transaction
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from _controllers import spots_controller
@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from topics.models import Topic, TopicAccess
 
-from topics.serializers import TopicSerializer
+from topics.serializers import TopicQRSerializer
 
 from _controllers import quiz_controller
 
@@ -57,7 +57,7 @@ def get_or_create_permit(request):
 @api_view()
 @permission_classes([IsAuthenticated])
 @transaction.atomic
-def access_qrcode(request, uuid):
+def open_day_access_qrcode(request, uuid):
     today = datetime.today().strftime('%Y-%m-%d')
     try:
         qrcode = QRCode.objects.get(uuid=uuid)
@@ -113,3 +113,23 @@ def access_qrcode(request, uuid):
 
     except QRCode.DoesNotExist:
         return Response({"message": "QRCode inválido"}, status=404)
+
+@api_view()
+def access_qrcode(request, uuid):
+
+    is_app = request.GET.get("app", False)
+    if is_app is False:
+        source = request.META['HTTP_USER_AGENT']
+        if "Android" in source:
+            return redirect("https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf")
+        else:
+            return redirect("https://www.apple.com/pt/app-store/")
+
+    qrcode = QRCode.objects.filter(uuid=uuid).select_related('topic').first()
+
+    if qrcode is None:
+        return Response(data={"error": "QR Code does not exist"}, status=404)
+
+    return Response(data=TopicQRSerializer(qrcode.topic).data)
+
+

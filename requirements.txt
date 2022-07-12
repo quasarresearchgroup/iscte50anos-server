@@ -3,3 +3,4 @@ djangorestframework
 Pillow
 gunicorn
 requests
+mysqlclient

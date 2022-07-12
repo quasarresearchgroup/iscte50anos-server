@@ -1,9 +1,12 @@
 from django.conf import settings
 from django.db import models
 
+from topics.models import Topic
+
 
 class QRCode(models.Model):
     uuid = models.UUIDField()
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'{self.id} - {self.uuid}'

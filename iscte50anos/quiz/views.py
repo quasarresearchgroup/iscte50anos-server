@@ -24,7 +24,7 @@ QUIZ_SIZE = 8
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_user_quiz_list(request):
-    quizzes = Quiz.objects.filter(user=request.user)
+    quizzes = Quiz.objects.filter(user=request.user).order_by("-number")
     return Response(data=QuizListSerializer(quizzes, many=True).data)
 
 

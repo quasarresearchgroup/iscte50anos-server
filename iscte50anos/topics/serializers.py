@@ -13,3 +13,11 @@ class TopicSerializer(serializers.ModelSerializer):
         fields = ['title',  'content']
 
 
+class TopicQRSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Topic
+        fields = ['title',  'id']
+
+
+
