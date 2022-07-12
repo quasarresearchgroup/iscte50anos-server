@@ -123,7 +123,7 @@ def access_qrcode(request, uuid):
         if "Android" in source:
             return redirect("https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf")
         else:
-            return redirect("https://www.apple.com/pt/app-store/")
+            return redirect("https://apps.apple.com/us/app/subway-surfers/id512939461")
 
     qrcode = QRCode.objects.filter(uuid=uuid).select_related('topic').first()
 
