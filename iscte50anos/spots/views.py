@@ -38,7 +38,7 @@ def access_qrcode(request, uuid):
     return Response(data=TopicQRSerializer(qrcode.topic).data)
 
 @api_view()
-def get_spot_list():
+def get_spot_list(request):
     spots = Spot.objects.all()
     return Response(data=SpotSerializer(spots, many=True))
 
