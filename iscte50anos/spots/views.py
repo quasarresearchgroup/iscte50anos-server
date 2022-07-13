@@ -15,15 +15,37 @@ from topics.serializers import TopicQRSerializer
 
 from _controllers import quiz_controller
 
-from spots.models import QRCode, QRCodeAccess, Layout, LayoutPeriod
+from spots.models import QRCode, QRCodeAccess, Layout, LayoutPeriod, Spot
 
 from spots.serializers import SpotSerializer
 
 
 @api_view()
+def access_qrcode(request, uuid):
+    is_app = request.GET.get("app", False)
+    if is_app is False:
+        source = request.META['HTTP_USER_AGENT']
+        if "Android" in source:
+            return redirect("https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf")
+        else:
+            return redirect("https://apps.apple.com/us/app/subway-surfers/id512939461")
+
+    qrcode = QRCode.objects.filter(uuid=uuid).select_related('topic').first()
+
+    if qrcode is None:
+        return Response(data={"error": "QR Code does not exist"}, status=404)
+
+    return Response(data=TopicQRSerializer(qrcode.topic).data)
+
+@api_view()
+def get_spot_list():
+    spots = Spot.objects.all()
+    return Response(data=SpotSerializer(spots, many=True))
+
+@api_view()
 @permission_classes([IsAuthenticated])
 @transaction.atomic
-def get_or_create_permit(request):
+def open_day_get_or_create_permit(request):
     today = datetime.today().strftime('%Y-%m-%d')
 
     num_accesses = request.user.profile.num_spots_read
@@ -51,7 +73,6 @@ def get_or_create_permit(request):
         return Response(data=message)
     except Layout.DoesNotExist:
         return Response({"message": "Não existem QR Codes ativos de momento"}, status=400)
-
 
 
 @api_view()
@@ -114,22 +135,6 @@ def open_day_access_qrcode(request, uuid):
     except QRCode.DoesNotExist:
         return Response({"message": "QRCode inválido"}, status=404)
 
-@api_view()
-def access_qrcode(request, uuid):
 
-    is_app = request.GET.get("app", False)
-    if is_app is False:
-        source = request.META['HTTP_USER_AGENT']
-        if "Android" in source:
-            return redirect("https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf")
-        else:
-            return redirect("https://apps.apple.com/us/app/subway-surfers/id512939461")
-
-    qrcode = QRCode.objects.filter(uuid=uuid).select_related('topic').first()
-
-    if qrcode is None:
-        return Response(data={"error": "QR Code does not exist"}, status=404)
-
-    return Response(data=TopicQRSerializer(qrcode.topic).data)
 
 
