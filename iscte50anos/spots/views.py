@@ -40,7 +40,7 @@ def access_qrcode(request, uuid):
 @api_view()
 def get_spot_list(request):
     spots = Spot.objects.all()
-    return Response(data=SpotSerializer(spots, many=True))
+    return Response(data=SpotSerializer(spots, many=True).data)
 
 @api_view()
 @permission_classes([IsAuthenticated])
