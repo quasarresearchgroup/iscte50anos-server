@@ -67,8 +67,6 @@ def assign_trial_questions(user, trial, topics):
     geo_question = random.choice(geo_questions)
     questions.append(geo_question)
 
-    print(questions)
-
     trial_questions = []
     question_number = 1
     for question in questions:
