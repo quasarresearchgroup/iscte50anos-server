@@ -1,13 +1,21 @@
 from rest_framework import serializers
 
-from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion
+from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion, Trial
+
+
+class TrialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Trial
+        fields = ['number', 'is_completed', 'score']
 
 
 # Serialize quizzes as list of links (to show in App)
 class QuizListSerializer(serializers.ModelSerializer):
+    trials = TrialSerializer(read_only=True, many=True)
+
     class Meta:
         model = Quiz
-        fields = ['number', 'num_trials', 'score', 'topic_names']
+        fields = ['number', 'num_trials', 'score', 'topic_names', 'trials']
 
 
 # Serializer for possible choices of a question

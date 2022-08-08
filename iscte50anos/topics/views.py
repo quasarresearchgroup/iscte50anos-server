@@ -20,7 +20,8 @@ def get_topic(request, pk):
     if is_first_access:
         # TODO Validate answered quizzes from previous level
         TopicAccess.objects.create(user=request.user, topic=topic)
-        quiz_controller.update_level(request.user)
+        #quiz_controller.update_level(request.user)
+        quiz_controller.create_quiz(request.user)
 
     serializer = TopicSerializer(topic)
     return Response(serializer.data)

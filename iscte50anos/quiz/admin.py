@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from quiz.models import Question, Quiz, Choice, QuizQuestion, QuizImage, Trial, TrialQuestion
+from quiz.models import Question, Quiz, Choice, QuizImage, Trial, TrialQuestion
 
 admin.site.site_header = '50 Anos Iscte'
 
@@ -15,23 +15,25 @@ class QuestionAdmin(admin.ModelAdmin):
     list_filter = [
          "topics"
     ]
+    search_fields = ['text', 'image__description']
 
-class QuestionInline(admin.TabularInline):
-    model = QuizQuestion
 
-class QuizAdmin(admin.ModelAdmin):
+class TrialQuestionInline(admin.TabularInline):
+    model = TrialQuestion
+
+
+class TrialAdmin(admin.ModelAdmin):
     inlines = [
-        QuestionInline,
+        TrialQuestionInline,
     ]
-
 
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(QuizImage)
 
 # TEST
-admin.site.register(Quiz, QuizAdmin)
-admin.site.register(Trial)
+admin.site.register(Quiz)
+admin.site.register(Trial, TrialAdmin)
 admin.site.register(TrialQuestion)
 
 '''

@@ -24,7 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 try:
     SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 except KeyError as e:
-    print("KEY NOT AVAILABLE")
     SECRET_KEY = 'django-insecure-68s=q%s6@xm&$excwzygo*!j)^oifm#_ycnrs554(trqz0sv!a'
 
 # SECURITY WARNING: don't run with debug turned on in production!

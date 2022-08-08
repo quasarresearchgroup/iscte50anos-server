@@ -31,9 +31,12 @@ def get_user_quiz_list(request):
 # Get and start quiz
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
+@transaction.atomic
 def start_quiz_trial(request, quiz_num):
 
-    quiz = get_object_or_404(Quiz, user=request.user, number=quiz_num)
+    quiz = Quiz.objects.filter(user=request.user, number=quiz_num).select_for_update().first()
+    if quiz is None:
+        return Response(status=404, data={"status": "Quiz does not exist"})
 
     # Count trials for quiz
     trial_count = Trial.objects.filter(quiz=quiz).count()
@@ -41,7 +44,7 @@ def start_quiz_trial(request, quiz_num):
     # Cannot create more trials
     # TODO already max score
     if trial_count >= 3:
-        return Response(status=400) # Bad request
+        return Response(status=400, data={"status": "All available trials created"}) # Bad request
 
     new_trial = Trial.objects.create(quiz=quiz, number=trial_count+1)
 
@@ -156,7 +159,6 @@ def answer_question(request, quiz_num, num_trial, question_num):
     if not trial_question.accessed:
         return Response(status=400, data={"status": "Question has not accessed"})
 
-    # TODO check if timed from question
     is_timed = trial_question.question.is_timed()
     if is_timed:
         today = datetime.now(timezone.utc)
@@ -172,9 +174,8 @@ def answer_question(request, quiz_num, num_trial, question_num):
         for choice in answer_choices:
             if choice not in question_choices:
                 return Response(status=400, data={"status": "Invalid answer"})
-        answer = answer_serializer.save(choices=answer_choices)
-        trial_question.answer = answer
-        trial_question.save()
+        answer = answer_serializer.save(choices=answer_choices, trial_question=[trial_question])
+
         return Response(status=201)
     else:
         return Response(status=400, data={"status": "Invalid body"})

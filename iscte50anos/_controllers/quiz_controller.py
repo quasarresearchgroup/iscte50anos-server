@@ -6,6 +6,7 @@ from users.models import Profile, Level
 
 QUIZ_SIZE = 8
 
+
 def update_level(user):
     profile = Profile.objects.get(user=user)
     num_accessed_topics = TopicAccess.objects.filter(user=user).count()
@@ -40,7 +41,7 @@ def create_quiz_old(user, level):
         quiz.save()
 
 
-def create_quiz(user, level):
+def create_quiz(user):
     next_quiz_number = Quiz.objects.filter(user=user).count()
 
     topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
@@ -50,32 +51,31 @@ def create_quiz(user, level):
     quiz = Quiz.objects.create(user=user, number=next_quiz_number, topics=accessed_topics)
 
 
-# TODO check
 def assign_trial_questions(user, trial, topics):
 
     # Get all questions not previously associated
     questions = list(Question.objects.filter(topics__in=topics)
                      .exclude(trial_questions__trial__quiz__user=user))
 
+    # TODO get remaining questions
     if len(questions) == 0:
-        pass
-        #questions = list(Question.objects.filter(topics__in=topics))
+        questions = list(Question.objects.filter(topics__in=topics))
 
     questions = random.sample(questions, QUIZ_SIZE-1)
 
-    geo_questions = Question.objects.filter(topics__title="Georeferenciação")
+    geo_questions = Question.objects.filter(topics__title="Georeferenciação")\
+        .exclude(trial_questions__trial__quiz__user=user)
     geo_question = random.choice(geo_questions)
     questions.append(geo_question)
 
     trial_questions = []
     question_number = 1
     for question in questions:
-        trial_question = TrialQuestion.objects.create(trial=trial, question=question, number=question_number)
+        trial_question = TrialQuestion(trial=trial, question=question, number=question_number)
         trial_questions.append(trial_question)
         question_number += 1
 
-    trial.questions.set(trial_questions)
-    trial.save()
+    TrialQuestion.objects.bulk_create(trial_questions)
 
 
 def calculate_user_score(user):

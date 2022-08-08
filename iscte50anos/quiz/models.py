@@ -53,13 +53,12 @@ class Quiz(models.Model):
     number = models.IntegerField(default=0)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="quizzes")
     level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
-    quiz_questions = models.ManyToManyField(Question, through='QuizQuestion')
 
     # trials
     topics = models.ManyToManyField(Topic)
 
     def __str__(self):
-        return f"Quiz {self.level.level} - {self.user}"
+        return f"Quiz {self.number} - {self.user}"
 
     def num_trials(self):
         return self.trials.count()
@@ -73,16 +72,10 @@ class Quiz(models.Model):
     def score(self):
         quiz_score = 0
         for trial in self.trials.all():
-            trial_score = trial.calculate_score()
+            trial_score = trial.score()
             if trial_score > quiz_score:
-                best_trial = trial.number
                 quiz_score = trial_score
         return quiz_score
-
-
-class QuizQuestion(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
 
 class Trial(models.Model):
@@ -92,7 +85,7 @@ class Trial(models.Model):
     def is_completed(self):
         return self.questions.count() == self.quiz.questions
 
-    def calculate_score(self):
+    def score(self):
         trial_score = 0
         for trial_question in self.questions.all().select_related("question", "answer"):
             question_score = 0
@@ -123,7 +116,7 @@ class Trial(models.Model):
 
             trial_score = trial_score + question_score
 
-        return trial_score - (self.number - 1)*0.10*trial_score
+        return trial_score - (self.number - 1)*10
 
     def __str__(self):
         return f"{self.quiz} || Trial {self.number}"
@@ -145,7 +138,7 @@ class TrialQuestion(models.Model):
     answer = models.ForeignKey(Answer, on_delete=models.CASCADE, null=True, related_name="trial_question")
 
     def is_answered(self):
-        return self.answer is not None
+        return self.accessed and self.answer is not None
 
     def __str__(self):
         return f"{self.trial} || Question {self.number}: {self.question} || ACCESS: {self.access_time}"
