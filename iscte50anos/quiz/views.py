@@ -18,8 +18,9 @@ from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestion
 
 from _controllers import quiz_controller
 
-ANSWER_TIME = 45 # segundos
+ANSWER_TIME = 45  # segundos
 QUIZ_SIZE = 8
+
 
 @api_view()
 @permission_classes([IsAuthenticated])
@@ -33,7 +34,6 @@ def get_user_quiz_list(request):
 @permission_classes([IsAuthenticated])
 @transaction.atomic
 def start_quiz_trial(request, quiz_num):
-
     quiz = Quiz.objects.filter(user=request.user, number=quiz_num).select_for_update().first()
     if quiz is None:
         return Response(status=404, data={"status": "Quiz does not exist"})
@@ -44,21 +44,22 @@ def start_quiz_trial(request, quiz_num):
     # Cannot create more trials
     # TODO already max score
     if trial_count >= 3:
-        return Response(status=400, data={"status": "All available trials created"}) # Bad request
+        return Response(status=400, data={"status": "All available trials created"})  # Bad request
 
-    new_trial = Trial.objects.create(quiz=quiz, number=trial_count+1)
+    new_trial = Trial.objects.create(quiz=quiz, number=trial_count + 1)
 
     quiz_controller.assign_trial_questions(request.user, new_trial, quiz.topics.all())
 
-    return Response(status=201, data={"trial_number": trial_count+1})
+    return Response(status=201, data={"trial_number": trial_count + 1})
+
 
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_current_question(request, quiz_num, num_trial):
     # trial = get_object_or_404(Trial, quiz__number=quiz_num, quiz__user=request.user, number=num_trial)
     trial = Trial.objects.filter(quiz__number=quiz_num,
-                                                     quiz__user=request.user,
-                                                     number=num_trial).first()
+                                 quiz__user=request.user,
+                                 number=num_trial).first()
 
     if trial is None:
         return Response(status=404, data={"status": "Trial or Quiz do not exist"})
@@ -74,9 +75,10 @@ def get_current_question(request, quiz_num, num_trial):
 
     trial_question = TrialQuestion.objects.create(trial=trial,
                                                   question=next_question,
-                                                  number=len(id_answered_questions_id)+1)
+                                                  number=len(id_answered_questions_id) + 1)
 
     return Response(status=201, data=TrialQuestionSerializer(trial_question).data)
+
 
 # Questions?
 @api_view(["POST"])
@@ -106,9 +108,10 @@ def get_next_question_old(request, quiz_num, num_trial):
 
     trial_question = TrialQuestion.objects.create(trial=trial,
                                                   question=next_question,
-                                                  number=len(id_answered_questions_id)+1)
+                                                  number=len(id_answered_questions_id) + 1)
 
     return Response(status=201, data=TrialQuestionSerializer(trial_question).data)
+
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
@@ -122,12 +125,16 @@ def get_next_question(request, quiz_num, num_trial):
     if trial is None:
         return Response(status=404, data={"status": "Trial or Quiz do not exist"})
 
-    next_question = trial.questions.select_for_update().filter(accessed=False).select_related("question").first()
+    next_question = trial.questions.filter(accessed=False).select_related("question").first()
 
     if next_question is None:
         last_question = trial.questions.filter(number=QUIZ_SIZE).select_related("question").first()
         if not last_question.is_answered():
             return Response(status=201, data=TrialQuestionSerializer(last_question).data)
+
+        # TODO flag trial finish at the end for efficiency
+        # trial.is_completed = True
+        # trial.save()
 
         user_updated_score = quiz_controller.calculate_user_score(request.user)
         profile = request.user.profile
@@ -148,10 +155,11 @@ def answer_question(request, quiz_num, num_trial, question_num):
     # Acquire lock
     trial_question = TrialQuestion.objects.select_for_update().filter(trial__quiz__number=quiz_num,
                                                                       trial__quiz__user=request.user,
-                                               trial__number=num_trial,
-                                               number=question_num).select_related("question").first()
+                                                                      trial__number=num_trial,
+                                                                      number=question_num).select_related(
+        "question").first()
     if trial_question is None:
-        return Response(status=404, data={"status": "Trial does not exist"})
+        return Response(status=404, data={"status": "Trial or Quiz do not exist"})
 
     if trial_question.answer:
         return Response(status=400, data={"status": "Question already answered"})
@@ -179,15 +187,3 @@ def answer_question(request, quiz_num, num_trial, question_num):
         return Response(status=201)
     else:
         return Response(status=400, data={"status": "Invalid body"})
-    # Get user input and validate
-    # Answer current question (that is in the current trial)
-    # Create answer (if not answered)
-
-
-'''
-def answer_question(request, quiz, trial, question_id):
-    pass
-    # Get user input and validate
-    # Check if question for trial was already answered
-    # Create answer (if not answered)
-'''

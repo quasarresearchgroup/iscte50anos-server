@@ -19,7 +19,7 @@ def get_profile(request):
 
 
 @api_view()
-#@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def get_leaderboard(request):
     user_type = request.GET.get("type")
     affiliation = request.GET.get("affiliation")
@@ -29,7 +29,7 @@ def get_leaderboard(request):
             profiles = Profile.objects.exclude(points=0).filter(affiliation__subtype=user_type).order_by("-points")[:10]
         else:
             profiles = Profile.objects.exclude(points=0).filter(affiliation__subtype=user_type,
-                                              affiliation__name=affiliation).order_by("-points")[:10]
+                                                                affiliation__name=affiliation).order_by("-points")[:10]
     else:
         profiles = Profile.objects.exclude(points=0).order_by("-points")[:10]
 
@@ -45,8 +45,10 @@ def get_relative_leaderboard(request):
 
     profile = request.user.profile
 
-    profiles_above = Profile.objects.exclude(points=0, user=request.user).filter(points__gte=profile.points).order_by("-points")[:10]
-    profiles_below = Profile.objects.exclude(points=0, user=request.user).filter(points__lte=profile.points).order_by("-points")[:10]
+    profiles_above = Profile.objects.exclude(points=0, user=request.user).filter(points__gte=profile.points).order_by(
+        "-points")[:10]
+    profiles_below = Profile.objects.exclude(points=0, user=request.user).filter(points__lte=profile.points).order_by(
+        "-points")[:10]
 
     profiles = profiles_above + [profile] + profiles_below
 
@@ -75,6 +77,3 @@ def get_openday_leaderboard(request):
 
     serializer = OpenDayLeaderboardSerializer(profiles, many=True)
     return Response(data=serializer.data)'''
-
-
-
