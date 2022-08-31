@@ -166,7 +166,7 @@ def answer_question(request, quiz_num, num_trial, question_num):
         return Response(status=400, data={"status": "Question already answered"})
 
     if not trial_question.accessed:
-        return Response(status=400, data={"status": "Question has not accessed"})
+        return Response(status=400, data={"status": "Question was not accessed"})
 
     is_timed = trial_question.question.is_timed()
     if is_timed:
