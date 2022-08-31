@@ -18,9 +18,11 @@ def get_topic(request, pk):
     topic = Topic.objects.get(id=pk)
     is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
     if is_first_access:
-        # TODO Validate answered quizzes from previous level
+        # TODO if previous quiz not completed, no access
+        quizzes = Trial.objects.filter()
+
         TopicAccess.objects.create(user=request.user, topic=topic)
-        #quiz_controller.update_level(request.user)
+        # quiz_controller.update_level(request.user)
         quiz_controller.create_quiz(request.user)
 
     serializer = TopicSerializer(topic)

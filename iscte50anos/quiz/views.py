@@ -55,8 +55,7 @@ def start_quiz_trial(request, quiz_num):
 
 @api_view()
 @permission_classes([IsAuthenticated])
-def get_current_question(request, quiz_num, num_trial):
-    # trial = get_object_or_404(Trial, quiz__number=quiz_num, quiz__user=request.user, number=num_trial)
+def get_current_question_old(request, quiz_num, num_trial):
     trial = Trial.objects.filter(quiz__number=quiz_num,
                                  quiz__user=request.user,
                                  number=num_trial).first()
@@ -140,6 +139,8 @@ def get_next_question(request, quiz_num, num_trial):
         profile = request.user.profile
         profile.points = user_updated_score
         profile.save()
+
+        # Profile.objects.filter(user=request.user).update(points=user_updated_score)
         return Response(status=201, data={"trial_score": trial.calculate_score()})
 
     next_question.accessed = True

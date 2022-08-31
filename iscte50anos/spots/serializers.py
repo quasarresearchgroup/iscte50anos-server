@@ -7,6 +7,6 @@ class SpotSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Spot
-        fields = ['location_photo_link']
+        fields = ['location_photo_link', 'id',]
 
 

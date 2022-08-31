@@ -10,6 +10,7 @@ from users.models import Profile
 from users.serializers import ProfileSerializer, LeaderboardSerializer
 
 
+
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_profile(request):
@@ -40,19 +41,22 @@ def get_leaderboard(request):
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_relative_leaderboard(request):
-    user_type = request.GET.get("type")
-    affiliation = request.GET.get("affiliation")
+
+    half_range = 10
 
     profile = request.user.profile
+    rank = profile.ranking()
 
-    profiles_above = Profile.objects.exclude(points=0, user=request.user).filter(points__gte=profile.points).order_by(
-        "-points")[:10]
-    profiles_below = Profile.objects.exclude(points=0, user=request.user).filter(points__lte=profile.points).order_by(
-        "-points")[:10]
+    if rank < half_range:
+        lower_limit = 0
+    else:
+        lower_limit = rank - half_range
 
-    profiles = profiles_above + [profile] + profiles_below
+    upper_limit = rank + half_range
 
-    serializer = LeaderboardSerializer(profiles, many=True)
+    relative_profiles = Profile.objects.all().order_by("-points")[lower_limit: upper_limit]
+
+    serializer = LeaderboardSerializer(relative_profiles, many=True)
     return Response(data=serializer.data)
 
 

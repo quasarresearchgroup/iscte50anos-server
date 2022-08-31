@@ -10,6 +10,7 @@ from users.models import Level
 QUIZ_SIZE = 8
 QUESTION_POINTS = 10
 
+
 class QuizImage(models.Model):
     description = models.CharField(max_length=200, blank=True)
     link = models.CharField(max_length=200, blank=True)
@@ -41,7 +42,6 @@ class Question(models.Model):
         return f"{self.text}"
 
 
-# TODO Change to Choice
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="choices")
     text = models.CharField(max_length=200, null=False)
@@ -63,17 +63,13 @@ class Quiz(models.Model):
         return f"Quiz {self.number} - {self.user}"
 
     def num_trials(self):
-        return self.trials.count()
+        return self.trials.all().count()
 
     def topic_names(self):
         return "; ".join([topic.title for topic in self.topics.all()])
 
     def is_completed(self):
-        for trial in  self.trials.all():
-            if not trial.is_completed():
-
-        return
-        return Trial.objects.filter(quiz=self).count() == 3
+        return self.trials.filter(is_completed=True).count() == 3
 
     def score(self):
         quiz_score = 0
@@ -88,17 +84,22 @@ class Trial(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="trials")
     number = models.IntegerField()
     # TODO make as field for performance
-    # is_completed = models.BooleanField(default=False)
+    is_completed = models.BooleanField(default=False)
 
-    def is_completed(self):
+    '''def is_completed(self):
         return not self.questions.filter(accessed=False).exists() and \
-               self.questions.filter(number=QUIZ_SIZE).select_related("answer").first().is_answered()
+               self.questions.filter(number=QUIZ_SIZE).select_related("answer").first().is_answered()'''
 
     def progress(self):
+        if self.is_completed():
+            return QUIZ_SIZE
         progress = self.questions.filter(accessed=True).count()
         if progress == QUIZ_SIZE and not self.is_completed():
             progress -= 1
         return progress
+
+    def quiz_size(self):
+        return QUIZ_SIZE
 
     def score(self):
         trial_score = 0
@@ -121,7 +122,6 @@ class Trial(models.Model):
             elif question.type == "M":
                 for choice in answer.choices.all():
                     if choice is not None and choice.is_correct:
-                        # TODO get number of total correct choices of the question and divide
                         # answer_score = answer_value/(num_total_correct_answers)
                         answer_score = 5
                         question_score += answer_score
@@ -152,10 +152,14 @@ class TrialQuestion(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="trial_questions")
     number = models.IntegerField(default=1)
 
+    #TODO mark trial question as timed for performance
+
+    # is_timed = models.BooleanField(default=False)
+
     accessed = models.BooleanField(default=False)
     access_time = models.DateTimeField(auto_now=True)
 
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE, null=True, related_name="trial_question")
+    answer = models.ForeignKey(Answer, on_delete=models.SET_NULL, null=True, related_name="trial_question")
 
     def is_answered(self):
         return self.accessed and self.answer is not None

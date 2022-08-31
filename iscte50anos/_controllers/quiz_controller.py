@@ -8,6 +8,8 @@ QUIZ_SIZE = 8
 
 
 def update_level(user):
+
+    # TODO create level for each topic
     profile = Profile.objects.get(user=user)
     num_accessed_topics = TopicAccess.objects.filter(user=user).count()
 
@@ -58,7 +60,7 @@ def assign_trial_questions(user, trial, topics):
                      .exclude(trial_questions__trial__quiz__user=user))
 
     # TODO get remaining questions
-    if len(questions) == 0:
+    if len(questions) < QUIZ_SIZE - 1:
         questions = list(Question.objects.filter(topics__in=topics))
 
     questions = random.sample(questions, QUIZ_SIZE-1)
