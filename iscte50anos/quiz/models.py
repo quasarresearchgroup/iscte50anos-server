@@ -104,7 +104,7 @@ class Trial(models.Model):
     def score(self):
         trial_score = 0
         # prevent players to know score before completing trial (to know answers)
-        if not self.is_completed():
+        if not self.is_completed:
             return 0
 
         for trial_question in self.questions.all().select_related("question", "answer"):
