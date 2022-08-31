@@ -7,19 +7,7 @@ from users.models import Profile, Affiliation
 class LeaderboardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['name', 'username', 'points', 'affiliation_name']
-
-
-class OpenDayLeaderboardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ['name', 'username', 'num_spots_read', 'total_time']
-
-
-class OpenDayProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ['name', 'ranking', 'initials', 'num_spots_read', 'total_time']
+        fields = ['name', 'points', 'affiliation_name']
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -33,3 +21,17 @@ class AffiliationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Affiliation
         fields = "__all__"
+
+
+# OPEN DAY CODE
+
+class OpenDayLeaderboardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['name', 'username', 'num_spots_read', 'total_time']
+
+
+class OpenDayProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['name', 'ranking', 'initials', 'num_spots_read', 'total_time']

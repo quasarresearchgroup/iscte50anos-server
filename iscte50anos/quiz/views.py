@@ -124,6 +124,9 @@ def get_next_question(request, quiz_num, num_trial):
     if trial is None:
         return Response(status=404, data={"status": "Trial or Quiz do not exist"})
 
+    if trial.is_completed:
+        return Response(status=400, data={"status": "Trial is complete"})
+
     next_question = trial.questions.filter(accessed=False).select_related("question").first()
 
     if next_question is None:
@@ -131,9 +134,8 @@ def get_next_question(request, quiz_num, num_trial):
         if not last_question.is_answered():
             return Response(status=201, data=TrialQuestionSerializer(last_question).data)
 
-        # TODO flag trial finish at the end for efficiency
-        # trial.is_completed = True
-        # trial.save()
+        trial.is_completed = True
+        trial.save()
 
         user_updated_score = quiz_controller.calculate_user_score(request.user)
         profile = request.user.profile

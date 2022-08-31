@@ -91,10 +91,10 @@ class Trial(models.Model):
                self.questions.filter(number=QUIZ_SIZE).select_related("answer").first().is_answered()'''
 
     def progress(self):
-        if self.is_completed():
+        if self.is_completed:
             return QUIZ_SIZE
         progress = self.questions.filter(accessed=True).count()
-        if progress == QUIZ_SIZE and not self.is_completed():
+        if progress == QUIZ_SIZE and not self.is_completed:
             progress -= 1
         return progress
 
