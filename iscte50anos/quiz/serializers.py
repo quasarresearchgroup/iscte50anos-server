@@ -6,7 +6,7 @@ from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion, Trial
 class TrialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trial
-        fields = ['number', 'is_completed', 'score']
+        fields = ['number', 'progress', 'quiz_size', 'is_completed', 'score']
 
 
 # Serialize quizzes as list of links (to show in App)
