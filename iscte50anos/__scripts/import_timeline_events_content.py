@@ -76,3 +76,4 @@ contents_map = import_contents()
 # with open('filename.txt', 'w') as f:
     # print(contents_map,file=f)
 create_events(map=contents_map )
+print("completed imports")

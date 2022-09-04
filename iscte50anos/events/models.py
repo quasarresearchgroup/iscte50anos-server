@@ -23,7 +23,7 @@ class Event(models.Model):
     )
 
     def __str__(self):
-        return f'{self.date} - {self.title} - {self.scope}'
+        return f'{self.id} - {self.date} - {self.title} - {self.scope}'
 
     class Meta:
         ordering = ['date']

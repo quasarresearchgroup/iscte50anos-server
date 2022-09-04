@@ -4,4 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.get_all_events),
+    path('<int:event_id>', views.get_event),
+    path('<int:event_id>/contents', views.get_event_contents),
+    path('year/<int:year>-<int:multiplier>', views.get_event_of_year),
 ]
