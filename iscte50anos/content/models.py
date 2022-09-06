@@ -22,4 +22,4 @@ class Content(models.Model):
     )
 
     def __str__(self):
-        return self.title
+        return f'{self.id} - {self.title} - {self.type} - {self.link}'
