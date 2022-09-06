@@ -43,13 +43,14 @@ def create_quiz_old(user, level):
 
 
 def create_quiz(user):
-    next_quiz_number = Quiz.objects.filter(user=user).count()
+    next_quiz_number = Quiz.objects.filter(user=user).count()+1
 
     topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
     accessed_topics = [t.topic for t in topic_accesses]
 
     # Create quiz for the  visited topics
-    Quiz.objects.create(user=user, number=next_quiz_number, topics=accessed_topics)
+    quiz = Quiz.objects.create(user=user, number=next_quiz_number)
+    quiz.topics.set(accessed_topics)
 
 
 def assign_trial_questions(user, trial, topics):
