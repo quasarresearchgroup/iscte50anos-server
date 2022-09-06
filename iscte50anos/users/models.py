@@ -91,4 +91,4 @@ class Level(models.Model):
     question_score = models.IntegerField()
 
     def __str__(self):
-        return "Level " + str(self.level)
+        return "Level " + str(self.number)
