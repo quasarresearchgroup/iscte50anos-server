@@ -5,6 +5,12 @@ from users.models import Profile
 User = get_user_model()
 
 User.objects.filter(username__contains="test").delete()
+users = []
+profiles = []
 for i in range(1, 100):
-    user = User.objects.create(username=f"test{i}", first_name="João", last_name=f"Teste{i}")
-    profile = Profile.objects.create(user=user, points=i)
+    user = User(username=f"test{i}", first_name="João", last_name=f"Teste{i}")
+    users.append(user)
+    profiles.append(Profile(user=user, points=i))
+
+User.objects.bulk_create(users)
+Profile.objects.bulk_create(profiles)
