@@ -13,4 +13,4 @@ for topic in topics:
     levels.append(Level(number=c, num_topics=c, question_score=10))
     c += 1
 print(levels)
-Topic.objects.bulk_create(levels)
+Level.objects.bulk_create(levels)
