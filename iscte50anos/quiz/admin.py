@@ -8,6 +8,7 @@ admin.site.site_header = '50 Anos Iscte'
 class ChoiceInline(admin.TabularInline):
     model = Choice
 
+
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [
         ChoiceInline,

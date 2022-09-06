@@ -7,8 +7,8 @@ from topics.models import Topic
 
 topics = Topic.objects.all()
 levels = []
-c = 1
+c = 0
 for topic in topics:
-    levels.append(Level(number=1))
+    levels.append(Level(number=c, ))
     c += 1
 Topic.objects.bulk_create(levels)

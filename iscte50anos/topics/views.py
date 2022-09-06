@@ -19,7 +19,6 @@ def get_topic(request, pk):
     topic = Topic.objects.get(id=pk)
     is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
     if is_first_access:
-        # TODO if previous quiz not completed, no access
         has_completed_latest_quiz = Trial.objects.filter(is_completed=True,
                                                          quiz__number=request.user.profile.level).exists()
         if not has_completed_latest_quiz:

@@ -6,8 +6,6 @@ from users.models import Profile, Level
 
 QUIZ_SIZE = 8
 
-def validate_topic_access(user):
-    pass
 
 def update_level(user):
 
@@ -15,8 +13,8 @@ def update_level(user):
     num_accessed_topics = TopicAccess.objects.filter(user=user).count()
 
     next_level = Level.objects.get(min_topics__lte=num_accessed_topics, max_topics__gte=num_accessed_topics)
-    if next_level.level != profile.level:
-        profile.level = next_level.level
+    if next_level.number != profile.level:
+        profile.level = next_level.number
         profile.save()
         create_quiz(user)
 

@@ -86,9 +86,8 @@ class Profile(models.Model):
 
 
 class Level(models.Model):
-    level = models.IntegerField()
-    min_topics = models.IntegerField()
-    max_topics = models.IntegerField()
+    number = models.IntegerField()
+    num_topics = models.IntegerField()
     question_score = models.IntegerField()
 
     def __str__(self):
