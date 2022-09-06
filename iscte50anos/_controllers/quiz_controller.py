@@ -6,10 +6,11 @@ from users.models import Profile, Level
 
 QUIZ_SIZE = 8
 
+def validate_topic_access(user):
+    pass
 
 def update_level(user):
 
-    # TODO create level for each topic
     profile = Profile.objects.get(user=user)
     num_accessed_topics = TopicAccess.objects.filter(user=user).count()
 
@@ -17,7 +18,7 @@ def update_level(user):
     if next_level.level != profile.level:
         profile.level = next_level.level
         profile.save()
-        create_quiz(user, next_level)
+        create_quiz(user)
 
 
 # TODO How to use read topics?
@@ -49,8 +50,8 @@ def create_quiz(user):
     topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
     accessed_topics = [t.topic for t in topic_accesses]
 
-    # Create quiz and assign the selected questions
-    quiz = Quiz.objects.create(user=user, number=next_quiz_number, topics=accessed_topics)
+    # Create quiz for the  visited topics
+    Quiz.objects.create(user=user, number=next_quiz_number, topics=accessed_topics)
 
 
 def assign_trial_questions(user, trial, topics):

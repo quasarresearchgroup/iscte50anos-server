@@ -83,7 +83,6 @@ class Quiz(models.Model):
 class Trial(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="trials")
     number = models.IntegerField()
-    # TODO make as field for performance
     is_completed = models.BooleanField(default=False)
 
     '''def is_completed(self):

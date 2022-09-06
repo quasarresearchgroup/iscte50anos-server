@@ -52,7 +52,6 @@ class Profile(models.Model):
             return f"{self.affiliation.name}"
         return "Sem afiliação"
 
-
     def ranking(self):
         return Profile.objects.exclude(points=0).filter(points__gt=self.points).count() + 1
 
@@ -75,39 +74,22 @@ class Profile(models.Model):
                                                                 num_spots_read=self.num_spots_read,
                                                                 total_time__lt=self.total_time).count() + 1
 
-
     def __str__(self):
         return f'{self.user.username}'
 
     # For leaderboard and ranking performance
     class Meta:
         indexes = [
-            models.Index(fields=['num_spots_read', '-total_time']),
+            # models.Index(fields=['num_spots_read', '-total_time']),
             models.Index(fields=['points']),
         ]
 
 
 class Level(models.Model):
     level = models.IntegerField()
-
-    percent_correct = models.DecimalField(decimal_places=2, max_digits=3)
-
-    # Total topics accessed to unlock this level
     min_topics = models.IntegerField()
-
-    # Maximum topics to stay in this level
     max_topics = models.IntegerField()
-
-    trials_allowed = models.IntegerField()
-
-    max_points_quiz = models.IntegerField()
-
-    # Seconds
-    max_time_per_question = models.IntegerField()
-
-    num_single_questions = models.IntegerField()
-
-    num_multiple_questions = models.IntegerField()
+    question_score = models.IntegerField()
 
     def __str__(self):
         return "Level " + str(self.level)

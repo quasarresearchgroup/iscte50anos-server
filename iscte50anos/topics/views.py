@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from topics.models import Topic, TopicAccess
+from quiz.models import Trial
 
 from topics.serializers import TopicSerializer
 
@@ -19,11 +20,13 @@ def get_topic(request, pk):
     is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
     if is_first_access:
         # TODO if previous quiz not completed, no access
-        quizzes = Trial.objects.filter()
+        has_completed_latest_quiz = Trial.objects.filter(is_completed=True,
+                                                         quiz__number=request.user.profile.level).exists()
+        if not has_completed_latest_quiz:
+            return Response(status=400, data={"status": "The quiz for this level was not completed"})
 
         TopicAccess.objects.create(user=request.user, topic=topic)
-        # quiz_controller.update_level(request.user)
-        quiz_controller.create_quiz(request.user)
+        quiz_controller.update_level(request.user)
 
     serializer = TopicSerializer(topic)
     return Response(serializer.data)

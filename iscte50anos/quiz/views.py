@@ -143,7 +143,7 @@ def get_next_question(request, quiz_num, num_trial):
         profile.save()
 
         # Profile.objects.filter(user=request.user).update(points=user_updated_score)
-        return Response(status=201, data={"trial_score": trial.calculate_score()})
+        return Response(status=201, data={"trial_score": trial.score()})
 
     next_question.accessed = True
     next_question.save()
