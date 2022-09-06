@@ -12,7 +12,7 @@ def update_level(user):
     profile = Profile.objects.get(user=user)
     num_accessed_topics = TopicAccess.objects.filter(user=user).count()
 
-    next_level = Level.objects.get(min_topics__lte=num_accessed_topics, max_topics__gte=num_accessed_topics)
+    next_level = Level.objects.get(num_topics=num_accessed_topics)
     if next_level.number != profile.level:
         profile.level = next_level.number
         profile.save()
