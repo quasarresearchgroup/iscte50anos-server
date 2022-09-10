@@ -3,7 +3,7 @@ from topics.models import Topic
 
 
 class Content(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=300)
     link = models.CharField(max_length=100, blank=True)
     topics = models.ManyToManyField(Topic, related_name='content')
 
