@@ -36,13 +36,16 @@ def exchange_access_token(request):
             try:
                 user = User.objects.get(username=profile_data["preferred_username"])
             except User.DoesNotExist:
+
                 user = User.objects.create(username=profile_data["preferred_username"],
                                            first_name=profile_data["given_name"],
                                            last_name=profile_data["family_name"])
+
+                affiliation = Affiliation.objects.get_or_create()
                 # TODO Get affiliation
                 profile = Profile.objects.create(user=user)
 
-            Token.objects.get(user=user).delete()
+            Token.objects.filter(user=user).delete()
             user_token = Token.objects.create(user=user).key
             return Response(data={"api_token": user_token})
 

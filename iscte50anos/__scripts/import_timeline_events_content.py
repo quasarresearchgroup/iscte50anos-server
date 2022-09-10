@@ -24,6 +24,7 @@ from topics.models import Topic
 p_eventos= Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - EVENTOS.tsv'
 p_contents = Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - CONTEÚDOS.tsv'
 
+
 def translate_scope(scope):
     if scope == "Iscte":
         return "iscte"
@@ -32,15 +33,16 @@ def translate_scope(scope):
     else:
         return "world"
 
+
 def import_contents() -> dict[str,list[str]] :
-    map:defaultdict[str,list[str]] = defaultdict(list)
+    content_map = {} #:defaultdict[str,list[str]] = defaultdict(list)
     with p_contents.open() as csvfile:
         content_reader = csv.reader(csvfile, delimiter="\t")
         header = next(content_reader)
         for row in content_reader:
-            map[row[1].strip()].append(row[0::])
-    print(f"lenght of contents map: {len(map)}")
-    dictMap = dict(map)
+            content_map[row[1].strip()].append(row[0::])
+    print(f"lenght of contents map: {len(content_map)}")
+    dictMap = dict(content_map)
     return dictMap
 
 def create_events(map:dict):
