@@ -26,16 +26,29 @@ try:
 except KeyError as e:
     SECRET_KEY = 'django-insecure-68s=q%s6@xm&$excwzygo*!j)^oifm#_ycnrs554(trqz0sv!a'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ["194.210.120.48", "194.210.120.193"]
 
 CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48', 'https://194.210.120.193']
 
+# CORS
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +66,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
