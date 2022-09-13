@@ -14,8 +14,7 @@ from topics.serializers import TopicSerializer
 
 @api_view()
 def get_all_events(request):
-
-    topics = request.query_params.getlist("topic",None)
+    topics = request.query_params.getlist("topic")
     if topics : 
         events  = Event.objects.filter( topics__id__in= topics)
     else:

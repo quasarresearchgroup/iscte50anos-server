@@ -34,7 +34,14 @@ CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48', 'https://194.210.120.193']
 
 # CORS
 
-CORS_ALLOW_ALL_ORIGINS = True
+# TODO change CORS in production!!
+#CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+"https://domain.com",
+"https://api.domain.com",
+"http://localhost:8080",
+"http://127.0.0.1:9000"
+]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
