@@ -25,7 +25,7 @@ def exchange_access_token(request):
     if token_serializer.is_valid():
         access_token = token_serializer.validated_data["access_token"]
 
-        profile_response = requests.get('https://login.iscte-iul.pt/oauth2/v1/userinfo',
+        profile_response = requests.get('https://login.iscte-iul.pt/oauth2/ausyeqjx8GS8Nj1Y9416/v1/userinfo',
                                 headers={'Authorization': f'Bearer {access_token}'})
 
         if profile_response.status_code != 200:
@@ -36,14 +36,14 @@ def exchange_access_token(request):
             try:
                 user = User.objects.get(username=profile_data["preferred_username"])
             except User.DoesNotExist:
+                # create profile
+                user = User.objects.create(username=profile_data["upn"],
+                                           first_name=profile_data["givenName"],
+                                           last_name=profile_data["familyName"])
 
-                user = User.objects.create(username=profile_data["preferred_username"],
-                                           first_name=profile_data["given_name"],
-                                           last_name=profile_data["family_name"])
-
-                affiliation = Affiliation.objects.get_or_create()
-                # TODO Get affiliation
-                profile = Profile.objects.create(user=user)
+                affiliation = Affiliation.objects.get_or_create(title=profile_data["title"],
+                                                                department=profile_data["department"])
+                profile = Profile.objects.create(user=user, affiliation=affiliation)
 
             Token.objects.filter(user=user).delete()
             user_token = Token.objects.create(user=user).key

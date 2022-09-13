@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Affiliation(models.Model):
-    name = models.CharField(max_length=300)
-    type = models.CharField(
+    title = models.CharField(max_length=300, blank=True)
+    '''type = models.CharField(
         max_length=10,
         choices=(("student", "Student"), ("professor", "Professor"), ("researcher", "Researcher"), ("staff", "Staff")),
         default="student"
@@ -13,16 +13,21 @@ class Affiliation(models.Model):
     cycle = models.CharField(
         max_length=3,
         choices=(("bsc", "Bachelor's"), ("msc", "Master's"), ("phd", "Doctorate"))
-    )
+    )'''
+
+    department = models.CharField(max_length=200, blank=True)
 
     # For open day
-    subtype = models.CharField(max_length=50, blank=True)
+    '''subtype = models.CharField(max_length=50, blank=True)
 
     abbreviation = models.CharField(max_length=30, blank=True)
-    full_description = models.CharField(max_length=100, blank=True)
+    full_description = models.CharField(max_length=100, blank=True)'''
+
+    def full_description(self):
+        return f'{self.title} em {self.department}'
 
     def __str__(self):
-        return f'{self.type} - {self.name} ({self.abbreviation})'
+        return self.full_description()
 
 
 class Profile(models.Model):
@@ -49,7 +54,7 @@ class Profile(models.Model):
 
     def affiliation_name(self):
         if self.affiliation:
-            return f"{self.affiliation.name}"
+            return f"{self.affiliation.full_description()}"
         return "Sem afiliação"
 
     def ranking(self):
