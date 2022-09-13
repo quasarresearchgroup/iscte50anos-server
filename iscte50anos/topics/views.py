@@ -6,6 +6,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from events.serializers import EventSerializer
 from topics.models import Topic, TopicAccess
 from quiz.models import Trial
 
@@ -37,3 +38,21 @@ def get_topic(request, pk):
 # Create Topic Access for the authenticated user (if does not exist)
 # Create quiz for number of accessed topics
 # Make available to user (if previous quizes were answered)
+
+@api_view()
+def get_all_topics(request):
+    topics = Topic.objects.all()
+    serializer = TopicSerializer(topics, many=True)
+    return Response(data=serializer.data)
+
+# @api_view()
+# def get_topic_web(request,pk):
+#     topic = Topic.objects.get(id=pk)
+#     serializer = TopicSerializer(topic, many=False)
+#     return Response(data=serializer.data)
+
+# @api_view()
+# def get_topic_web_events(request,pk):
+#     events = Topic.objects.get(id=pk).events
+#     serializer = EventSerializer(events, many=True)
+#     return Response(data=serializer.data)

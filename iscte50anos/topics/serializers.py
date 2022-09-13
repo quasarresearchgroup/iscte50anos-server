@@ -10,7 +10,7 @@ class TopicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
-        fields = ['title',  'content']
+        fields = ['id', 'title', 'content']
 
 
 class TopicQRSerializer(serializers.ModelSerializer):
