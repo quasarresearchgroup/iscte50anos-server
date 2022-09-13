@@ -14,8 +14,9 @@ from content.serializers import ContentSerializer
 @api_view()
 def get_all_events(request):
     events = Event.objects.all()
-    topics = request.GET.get("topic")
+    topics = request.GET.getlist("topic")
     if topics:
+        topics = [int(topic) for topic in topics]
         events = events.filter(topics__id__in=topics)
     serializer = EventSerializer(events, many=True)
     return Response(data=serializer.data)
