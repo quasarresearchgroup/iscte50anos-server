@@ -38,6 +38,7 @@ def exchange_access_token(request):
             except User.DoesNotExist:
                 # create profile
                 user = User.objects.create(username=profile_data["upn"],
+                                           email=profile_data["upn"],
                                            first_name=profile_data["givenName"],
                                            last_name=profile_data["familyName"])
 
