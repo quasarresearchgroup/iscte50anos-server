@@ -63,7 +63,7 @@ def create_events(map:dict):
         for index,eventRow in enumerate(timeline_reader):
             date = datetime.strptime(eventRow[0], '%Y-%m-%d')
             # print(row)
-            event, created = Event.objects.get_or_create(id=index+1, date=date, title=eventRow[2].strip())
+            event, created = Event.objects.get_or_create(id=index+1, date=date, title=eventRow[2].strip(), scope=translate_scope(eventRow[3]))
             topics_list = []
             for x in eventRow[4::]:
                 if x:
