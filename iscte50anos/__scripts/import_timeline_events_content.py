@@ -28,9 +28,9 @@ def translate_scope(scope):
     if scope == "Iscte":
         return "iscte"
     if scope == "Portugal" or scope == "Nacional":
-        return "portugal"
+        return "nacional"
     else:
-        return "world"
+        return "internacional"
 
 def import_contents() -> dict[str,list[str]] :
     map:defaultdict[str,list[str]] = defaultdict(list)
