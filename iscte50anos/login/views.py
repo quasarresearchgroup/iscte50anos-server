@@ -43,7 +43,7 @@ def exchange_access_token(request):
                                            last_name=profile_data["familyName"])
 
                 affiliation = Affiliation.objects.get_or_create(title=profile_data["title"],
-                                                                department=profile_data["department"])
+                                                                department=profile_data["department"])[0]
                 profile = Profile.objects.create(user=user, affiliation=affiliation)
 
             Token.objects.filter(user=user).delete()

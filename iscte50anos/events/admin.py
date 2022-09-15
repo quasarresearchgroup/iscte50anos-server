@@ -7,6 +7,7 @@ class EventAdmin(admin.ModelAdmin):
     list_filter = [
         "scope"
     ]
+    search_fields = ['title', 'topic__title', 'content__title']
 
 
 admin.site.register(Event, EventAdmin)
