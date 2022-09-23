@@ -47,13 +47,9 @@ def import_contents():
 
 
 def create_events(map:dict):
-    #Event.content.through.objects.all().delete()
-    #Event.topics.through.objects.all().delete()
     Event.objects.all().delete()
-    #Content.topics.through.objects.all().delete()
     Content.objects.all().delete()
-    #Topic.objects.all().delete()
-    
+
     with p_eventos.open() as csvfile:
         topic_counter: int = 0
         timeline_reader = csv.reader(csvfile, delimiter="\t")
