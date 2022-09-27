@@ -6,7 +6,7 @@ from content.models import Content
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=100)
     topics = models.ManyToManyField(Topic, related_name='events')
     content = models.ManyToManyField(Content, related_name='events')
 
@@ -24,6 +24,9 @@ class Event(models.Model):
 
     def __str__(self):
         return f'{self.id} - {self.date} - {self.title} - {self.scope}'
+
+    def num_content(self):
+        return self.content.all().count()
 
     class Meta:
         ordering = ['date']

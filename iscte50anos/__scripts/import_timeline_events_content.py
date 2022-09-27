@@ -36,11 +36,11 @@ def translate_scope(scope):
 
 def import_contents():
     content_map: defaultdict[str, list[str]] = defaultdict(list)
-    with p_contents.open() as csvfile:
+    with p_contents.open(encoding='UTF8') as csvfile:
         content_reader = csv.reader(csvfile, delimiter="\t")
         header = next(content_reader)
         for row in content_reader:
-            content_map[row[1].strip()].append(row[0::])
+            content_map[row[1].strip()].append(row)
     print(f"length of contents map: {len(content_map)}")
     dictMap = dict(content_map)
     return dictMap
@@ -50,9 +50,9 @@ def create_events(map:dict):
     Event.objects.all().delete()
     Content.objects.all().delete()
 
-    with p_eventos.open() as csvfile:
+    with p_eventos.open(encoding='UTF8') as eventsFile:
         topic_counter: int = 0
-        timeline_reader = csv.reader(csvfile, delimiter="\t")
+        timeline_reader = csv.reader(eventsFile, delimiter="\t")
         header = next(timeline_reader)
         content_id = 1
         for index,eventRow in enumerate(timeline_reader):
@@ -60,7 +60,7 @@ def create_events(map:dict):
             # print(row)
             event, created = Event.objects.get_or_create(id=index+1, date=date, title=eventRow[2].strip(), scope=translate_scope(eventRow[3]))
             topics_list = []
-            for x in eventRow[4::]:
+            for x in eventRow[6::]:
                 if x:
                     stored_topic, created = Topic.objects.get_or_create(title=x)
                     topic_counter += 1
@@ -89,7 +89,7 @@ def create_events(map:dict):
 
 
 contents_map = import_contents()
-print(f"number of contents: {len(Content.objects.all())}")
+# print(f"number of contents: {len(Content.objects.all())}")
 with open('filename.json', 'w',encoding='utf-8') as f:
     encoded_data=json.dumps(dict(contents_map), indent=4)
     f.write(encoded_data)
