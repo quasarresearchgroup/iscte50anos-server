@@ -22,7 +22,7 @@ from content.models import Content
 from topics.models import Topic
 
 p_eventos= Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - EVENTOS.tsv'
-p_contents = Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - CONTEÚDOS.tsv'
+p_contents = Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - FONTES.tsv'
 
 
 def translate_scope(scope):
@@ -35,26 +35,31 @@ def translate_scope(scope):
 
 
 def import_contents():
-    content_map: defaultdict[str, list[str]] = defaultdict(list)
+    contents_map: defaultdict[str, list[str]] = defaultdict(list)
     with p_contents.open(encoding='UTF8') as csvfile:
         content_reader = csv.reader(csvfile, delimiter="\t")
         header = next(content_reader)
         for row in content_reader:
-            content_map[row[1].strip()].append(row)
-    print(f"length of contents map: {len(content_map)}")
-    dictMap = dict(content_map)
+            contents_map[row[1].strip()].append(row)
+    print(f"length of contents map: {len(contents_map)}")
+    dictMap = dict(contents_map)
     return dictMap
 
 
 def create_events(map:dict):
     Event.objects.all().delete()
     Content.objects.all().delete()
+    keyErrors:list = []
+
+    with p_eventos.open(encoding='UTF8') as eventsFile:
+        timeline_record_length = sum(1 for line in eventsFile)
 
     with p_eventos.open(encoding='UTF8') as eventsFile:
         topic_counter: int = 0
         timeline_reader = csv.reader(eventsFile, delimiter="\t")
         header = next(timeline_reader)
         content_id = 1
+        last_progress_str:str=""
         for index,eventRow in enumerate(timeline_reader):
             date = datetime.strptime(eventRow[0], '%Y-%m-%d')
             # print(row)
@@ -82,18 +87,27 @@ def create_events(map:dict):
                         content_list.append(stored_content)
                 # print(f"content_list:{content_list}")
             except KeyError: 
-               print(f"KeyError f{content}")
+               keyErrors.append(content)
+            #    print(f"KeyError f{content}")
             event.content.clear()
             event.content.set(content_list)
             content_list.clear()
 
+            print(" " * len(last_progress_str), end='\r')
+            progress:str = f"{round(index/timeline_record_length,4)*100}%"
+            last_progress_str = progress
+            print(progress ,end="\r" )
+        return keyErrors
+
 
 contents_map = import_contents()
 # print(f"number of contents: {len(Content.objects.all())}")
-with open('filename.json', 'w',encoding='utf-8') as f:
-    encoded_data=json.dumps(dict(contents_map), indent=4)
-    f.write(encoded_data)
+# with open('filename.json', 'w',encoding='UTF8') as f:
+    # encoded_data=json.dumps(dict(contents_map), indent=4)
+    # f.write(encoded_data)
     # print(json.dumps(dict(contents_map), indent=4),file=f)
 
-create_events(map=contents_map)
+keyErrors = create_events(map=contents_map)
+print(*keyErrors,sep = "\n")
+print(f"{len(keyErrors)} event key errors")
 print("completed imports")
