@@ -18,6 +18,8 @@ class Content(models.Model):
                     ("audio", "Audio"),
                     ("video", "Video"),
                     ("social_media", "Social media")
+                    # ("text", "Text"),
+                    # ("interview", "Interview")
                 )
     )
 

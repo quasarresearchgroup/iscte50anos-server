@@ -34,6 +34,35 @@ def translate_scope(scope):
         return "world"
 
 
+
+def translate_content_type(scope):
+# documento
+    if scope == "documento":
+        return "document"
+# pagina_web
+    if scope == "pagina_web":
+        return "web_page"
+# imagem
+    if scope == "imagem":
+        return "image"
+# musica
+    if scope == "musica":
+        return "audio"
+# video
+    if scope == "video":
+        return "video"
+# pagina_social
+    if scope == "pagina_social":
+        return "social_media"
+# # texto
+#     if scope == "texto":
+#         return "text"
+# # entrevista
+#     if scope == "entrevista":
+#         return "interview"
+    else:
+        return "web_page"
+
 def import_contents():
     contents_map: defaultdict[str, list[str]] = defaultdict(list)
     with p_contents.open(encoding='UTF8') as csvfile:
@@ -82,7 +111,7 @@ def create_events(map:dict):
                 for content in map[title]:
                     # print(content)
                     if content[5] and "http" in content[5]:
-                        stored_content,created  = Content.objects.get_or_create(id=content_id, title=content[3], type=content[4] , link=content[5])
+                        stored_content,created  = Content.objects.get_or_create(id=content_id, title=content[3], type=translate_content_type(content[4]) , link=content[5])
                         content_id+=1
                         content_list.append(stored_content)
                 # print(f"content_list:{content_list}")
