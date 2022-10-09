@@ -29,8 +29,8 @@ def get_event(request,event_id:int):
     return Response(data=serializer.data)
 
 @api_view()
-def get_event_of_year(request,year:int,multiplier:int):
-    event = Event.objects.filter(date__gte=datetime.date(year,1,1),date__lte = datetime.date(year+multiplier,12,31))
+def get_event_of_year(request,year:int):
+    event = Event.objects.filter(date__year=year)
     serializer = EventSerializer(event , many=True)
     return Response(data=serializer.data)
     
@@ -45,3 +45,8 @@ def get_event_topics(request,event_id):
     topics = Event.objects.get(id=event_id).topics.all()
     serializer = TopicSerializer(topics , many=True)
     return Response(data=serializer.data)
+
+@api_view()
+def get_years_list(request):
+    dates = Event.objects.dates("date","year")
+    return Response(data=dates)
