@@ -15,8 +15,13 @@ from topics.serializers import TopicSerializer
 @api_view()
 def get_all_events(request):
     topics = request.query_params.getlist("topic")
-    if topics : 
+    scopes = request.query_params.getlist("scope")
+    if topics and scopes : 
+        events  = Event.objects.filter( topics__id__in= topics, scope__in= scopes)
+    elif topics :
         events  = Event.objects.filter( topics__id__in= topics)
+    elif scopes :
+        events  = Event.objects.filter( scope__in= scopes)
     else:
         events = Event.objects.all()
     serializer = EventSerializer(events, many=True)
