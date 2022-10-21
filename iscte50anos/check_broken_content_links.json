@@ -1,0 +1,12 @@
+{
+    "errors": {
+        "https://repositorium.sdum.uminho.pt/about/DeclaracaoBerlim.htm": "HTTPSConnectionPool(host='repositorium.sdum.uminho.pt', port=443): Max retries exceeded with url: /about/DeclaracaoBerlim.htm (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')))"
+    },
+    "403": [
+        "https://www.crup.pt/",
+        "https://www.observatorio-das-desigualdades.com/"
+    ],
+    "502": [
+        "https://www.om.acm.gov.pt/"
+    ]
+}
