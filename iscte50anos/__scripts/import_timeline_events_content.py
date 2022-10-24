@@ -64,12 +64,17 @@ def translate_content_type(scope):
         return "web_page"
 
 def import_contents():
-    contents_map: defaultdict[str, list[str]] = defaultdict(list)
+    contents_map: defaultdict[str, list[dir]] = defaultdict(list)
     with p_contents.open(encoding='UTF8') as csvfile:
         content_reader = csv.reader(csvfile, delimiter="\t")
         header = next(content_reader)
-        for row in content_reader:
-            contents_map[row[2].strip()].append(row)
+        for index, row in enumerate(content_reader):
+            mapEntry = {}
+            mapEntry["id"] = index + 1
+            mapEntry["title"] = row[5]
+            mapEntry["type"] = translate_content_type(row[6])
+            mapEntry["link"] = row[7]
+            contents_map[row[2].strip()].append(mapEntry)
     print(f"length of contents map: {len(contents_map)}")
     dictMap = dict(contents_map)
     return dictMap
@@ -87,37 +92,29 @@ def create_events(map:dict):
         topic_counter: int = 0
         timeline_reader = csv.reader(eventsFile, delimiter="\t")
         header = next(timeline_reader)
-        content_id = 1
         last_progress_str:str=""
         for index,eventRow in enumerate(timeline_reader):
             date = datetime.strptime(eventRow[0], '%Y-%m-%d')
-            # print(row)
-            event, created = Event.objects.get_or_create(id=index+1, date=date, title=eventRow[3].strip(), scope=translate_scope(eventRow[4]))
+            event, created = Event.objects.get_or_create(id=index+1, date=date, title=eventRow[2].strip(), scope=translate_scope(eventRow[3]))
             topics_list = []
-            for x in eventRow[8::]:
+            for x in eventRow[4::]:
                 if x:
                     stored_topic, created = Topic.objects.get_or_create(title=x)
                     topic_counter += 1
                     topics_list.append(stored_topic)
-            # print(f"topics_list:{topics_list}")
             event.topics.clear()
             event.topics.set(topics_list)
             topics_list.clear()
 
             title: str = event.title
-            # print(f"--- {event} --- ")
             content_list = []
             try:
                 for content in map[title]:
-                # print(content)
-                    if content[7] and "http" in content[7]:
-                        stored_content,created  = Content.objects.get_or_create(id=content_id, title=content[5], type=translate_content_type(content[6]) , link=content[7])
-                        content_id+=1
+                    if content["link"] and "http" in content["link"]:
+                        stored_content,created  = Content.objects.get_or_create(id=content["id"], title=content["title"], type=content["type"] , link=content["link"])
                         content_list.append(stored_content)
-            # print(f"content_list:{content_list}")
             except KeyError: 
                 keyErrors.append(title)
-            #    print(f"KeyError f{content}")
             event.content.clear()
             event.content.set(content_list)
             content_list.clear()
