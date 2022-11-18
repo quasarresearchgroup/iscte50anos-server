@@ -6,7 +6,7 @@ from content.models import Content
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=500)
     topics = models.ManyToManyField(Topic, related_name='events')
     content = models.ManyToManyField(Content, related_name='events')
 

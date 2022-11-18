@@ -3,10 +3,10 @@ from topics.models import Topic
 
 
 class Content(models.Model):
-    title = models.CharField(max_length=300)
-    link = models.CharField(max_length=300, blank=True)
+    title = models.CharField(max_length=500)
+    link = models.CharField(max_length=500, blank=True)
     topics = models.ManyToManyField(Topic, related_name='content')
-    validated = models.BooleanField(null = False , default=False)
+    validated = models.BooleanField(null=False, default=False)
     # date = models.DateField(null=True, blank=True)
 
     type = models.CharField(
