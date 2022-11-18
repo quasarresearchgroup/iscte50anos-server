@@ -69,11 +69,27 @@ def import_contents():
         content_reader = csv.reader(csvfile, delimiter="\t")
         header = next(content_reader)
         for index, row in enumerate(content_reader):
+            title = ""
+            try:
+                title = row[5]
+            except:
+                title = ""
+            content_type = ""
+            try:
+                content_type = translate_content_type(row[6])
+            except:
+                content_type = ""
+            link = ""
+            try:
+                link = row[7]
+            except:
+                link = ""
+
             mapEntry = {}
             mapEntry["id"] = index + 1
-            mapEntry["title"] = row[5]
-            mapEntry["type"] = translate_content_type(row[6])
-            mapEntry["link"] = row[7]
+            mapEntry["title"] = title
+            mapEntry["type"] = content_type
+            mapEntry["link"] = link
             contents_map[row[2].strip()].append(mapEntry)
     print(f"length of contents map: {len(contents_map)}")
     dictMap = dict(contents_map)
@@ -119,7 +135,7 @@ def create_events(map:dict):
             event.content.set(content_list)
             content_list.clear()
             
-            #sprint("",end="\r")
+            #print("",end="\r")
             print(" " * len(last_progress_str), end='\r')
             progress:str = f"{round(index/timeline_record_length,4)*100}%"
             last_progress_str = progress
