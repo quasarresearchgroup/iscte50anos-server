@@ -118,11 +118,12 @@ def create_events(map:dict):
             event.content.clear()
             event.content.set(content_list)
             content_list.clear()
-
+            
+            #sprint("",end="\r")
             print(" " * len(last_progress_str), end='\r')
             progress:str = f"{round(index/timeline_record_length,4)*100}%"
             last_progress_str = progress
-            print(progress ,end="\r" )
+            print(progress , end="\r")
         return keyErrors
 
 
