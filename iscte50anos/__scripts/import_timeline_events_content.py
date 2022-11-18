@@ -69,6 +69,11 @@ def import_contents():
         content_reader = csv.reader(csvfile, delimiter="\t")
         header = next(content_reader)
         for index, row in enumerate(content_reader):
+            validated = False
+            try:
+                validated = row[4] == "sim"
+            except:
+                validated = False
             title = ""
             try:
                 title = row[5]
@@ -87,6 +92,7 @@ def import_contents():
 
             mapEntry = {}
             mapEntry["id"] = index + 1
+            mapEntry["validated"] = validated
             mapEntry["title"] = title
             mapEntry["type"] = content_type
             mapEntry["link"] = link
@@ -127,7 +133,13 @@ def create_events(map:dict):
             try:
                 for content in map[title]:
                     if content["link"] and "http" in content["link"]:
-                        stored_content,created  = Content.objects.get_or_create(id=content["id"], title=content["title"], type=content["type"] , link=content["link"])
+                        stored_content,created  = Content.objects.get_or_create(
+                            id=content["id"],
+                            title=content["title"],
+                            type=content["type"] ,
+                            link=content["link"],
+                            validated = content["validated"]
+                            )
                         content_list.append(stored_content)
             except KeyError: 
                 keyErrors.append(title)
