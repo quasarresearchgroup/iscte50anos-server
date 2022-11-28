@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'content',
     'events',
     'spots',
+    'feedback',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

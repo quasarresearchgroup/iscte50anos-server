@@ -12,6 +12,8 @@ class Event(models.Model):
 
     date = models.DateField(null=True, blank=True)
 
+    #num_content = models.IntegerField(default=0)
+
     scope = models.CharField(
         max_length=12,
         choices=(

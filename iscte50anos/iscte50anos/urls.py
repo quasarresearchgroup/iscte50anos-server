@@ -24,6 +24,7 @@ apipatterns = [
     path('events/', include('events.urls')),
     path('users/', include('users.urls')),
     path('spots/', include('spots.urls')),
+    path('feedback/', include('feedback.urls')),
 ]
 
 urlpatterns = [
