@@ -27,8 +27,8 @@ class Event(models.Model):
     def __str__(self):
         return f'{self.id} - {self.date} - {self.title} - {self.scope}'
 
-    def num_content(self):
-        return self.content.all().count()
+    '''def num_content(self):
+        return self.content.all().count()'''
 
     class Meta:
         ordering = ['date']
