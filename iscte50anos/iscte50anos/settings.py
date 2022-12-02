@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'events',
     'spots',
     'feedback',
+    'log',
 ]
 
 MIDDLEWARE = [

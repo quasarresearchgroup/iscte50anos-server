@@ -13,10 +13,12 @@ from events.serializers import EventSerializer
 from content.serializers import ContentSerializer
 from topics.serializers import TopicSerializer
 
+from _controllers.log_controller import save_log
 
 
 @api_view()
 def get_all_events(request):
+    save_log(request)
     topics = request.query_params.getlist("topic")
     scopes = request.query_params.getlist("scope")
     if topics and scopes:
@@ -35,6 +37,7 @@ def get_all_events(request):
 
 @api_view()
 def get_event(request, event_id: int):
+    save_log(request)
     event = Event.objects.filter(id=event_id)
     event = event.annotate(num_content=Count("content"))[0]
     serializer = EventSerializer(event, many=False)
@@ -42,6 +45,7 @@ def get_event(request, event_id: int):
 
 @api_view()
 def get_event_of_year(request, year: int):
+    save_log(request)
     event = Event.objects.filter(date__year=year)
     event = event.annotate(num_content=Count("content"))
     serializer = EventSerializer(event, many=True)
@@ -49,12 +53,14 @@ def get_event_of_year(request, year: int):
     
 @api_view()
 def get_event_contents(request, event_id):
+    save_log(request)
     contents = Event.objects.get(id=event_id).content.all()
     serializer = ContentSerializer(contents, many=True)
     return Response(data=serializer.data)
 
 @api_view()
 def get_event_topics(request, event_id):
+    save_log(request)
     topics = Event.objects.get(id=event_id).topics.all()
     serializer = TopicSerializer(topics, many=True)
     return Response(data=serializer.data)
