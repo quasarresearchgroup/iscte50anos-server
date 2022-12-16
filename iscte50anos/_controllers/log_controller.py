@@ -9,5 +9,5 @@ from log.models import AccessLog
 
 def save_log(request):
     origin_ip = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('HTTP_X_REAL_IP', 'NA'))
-    link = request.build_absolute_uri()
+    link = request.path
     AccessLog.objects.create(origin_ip=origin_ip, link=link)
