@@ -28,9 +28,9 @@ except KeyError as e:
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["194.210.120.48", "194.210.120.193"]
+ALLOWED_HOSTS = ["194.210.120.48", "194.210.120.193", "isctespots.iscte-iul.pt"]
 
-CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48', 'https://194.210.120.193']
+CSRF_TRUSTED_ORIGINS = ['https://194.210.120.48', 'https://194.210.120.193', 'https://isctespots.iscte-iul.pt']
 
 # CORS
 
