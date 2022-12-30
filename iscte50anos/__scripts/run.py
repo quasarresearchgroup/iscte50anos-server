@@ -11,6 +11,7 @@ while True:
     print("3: Delete Logs")
     print("4: Create Levels")
     print("5: Delete Quiz Data")
+    print("6: Check Broken Content Links")
     script = int(input())
     if script == 1:
         if sure_prompt():
@@ -24,5 +25,7 @@ while True:
     elif script == 4:
         if sure_prompt():
             from __scripts import create_levels
-    else:
-        exit(0)
+    elif script == 6:
+        if sure_prompt():
+            from __scripts import check_broken_content_links
+    exit(0)
