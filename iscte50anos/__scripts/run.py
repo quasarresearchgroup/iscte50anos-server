@@ -12,6 +12,7 @@ while True:
     print("4: Create Levels")
     print("5: Delete Quiz Data")
     print("6: Check Broken Content Links")
+    print("7: Export Quiz Questions")
     script = int(input())
     if script == 1:
         if sure_prompt():
@@ -28,4 +29,8 @@ while True:
     elif script == 6:
         if sure_prompt():
             from __scripts import check_broken_content_links
+    elif script == 6:
+        if sure_prompt():
+            from __scripts import export_quiz_questions
+
     exit(0)
