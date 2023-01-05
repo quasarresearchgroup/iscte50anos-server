@@ -21,8 +21,8 @@ from pathlib import Path
 from content.models import Content
 from topics.models import Topic
 
-p_eventos= Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - EVENTOS.tsv'
-p_contents = Path(__file__).parent / 'files' / 'Cronologia Cinquentenário.xlsx - FONTES.tsv'
+p_eventos= Path(__file__).parent / 'files' / 'Cronologia Cinquentenário - ACONTECIMENTOS.tsv'
+p_contents = Path(__file__).parent / 'files' / 'Cronologia Cinquentenário - FONTES E IMAGENS.tsv'
 
 
 def translate_scope(scope):
@@ -60,6 +60,9 @@ def translate_content_type(scope):
 # # entrevista
 #     if scope == "entrevista":
 #         return "interview"
+# # fonte
+#     if scope == "fonte":
+#         return "source"
     else:
         return "web_page"
 
@@ -76,27 +79,27 @@ def import_contents():
                 validated = False
             title = ""
             try:
-                title = row[5]
+                title = row[6]
             except:
                 title = ""
             content_type = ""
             try:
-                content_type = translate_content_type(row[6])
+                content_type = translate_content_type(row[8])
             except:
                 content_type = ""
             link = ""
             try:
-                link = row[7]
+                link = row[9]
             except:
                 link = ""
 
-            mapEntry = {}
-            mapEntry["id"] = index + 1
-            mapEntry["validated"] = validated
-            mapEntry["title"] = title
-            mapEntry["type"] = content_type
-            mapEntry["link"] = link
-            contents_map[row[2].strip()].append(mapEntry)
+            mapContentEntry = {}
+            mapContentEntry["id"] = index + 1
+            mapContentEntry["validated"] = validated
+            mapContentEntry["title"] = title
+            mapContentEntry["type"] = content_type
+            mapContentEntry["link"] = link
+            contents_map[row[2].strip()].append(mapContentEntry)
     print(f"length of contents map: {len(contents_map)}")
     dictMap = dict(contents_map)
     return dictMap
@@ -116,14 +119,25 @@ def create_events(map:dict):
         header = next(timeline_reader)
         last_progress_str:str=""
         for index,eventRow in enumerate(timeline_reader):
-            date = datetime.strptime(eventRow[0], '%Y-%m-%d')
-            event, created = Event.objects.get_or_create(id=index+1, date=date, title=eventRow[2].strip(), scope=translate_scope(eventRow[3]))
+            date = datetime.strptime(eventRow[1], '%Y-%m-%d')
+            title=eventRow[2].strip()
+            scope=translate_scope(eventRow[3])
+            event, created = Event.objects.get_or_create(
+                id=index+1,
+                date=date,
+                title=title,
+                scope=scope
+                )
             topics_list = []
-            for x in eventRow[4::]:
+            for x in eventRow[6::]:
                 if x:
-                    stored_topic, created = Topic.objects.get_or_create(title=x)
-                    topic_counter += 1
-                    topics_list.append(stored_topic)
+                    try:
+                        stored_topic, created = Topic.objects.get_or_create(title=x)
+                        topic_counter += 1
+                        topics_list.append(stored_topic)
+                    except:
+                        print( "If there is more than 1 topic in the following list, one of them must be deleted -" , Topic.objects.filter(title=x))
+
             event.topics.clear()
             event.topics.set(topics_list)
             topics_list.clear()
@@ -154,6 +168,10 @@ def create_events(map:dict):
             print(progress , end="\r")
         return keyErrors
 
+counts = {"before":{},"after":{}}
+counts["before"]["events"] = Event.objects.all().count()
+counts["before"]["content"] = Content.objects.all().count()
+counts["before"]["topic"] = Topic.objects.all().count()
 
 contents_map = import_contents()
 # print(f"number of contents: {len(Content.objects.all())}")
@@ -166,3 +184,9 @@ keyErrors = create_events(map=contents_map)
 print(*keyErrors,sep = "\n")
 print(f"{len(keyErrors)} event key errors")
 print("completed imports")
+
+counts["after"]["events"] = Event.objects.all().count()
+counts["after"]["content"] = Content.objects.all().count()
+counts["after"]["topic"] = Topic.objects.all().count()
+
+print("Please Confirm if the number of events, contents and topics makes sense:\n",counts)

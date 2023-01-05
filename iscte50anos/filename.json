@@ -67,11 +67,11 @@
             "https://dre.pt/dre/detalhe/deliberacao/1567-2013-1496430"
         ]
     ],
-    "Maria de Lurdes Rodrigues, reitora, segundo mandato": [
+    "Maria de Lurdes Rodrigues reeleita reitora": [
         [
-            "ERRO NO EVENTO!",
-            "Maria de Lurdes Rodrigues, reitora, segundo mandato",
-            "ERRO NO EVENTO!",
+            "2022-03-08",
+            "Maria de Lurdes Rodrigues reeleita reitora",
+            "Iscte",
             "",
             "",
             ""
@@ -117,10 +117,10 @@
             "https://www.youtube.com/watch?v=V9KDF4kVd4s"
         ]
     ],
-    "Jos\u00e9 Ant\u00f3nio Pinto Ribeiro presidente do Conselho de Curadores": [
+    "Jos\u00e9 Ant\u00f3nio Pinto Ribeiro eleito presidente do Conselho de Curadores": [
         [
             "2021-12-07",
-            "Jos\u00e9 Ant\u00f3nio Pinto Ribeiro presidente do Conselho de Curadores",
+            "Jos\u00e9 Ant\u00f3nio Pinto Ribeiro eleito presidente do Conselho de Curadores",
             "Iscte",
             "",
             "",
@@ -267,10 +267,10 @@
             "https://eurocid.mne.gov.pt/saida-do-reino-unido-da-ue"
         ]
     ],
-    "Laborat\u00f3rio associado Sociodigital Lab for Public Policy": [
+    "Criado o Sociodigital Lab for Public Policy, agregando seis unidades de investiga\u00e7\u00e3o do Iscte": [
         [
             "2021-01-01",
-            "Laborat\u00f3rio associado Sociodigital Lab for Public Policy",
+            "Criado o Sociodigital Lab for Public Policy, agregando seis unidades de investiga\u00e7\u00e3o do Iscte",
             "Iscte",
             "",
             "imagem",
@@ -295,16 +295,6 @@
             "",
             "",
             ""
-        ]
-    ],
-    "Atribu\u00edda a Ordem da Instru\u00e7\u00e3o P\u00fablica": [
-        [
-            "2020-12-15",
-            "Atribu\u00edda a Ordem da Instru\u00e7\u00e3o P\u00fablica",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52015163643/in/album-72177720298221622/"
         ]
     ],
     "Honoris causa atribu\u00eddo a Ant\u00f3nio Correira de Campos": [
@@ -337,14 +327,24 @@
             "https://www.flickr.com/photos/iscteiul/52014087177/in/album-72177720298221622/"
         ]
     ],
+    "Presidente da Rep\u00fablica distingue Iscte com a Ordem da Instru\u00e7\u00e3o P\u00fablica": [
+        [
+            "2020-12-15",
+            "Presidente da Rep\u00fablica distingue Iscte com a Ordem da Instru\u00e7\u00e3o P\u00fablica",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52015163643/in/album-72177720298221622/"
+        ]
+    ],
     "A\u00e7ores: primeiro governo regional de coliga\u00e7\u00e3o": [
         [
             "2020-11-24",
             "A\u00e7ores: primeiro governo regional de coliga\u00e7\u00e3o",
             "Nacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://www.dnoticias.pt/2020/12/19/243470-eleicoes-nos-acores-resultaram-numa-geringonca-regional-a-direita/"
         ]
     ],
     "Matricula-se estudante n\u00ba 100000": [
@@ -363,8 +363,8 @@
             "Observat\u00f3rio do Emprego Jovem (Ref\u00aa. UIDP/0317/2020)",
             "Nacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://obsempregojovem.com/"
         ]
     ],
     "N\u00famero de discentes: 11214": [
@@ -403,8 +403,8 @@
             "16th EASA Biennial Conference. Virtual Lisbon Conference",
             "Internacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://easaonline.org/conferences/easa2020/"
         ]
     ],
     "Jo\u00e3o Le\u00e3o ministro de Estado e das Finan\u00e7as": [
@@ -413,8 +413,8 @@
             "Jo\u00e3o Le\u00e3o ministro de Estado e das Finan\u00e7as",
             "Nacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://www.portugal.gov.pt/pt/gc22/area-de-governo/financas/ministro"
         ]
     ],
     "Devido ao confinamento inicia-se ensino n\u00e3o presencial e o teletrabalho": [
@@ -433,8 +433,8 @@
             "OMS declara pandemia do Covid19",
             "Internacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://news.un.org/pt/story/2020/03/1706881"
         ]
     ],
     "Alumni Clube Iscte, redenomina\u00e7\u00e3o de Associa\u00e7\u00e3o de Antigos Alunos do ISCTE": [
@@ -464,13 +464,13 @@
             "Internacional",
             "",
             "",
-            ""
+            "??????????????"
         ]
     ],
-    "Revista EntreCampus (ISSN 2184-6545)": [
+    "Criada a revista EntreCampus (ISSN 2184-6545)": [
         [
             "2019-12-15",
-            "Revista EntreCampus (ISSN 2184-6545)",
+            "Criada a revista EntreCampus (ISSN 2184-6545)",
             "Iscte",
             "",
             "imagem",
@@ -560,9 +560,9 @@
             "2019-09-23",
             "Apelo de Greta Thurnberg na Cimeira de A\u00e7\u00e3o Clim\u00e1tica, ONU, Nova Iorque",
             "Internacional",
-            "",
-            "",
-            ""
+            "Discurso de Greta Thunberg",
+            "video",
+            "https://www.youtube.com/watch?v=mbnRv81s_9Q"
         ]
     ],
     "Homologa\u00e7\u00e3o do Relat\u00f3rio de Atividades e de Gest\u00e3o (fonte RIAG2018): Or\u00e7amento 45 M\u20ac": [
@@ -620,9 +620,9 @@
             "2019-04-15",
             "Inc\u00eandio na Catedral Notre-Dame, Paris",
             "Internacional",
-            "",
-            "",
-            ""
+            "Imagens do inc\u00eandio de Notre-Dame",
+            "video",
+            "https://www.youtube.com/watch?v=y0ua-inMOjY"
         ]
     ],
     "Maria Jo\u00e3o Cortinhal diretora da Escola de Gest\u00e3o (IBS)": [
@@ -645,10 +645,10 @@
             ""
         ]
     ],
-    "Joana Alexandre presidente do Conselho Pedag\u00f3gico": [
+    "Joana Alexandre eleita presidente do Conselho Pedag\u00f3gico": [
         [
             "2019-03-25",
-            "Joana Alexandre presidente do Conselho Pedag\u00f3gico",
+            "Joana Alexandre eleita presidente do Conselho Pedag\u00f3gico",
             "Iscte",
             "",
             "",
@@ -665,20 +665,10 @@
             "https://www.flickr.com/photos/iscteiul/52015163818/in/album-72177720298221622/"
         ]
     ],
-    "Carlos S\u00e1 da Costa diretor da Escola de tecnologias e arquitetura (ISTA)": [
-        [
-            "2018-11-23",
-            "Carlos S\u00e1 da Costa diretor da Escola de tecnologias e arquitetura (ISTA)",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52015115531/in/album-72177720298221622/"
-        ]
-    ],
-    "Lu\u00edsa Lima presidente do Conselho Cient\u00edfico": [
+    "Lu\u00edsa Lima eleita presidente do Conselho Cient\u00edfico": [
         [
             "2019-02-25",
-            "Lu\u00edsa Lima presidente do Conselho Cient\u00edfico",
+            "Lu\u00edsa Lima eleita presidente do Conselho Cient\u00edfico",
             "Iscte",
             "",
             "",
@@ -695,10 +685,10 @@
             ""
         ]
     ],
-    "Jos\u00e9 Crespo de Carvalho presidente do INDEG-ISCTE": [
+    "Jos\u00e9 Crespo de Carvalho eleito presidente do INDEG-ISCTE": [
         [
             "2019-01-03",
-            "Jos\u00e9 Crespo de Carvalho presidente do INDEG-ISCTE",
+            "Jos\u00e9 Crespo de Carvalho eleito presidente do INDEG-ISCTE",
             "Iscte",
             "",
             "",
@@ -721,8 +711,18 @@
             "Observat\u00f3rio portugu\u00eas das atividades culturais",
             "Nacional",
             "",
+            "pagina_web",
+            "https://www.opac.cies.iscte-iul.pt/"
+        ]
+    ],
+    "Carlos S\u00e1 da Costa diretor da Escola de tecnologias e arquitetura (ISTA)": [
+        [
+            "2018-11-23",
+            "Carlos S\u00e1 da Costa diretor da Escola de tecnologias e arquitetura (ISTA)",
+            "Iscte",
             "",
-            ""
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52015115531/in/album-72177720298221622/"
         ]
     ],
     "Jos\u00e9 Manuel Rebelo Provedor do estudante": [
@@ -779,26 +779,8 @@
             "Ci\u00eanciaVitae Sistema nacional de gest\u00e3o curricular de ci\u00eancia. https://cienciavitae.pt",
             "Nacional",
             "",
-            "",
-            ""
-        ]
-    ],
-    "IULCOME: rece\u00e7\u00e3o aos novos estudantes": [
-        [
-            "2014-09-11",
-            "IULCOME: rece\u00e7\u00e3o aos novos estudantes",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52015163933/in/album-72177720298221622/"
-        ],
-        [
-            "2014-09-11",
-            "IULCOME: rece\u00e7\u00e3o aos novos estudantes",
-            "Iscte",
-            "",
-            "",
-            "https://www.flickr.com/photos/iscteiul/52015365519/in/album-72177720298221622/"
+            "pagina_web",
+            "https://www.cienciavitae.pt/"
         ]
     ],
     "Obten\u00e7\u00e3o da Acredita\u00e7\u00e3o Institucional pela A3ES (6 anos)": [
@@ -887,8 +869,8 @@
             "Fogos florestais na zona centro causam 48 mortos",
             "Nacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=laP58FnQNmo"
         ]
     ],
     "N\u00famero de discentes: 10620": [
@@ -901,10 +883,10 @@
             ""
         ]
     ],
-    "J\u00falio Pedrosa presidente do Conselho Geral": [
+    "J\u00falio Pedrosa eleito presidente do Conselho Geral": [
         [
             "2017-09-08",
-            "J\u00falio Pedrosa presidente do Conselho Geral",
+            "J\u00falio Pedrosa eleito presidente do Conselho Geral",
             "Iscte",
             "",
             "",
@@ -917,8 +899,8 @@
             "Fogos florestais em Pedr\u00f3g\u00e3o Grande causam 66 mortos",
             "Nacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=onQ0PssENGQ"
         ]
     ],
     "Salvador Sobral vence o Festival Eurovis\u00e3o da Can\u00e7\u00e3o": [
@@ -927,8 +909,8 @@
             "Salvador Sobral vence o Festival Eurovis\u00e3o da Can\u00e7\u00e3o",
             "Nacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=z5VUti3kVIo"
         ]
     ],
     "Homologa\u00e7\u00e3o do Relat\u00f3rio de Atividades  (fonte RA2016): Or\u00e7amento 42 M\u20ac": [
@@ -941,10 +923,10 @@
             ""
         ]
     ],
-    "Fernando Batista presidente do Conselho Pedag\u00f3gico": [
+    "Fernando Batista eleito presidente do Conselho Pedag\u00f3gico": [
         [
             "2017-03-17",
-            "Fernando Batista presidente do Conselho Pedag\u00f3gico",
+            "Fernando Batista eleito presidente do Conselho Pedag\u00f3gico",
             "Iscte",
             "",
             "imagem",
@@ -981,14 +963,14 @@
             "colocar foto e evento na linha 97"
         ]
     ],
-    "Relat\u00f3rio final \"A praxe como fen\u00f3meno social\" da DGES. https://www.dges.gov.pt/sites/default/files/naipa/a_praxe_como_fenomeno_social.pdf": [
+    "Relat\u00f3rio final \"A praxe como fen\u00f3meno social\" da DGES": [
         [
             "2017-01-31",
-            "Relat\u00f3rio final \"A praxe como fen\u00f3meno social\" da DGES. https://www.dges.gov.pt/sites/default/files/naipa/a_praxe_como_fenomeno_social.pdf",
+            "Relat\u00f3rio final \"A praxe como fen\u00f3meno social\" da DGES",
             "Nacional",
             "",
-            "",
-            ""
+            "documento",
+            "https://www.dges.gov.pt/sites/default/files/naipa/a_praxe_como_fenomeno_social.pdf"
         ]
     ],
     "C\u00f3digo de Conduta Acad\u00e9mica (pl\u00e1gio)": [
@@ -1015,8 +997,8 @@
             "M\u00e1rio Soares, 1924-2017",
             "Nacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=z0keKn-YJRk"
         ]
     ],
     "Ant\u00f3nio Guterres eleito secret\u00e1rio-geral da ONU": [
@@ -1053,8 +1035,8 @@
             "Col\u00f4mbia: acordo de paz entre o governo e as FARC",
             "Internacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=KMMybg-tyj4"
         ]
     ],
     "N\u00famero de discentes: 10488": [
@@ -1113,8 +1095,8 @@
             "Portugal sagra-se campe\u00e3o europeu de futebol",
             "Internacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=701Ikg2VvUg"
         ]
     ],
     "Homologa\u00e7\u00e3o do Relat\u00f3rio de Atividades  (fonte RA2015): Or\u00e7amento 38,5 M\u20ac": [
@@ -1153,14 +1135,14 @@
             "Resolu\u00e7\u00e3o da AR n\u00ba 38/2016. Refor\u00e7o de medidas sobre a praxe acad\u00e9mica",
             "Nacional",
             "",
-            "",
-            ""
+            "documento",
+            "https://files.dre.pt/1s/2016/02/04000/0063000630.pdf"
         ]
     ],
-    "Revista de Gest\u00e3o dos Pa\u00edses de L\u00edngua Portuguesa vol. 15, n\u00ba1, sucede a Revista Portuguesa e Brasileira de Gest\u00e3o": [
+    "Criada a Revista de Gest\u00e3o dos Pa\u00edses de L\u00edngua Portuguesa, vol. 15, n\u00ba1, sucede a Revista Portuguesa e Brasileira de Gest\u00e3o": [
         [
             "2016-01-21",
-            "Revista de Gest\u00e3o dos Pa\u00edses de L\u00edngua Portuguesa vol. 15, n\u00ba1, sucede a Revista Portuguesa e Brasileira de Gest\u00e3o",
+            "Criada a Revista de Gest\u00e3o dos Pa\u00edses de L\u00edngua Portuguesa, vol. 15, n\u00ba1, sucede a Revista Portuguesa e Brasileira de Gest\u00e3o",
             "Iscte",
             "",
             "",
@@ -1174,7 +1156,7 @@
             "Nacional",
             "",
             "",
-            ""
+            "?????????????????????"
         ]
     ],
     "Clube ISCTE institui o mural solid\u00e1rio": [
@@ -1193,8 +1175,8 @@
             "Acordo de Paris",
             "Internacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/results?search_query=acordo+paris"
         ]
     ],
     "Cimeira sobre as altera\u00e7\u00f5es clim\u00e1ticas (COP21), Paris": [
@@ -1207,10 +1189,10 @@
             ""
         ]
     ],
-    "Eduardo Ferro Rodrigues 14\u00ba Presidente da Assembleia da Rep\u00fablica": [
+    "Eduardo Ferro Rodrigues eleito 14\u00ba Presidente da Assembleia da Rep\u00fablica": [
         [
             "2015-10-23",
-            "Eduardo Ferro Rodrigues 14\u00ba Presidente da Assembleia da Rep\u00fablica ",
+            "Eduardo Ferro Rodrigues eleito 14\u00ba Presidente da Assembleia da Rep\u00fablica",
             "Nacional",
             "",
             "",
@@ -1403,6 +1385,24 @@
             ""
         ]
     ],
+    "IULCOME: rece\u00e7\u00e3o aos novos estudantes": [
+        [
+            "2014-09-11",
+            "IULCOME: rece\u00e7\u00e3o aos novos estudantes",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52015163933/in/album-72177720298221622/"
+        ],
+        [
+            "2014-09-11",
+            "IULCOME: rece\u00e7\u00e3o aos novos estudantes",
+            "Iscte",
+            "",
+            "",
+            "https://www.flickr.com/photos/iscteiul/52015365519/in/album-72177720298221622/"
+        ]
+    ],
     "Inscri\u00e7\u00f5es on-line do 3\u00ba ciclo": [
         [
             "2014-09-01",
@@ -1507,11 +1507,11 @@
             ""
         ]
     ],
-    "Jos\u00e9 Rebelo eleito presidente do Conselho Cientifico": [
+    "Jos\u00e9 Manuel Rebelo eleito presidente do Conselho Cientifico": [
         [
-            "ERRO NO EVENTO!",
-            "Jos\u00e9 Rebelo eleito presidente do Conselho Cientifico",
-            "ERRO NO EVENTO!",
+            "2013-10-08",
+            "Jos\u00e9 Manuel Rebelo eleito presidente do Conselho Cientifico",
+            "Iscte",
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/52014087342/in/album-72177720298221622/"
@@ -1587,11 +1587,11 @@
             ""
         ]
     ],
-    "Jos\u00e9 Lu\u00eds Possolo de Saldanha eleito presidente do Conselho Pedag\u00f3gico": [
+    "Jos\u00e9 Lu\u00eds Saldanha eleito presidente do Conselho Pedag\u00f3gico": [
         [
-            "ERRO NO EVENTO!",
-            "Jos\u00e9 Lu\u00eds Possolo de Saldanha eleito presidente do Conselho Pedag\u00f3gico",
-            "ERRO NO EVENTO!",
+            "2013-02-07",
+            "Jos\u00e9 Lu\u00eds Saldanha eleito presidente do Conselho Pedag\u00f3gico",
+            "Iscte",
             "",
             "",
             ""
@@ -1607,16 +1607,6 @@
             "https://www.flickr.com/photos/iscteiul/52014086702/in/album-72177720298221622/"
         ]
     ],
-    "Medalha dos 40 anos": [
-        [
-            "2012-12-15",
-            "Medalha dos 40 anos",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52014086972/in/album-72177720298221622/"
-        ]
-    ],
     "Comemora\u00e7\u00e3o dos 40 anos": [
         [
             "2012-12-15",
@@ -1625,6 +1615,16 @@
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/52015631825/in/album-72177720298221622/"
+        ]
+    ],
+    "Medalha dos 40 anos": [
+        [
+            "2012-12-15",
+            "Medalha dos 40 anos",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52014086972/in/album-72177720298221622/"
         ]
     ],
     "Victor Franco eleito presidente do Conselho Cient\u00edfico": [
@@ -1659,10 +1659,10 @@
     ],
     "Departamento de M\u00e9todos Quantitativos para Gest\u00e3o e Economia. Redenomina\u00e7\u00e3o do departamento de M\u00e9todos Quantitativos": [
         [
-            "ERRO NO EVENTO!",
+            "2012-10-12",
             "Departamento de M\u00e9todos Quantitativos para Gest\u00e3o e Economia. Redenomina\u00e7\u00e3o do departamento de M\u00e9todos Quantitativos",
-            "ERRO NO EVENTO!",
-            "",
+            "Iscte",
+            "Delibera\u00e7\u00e3o 1530/2012-DR 212/2012 de 31de Outubro",
             "pagina_web",
             "https://dre.pt/dre/detalhe/deliberacao/1530-2012-3282333"
         ]
@@ -1677,34 +1677,24 @@
             "https://www.flickr.com/photos/iscteiul/52014087652/in/album-72177720298221622/"
         ]
     ],
-    "N\u00famero de discentes: 10074": [
+    "N\u00famero de discentes: 10043": [
         [
             "2012-09-30",
-            "N\u00famero de discentes: 10074",
+            "N\u00famero de discentes: 10043",
             "Iscte",
             "",
             "",
             ""
         ]
     ],
-    "Manifesta\u00e7\u00e3o popular \"Que se lixe a Troika!\"; http://queselixeatroika15setembro.blogspot.com": [
+    "Manifesta\u00e7\u00e3o popular \"Que se lixe a Troika!\"": [
         [
             "2012-09-15",
-            "Manifesta\u00e7\u00e3o popular \"Que se lixe a Troika!\"; http://queselixeatroika15setembro.blogspot.com",
+            "Manifesta\u00e7\u00e3o popular \"Que se lixe a Troika!\"",
             "Nacional",
             "",
             "",
-            ""
-        ]
-    ],
-    "falta a entrada da 173 (sem foto)": [
-        [
-            "ERRO NO EVENTO!",
-            "falta a entrada da 173 (sem foto)",
-            "ERRO NO EVENTO!",
-            "",
-            "",
-            ""
+            "http://queselixeatroika15setembro.blogspot.com"
         ]
     ],
     "Honoris Causa atribu\u00eddo a Fernando Henrique Cardoso": [
@@ -1827,16 +1817,6 @@
             "https://docs.google.com/spreadsheets/d/1F8EqvOH6lH-XNWWUpkc7COcQitjm7KQQ/edit#gid=1583501620"
         ]
     ],
-    "Regulamento da Comiss\u00e3o de \u00c9tica": [
-        [
-            "2011-04-15",
-            "Regulamento da Comiss\u00e3o de \u00c9tica",
-            "Iscte",
-            "",
-            "pagina_web",
-            "https://dre.pt/dre/detalhe/despacho/7095-2011-3544320"
-        ]
-    ],
     "\u00c9tica na Investiga\u00e7\u00e3o Melhores pr\u00e1ticas, melhor Ci\u00eancia (2016)": [
         [
             "2011-04-15",
@@ -1853,6 +1833,16 @@
             "",
             "pagina_web",
             "https://www.iscte-iul.pt/assets/files/2019/10/30/1572448056118_C_digo_de_Conduta__tica_na_Investiga__o_ISCTE.pdf"
+        ]
+    ],
+    "Regulamento da Comiss\u00e3o de \u00c9tica": [
+        [
+            "2011-04-15",
+            "Regulamento da Comiss\u00e3o de \u00c9tica",
+            "Iscte",
+            "",
+            "pagina_web",
+            "https://dre.pt/dre/detalhe/despacho/7095-2011-3544320"
         ]
     ],
     "Instituto para as Pol\u00edticas P\u00fablicas e Sociais (IPPS- IUL)": [
@@ -1897,9 +1887,9 @@
     ],
     "Susana Fonseca eleita presidente do Conselho Pedag\u00f3gico": [
         [
-            "ERRO NO EVENTO!",
+            "2011-01-18",
             "Susana Fonseca eleita presidente do Conselho Pedag\u00f3gico",
-            "ERRO NO EVENTO!",
+            "Iscte",
             "",
             "",
             ""
@@ -2105,10 +2095,10 @@
             "colocar foto, linha oculta"
         ]
     ],
-    "Ant\u00f3nio Ramalho Eanes presidente do Conselho de Curadores": [
+    "Ant\u00f3nio Ramalho Eanes eleito presidente do Conselho de Curadores": [
         [
             "2009-11-13",
-            "Ant\u00f3nio Ramalho Eanes presidente do Conselho de Curadores",
+            "Ant\u00f3nio Ramalho Eanes eleito presidente do Conselho de Curadores",
             "Iscte",
             "",
             "",
@@ -2183,12 +2173,12 @@
             ""
         ]
     ],
-    "Passagem ao regime fundacional: ISCTE-IUL Instituto Universit\u00e1rio de Lisboa; Decreto lei n\u00ba 95/2009": [
+    "Passagem ao regime fundacional: ISCTE-IUL Instituto Universit\u00e1rio de Lisboa": [
         [
             "2009-04-27",
-            "Passagem ao regime fundacional: ISCTE-IUL Instituto Universit\u00e1rio de Lisboa; Decreto lei n\u00ba 95/2009",
+            "Passagem ao regime fundacional: ISCTE-IUL Instituto Universit\u00e1rio de Lisboa",
             "Iscte",
-            "",
+            "Decreto lei n\u00ba 95/2009 de 27 de Abril",
             "",
             ""
         ]
@@ -2353,21 +2343,21 @@
             ""
         ]
     ],
-    "Ag\u00eancia de Avalia\u00e7\u00e3o e Acredita\u00e7\u00e3o do Ensino Superior (A3ES); Decreto lei 369/2007": [
-        [
-            "2007-11-05",
-            "Ag\u00eancia de Avalia\u00e7\u00e3o e Acredita\u00e7\u00e3o do Ensino Superior (A3ES); Decreto lei 369/2007",
-            "Nacional",
-            "",
-            "",
-            ""
-        ]
-    ],
     "Gabinete de Qualidade; Decreto-Lei n.\u00ba 369/2007\u200b; Lei n.\u00ba 38/2007": [
         [
             "2007-11-05",
             "Gabinete de Qualidade; Decreto-Lei n.\u00ba 369/2007\u200b; Lei n.\u00ba 38/2007",
             "Iscte",
+            "",
+            "",
+            ""
+        ]
+    ],
+    "Ag\u00eancia de Avalia\u00e7\u00e3o e Acredita\u00e7\u00e3o do Ensino Superior (A3ES); Decreto lei 369/2007": [
+        [
+            "2007-11-05",
+            "Ag\u00eancia de Avalia\u00e7\u00e3o e Acredita\u00e7\u00e3o do Ensino Superior (A3ES); Decreto lei 369/2007",
+            "Nacional",
             "",
             "",
             ""
@@ -2441,16 +2431,6 @@
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/52263477545/in/album-72177720298218822/"
-        ]
-    ],
-    "Associa\u00e7\u00e3o dos antigos alunos do ISCTE (AAAISCTE)": [
-        [
-            "1996-01-01",
-            "Associa\u00e7\u00e3o dos antigos alunos do ISCTE (AAAISCTE)",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52013754065/in/album-72177720298200772/"
         ]
     ],
     "Departamento de Arquitetura e Urbanismo": [
@@ -2653,10 +2633,10 @@
             ""
         ]
     ],
-    "Ades\u00e3o ao CRUP": [
+    "Integra\u00e7\u00e3o no Conselho de Reitores da Universidades Portuguesas (CRUP)": [
         [
             "2005-06-03",
-            "Ades\u00e3o ao CRUP",
+            "Integra\u00e7\u00e3o no Conselho de Reitores da Universidades Portuguesas (CRUP)",
             "Iscte",
             "",
             "imagem",
@@ -2673,16 +2653,6 @@
             ""
         ]
     ],
-    "Lan\u00e7amento do Reposit\u00f3rio institucional": [
-        [
-            "2005-04-30",
-            "Lan\u00e7amento do Reposit\u00f3rio institucional",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52015377525/in/album-72177720298218822/"
-        ]
-    ],
     "Jorge Freitas Branco eleito presidente do Conselho Cient\u00edfico": [
         [
             "2005-04-30",
@@ -2691,6 +2661,16 @@
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/52263477575/in/album-72177720298218822/"
+        ]
+    ],
+    "Lan\u00e7amento do Reposit\u00f3rio institucional": [
+        [
+            "2005-04-30",
+            "Lan\u00e7amento do Reposit\u00f3rio institucional",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52015377525/in/album-72177720298218822/"
         ]
     ],
     "Jos\u00e9 Ant\u00f3nio Vieira da Silva ministro do Trabalho e da Solidariedade Social": [
@@ -2713,11 +2693,11 @@
             ""
         ]
     ],
-    "Lu\u00eds Antero Reto eleito presidente do ISCTE": [
+    "Lu\u00eds Antero Reto eleito presidente": [
         [
-            "ERRO NO EVENTO!",
-            "Lu\u00eds Antero Reto eleito presidente do ISCTE",
-            "ERRO NO EVENTO!",
+            "2005-02-28",
+            "Lu\u00eds Antero Reto eleito presidente ",
+            "Iscte",
             "",
             "",
             ""
@@ -2893,20 +2873,20 @@
             ""
         ]
     ],
-    "Edif\u00edcio II: Grande Audit\u00f3rio (497 lugares)": [
+    "Inaugura\u00e7\u00e3o do edif\u00edcio 2  (30.501 m2)": [
         [
             "2002-06-01",
-            "Edif\u00edcio II: Grande Audit\u00f3rio (497 lugares)",
+            "Inaugura\u00e7\u00e3o do edif\u00edcio 2  (30.501 m2)",
             "Iscte",
             "",
             "",
             ""
         ]
     ],
-    "Entrada em funcionamento edif\u00edcio 2  (30.501 m2)": [
+    "Edif\u00edcio II: Grande Audit\u00f3rio (497 lugares)": [
         [
             "2002-06-01",
-            "Entrada em funcionamento edif\u00edcio 2  (30.501 m2)",
+            "Edif\u00edcio II: Grande Audit\u00f3rio (497 lugares)",
             "Iscte",
             "",
             "",
@@ -2933,10 +2913,10 @@
             ""
         ]
     ],
-    "Revista Portuguesa e Brasileira de Gest\u00e3o (RPBG), vol. 1, n\u00ba 1 sucede \u00e0 Revista Portuguesa de Gest\u00e3o (RPG)": [
+    "Criada a Revista Portuguesa e Brasileira de Gest\u00e3o (RPBG), que sucede \u00e0 Revista Portuguesa de Gest\u00e3o (RPG)": [
         [
             "2002-04-01",
-            "Revista Portuguesa e Brasileira de Gest\u00e3o (RPBG), vol. 1, n\u00ba 1 sucede \u00e0 Revista Portuguesa de Gest\u00e3o (RPG)",
+            "Criada a Revista Portuguesa e Brasileira de Gest\u00e3o (RPBG), que sucede \u00e0 Revista Portuguesa de Gest\u00e3o (RPG)",
             "Iscte",
             "",
             "",
@@ -2973,10 +2953,10 @@
             ""
         ]
     ],
-    "Trajectos, Revista de Comunica\u00e7\u00e3o, Cultura e Educa\u00e7\u00e3o, n\u00ba. 1": [
+    "Criada a revista Trajectos, Revista de Comunica\u00e7\u00e3o, Cultura e Educa\u00e7\u00e3o": [
         [
             "2002-01-01",
-            "Trajectos, Revista de Comunica\u00e7\u00e3o, Cultura e Educa\u00e7\u00e3o, n\u00ba. 1",
+            "Criada a revista Trajectos, Revista de Comunica\u00e7\u00e3o, Cultura e Educa\u00e7\u00e3o",
             "Iscte",
             "",
             "",
@@ -3003,24 +2983,6 @@
             ""
         ]
     ],
-    "Eduardo Ferro Rodrigues ministro do Equipamento Social": [
-        [
-            "2001-03-10",
-            "Eduardo Ferro Rodrigues ministro do Equipamento Social",
-            "Iscte",
-            "",
-            "",
-            ""
-        ],
-        [
-            "2001-03-10",
-            "Eduardo Ferro Rodrigues ministro do Equipamento Social",
-            "Iscte",
-            "",
-            "",
-            ""
-        ]
-    ],
     "Cria\u00e7\u00e3o do grupo de teatro mISCuTEm": [
         [
             "2001-09-17",
@@ -3036,6 +2998,24 @@
             "2001-09-11",
             "Atentado ao World Trade Center, Nova Iorque",
             "Internacional",
+            "",
+            "",
+            ""
+        ]
+    ],
+    "Eduardo Ferro Rodrigues ministro do Equipamento Social": [
+        [
+            "2001-03-10",
+            "Eduardo Ferro Rodrigues ministro do Equipamento Social",
+            "Iscte",
+            "",
+            "",
+            ""
+        ],
+        [
+            "2001-03-10",
+            "Eduardo Ferro Rodrigues ministro do Equipamento Social",
+            "Iscte",
             "",
             "",
             ""
@@ -3073,16 +3053,16 @@
         [
             "2000-03-29",
             "Licenciatura em Marketing; Despacho n.\u00ba 6878/2000 - DR n.\u00ba 75/2000, S\u00e9rie 2 de 29 de Mar\u00e7o",
-            "",
+            "Iscte",
             "",
             "",
             ""
         ]
     ],
-    "Cidades, Comunidades e Territ\u00f3rios": [
+    "Criada a revista Cidades, Comunidades e Territ\u00f3rios": [
         [
             "2000-01-01",
-            "Cidades, Comunidades e Territ\u00f3rios",
+            "Criada a revista Cidades, Comunidades e Territ\u00f3rios",
             "Iscte",
             "",
             "imagem",
@@ -3094,24 +3074,6 @@
             "1999-12-20",
             "Transfer\u00eancia da soberania de Macau \u00e0 China",
             "Internacional",
-            "",
-            "",
-            ""
-        ]
-    ],
-    "Eduardo Ferro Rodrigues ministro do Trabalho e da Solidariedade": [
-        [
-            "1997-11-25",
-            "Eduardo Ferro Rodrigues ministro do Trabalho e da Solidariedade",
-            "Nacional",
-            "",
-            "",
-            ""
-        ],
-        [
-            "1997-11-25",
-            "Eduardo Ferro Rodrigues ministro do Trabalho e da Solidariedade",
-            "Nacional",
             "",
             "",
             ""
@@ -3341,14 +3303,22 @@
             "https://www.flickr.com/photos/iscteiul/52013754725/in/album-72177720298200772/"
         ]
     ],
-    "colocar nome evento": [
+    "Eduardo Ferro Rodrigues ministro do Trabalho e da Solidariedade": [
         [
-            "ERRO NO EVENTO!",
-            "colocar nome evento",
-            "ERRO NO EVENTO!",
+            "1997-11-25",
+            "Eduardo Ferro Rodrigues ministro do Trabalho e da Solidariedade",
+            "Nacional",
             "",
             "",
-            "colocar fotos"
+            ""
+        ],
+        [
+            "1997-11-25",
+            "Eduardo Ferro Rodrigues ministro do Trabalho e da Solidariedade",
+            "Nacional",
+            "",
+            "",
+            ""
         ]
     ],
     "Acordo de Schengen": [
@@ -3381,40 +3351,38 @@
             ""
         ]
     ],
-    "Lan\u00e7amento da revista Etnogr\u00e1fica": [
+    "Criada a revista Etnogr\u00e1fica": [
         [
-            "ERRO NO EVENTO!",
+            "1997-05-30",
+            "Criada a revista Etnogr\u00e1fica",
+            "Iscte",
             "Lan\u00e7amento da revista Etnogr\u00e1fica",
-            "ERRO NO EVENTO!",
-            "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/52013753900/in/album-72177720298200772/"
         ],
         [
-            "ERRO NO EVENTO!",
+            "1997-05-30",
+            "Criada a revista Etnogr\u00e1fica",
+            "Iscte",
             "Lan\u00e7amento da revista Etnogr\u00e1fica",
-            "ERRO NO EVENTO!",
-            "",
-            "",
+            "imagem",
             "https://www.flickr.com/photos/iscteiul/52013234696/in/album-72177720298200772/"
         ],
         [
-            "ERRO NO EVENTO!",
-            "Lan\u00e7amento da revista Etnogr\u00e1fica",
-            "ERRO NO EVENTO!",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/52013234716/in/album-72177720298200772/"
-        ]
-    ],
-    "Revista Etnogr\u00e1fica": [
-        [
             "1997-05-30",
-            "Revista Etnogr\u00e1fica",
+            "Criada a revista Etnogr\u00e1fica",
             "Iscte",
-            "",
+            "Lan\u00e7amento da revista Etnogr\u00e1fica",
             "pagina_web",
             "https://cria.org.pt/pt/etnografica"
+        ],
+        [
+            "1997-05-30",
+            "Criada a revista Etnogr\u00e1fica",
+            "Iscte",
+            "Lan\u00e7amento da revista Etnogr\u00e1fica",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52013234716/in/album-72177720298200772/"
         ]
     ],
     "Jo\u00e3o Freire eleito presidente do Conselho Cient\u00edfico": [
@@ -3457,10 +3425,10 @@
             ""
         ]
     ],
-    "Revista Economia Global e Gest\u00e3o": [
+    "Criada a Revista Economia Global e Gest\u00e3o": [
         [
             "1996-06-30",
-            "Revista Economia Global e Gest\u00e3o",
+            "Criada a Revista Economia Global e Gest\u00e3o",
             "Iscte",
             "",
             "imagem",
@@ -3507,6 +3475,16 @@
             ""
         ]
     ],
+    "Associa\u00e7\u00e3o dos antigos alunos do ISCTE (AAAISCTE)": [
+        [
+            "1996-01-01",
+            "Associa\u00e7\u00e3o dos antigos alunos do ISCTE (AAAISCTE)",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/52013754065/in/album-72177720298200772/"
+        ]
+    ],
     "Eduardo Ferro Rodrigues ministro da Solidariedade e Seguran\u00e7a Social": [
         [
             "1995-10-28",
@@ -3527,10 +3505,10 @@
             ""
         ]
     ],
-    "Ala Aut\u00f3noma (5.183 m2)": [
+    "Inaugura\u00e7\u00e3o da Ala Aut\u00f3noma (5.183 m2)": [
         [
             "1995-09-15",
-            "Ala Aut\u00f3noma (5.183 m2)",
+            "Inaugura\u00e7\u00e3o da Ala Aut\u00f3noma (5.183 m2)",
             "Iscte",
             "",
             "imagem",
@@ -3611,24 +3589,24 @@
             "https://www.flickr.com/photos/iscteiul/52013754615/in/album-72177720298200772/"
         ]
     ],
-    "Cave corpo sul (717 m2)": [
+    "Inaugura\u00e7\u00e3o do Pavilh\u00e3o-esplanada (119 m2)": [
         [
             "1994-09-15",
-            "Cave corpo sul (717 m2)",
-            "Iscte",
-            "",
-            "",
-            ""
-        ]
-    ],
-    "Pavilh\u00e3o-esplanada (119 m2)": [
-        [
-            "1994-09-15",
-            "Pavilh\u00e3o-esplanada (119 m2)",
+            "Inaugura\u00e7\u00e3o do Pavilh\u00e3o-esplanada (119 m2)",
             "Iscte",
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/52013293113/in/album-72177720298200772/"
+        ]
+    ],
+    "Inaugura\u00e7\u00e3o da Cave corpo sul (717 m2)": [
+        [
+            "1994-09-15",
+            "Inaugura\u00e7\u00e3o da Cave corpo sul (717 m2)",
+            "Iscte",
+            "",
+            "",
+            ""
         ]
     ],
     "Licenciatura em Economia. Despacho n.\u00ba 6/94, DR n.\u00ba 153/1994, S\u00e9rie 2 de 5 de Julho": [
@@ -3641,10 +3619,10 @@
             ""
         ]
     ],
-    "Nelson Mandela presidente da \u00c1frica do Sul": [
+    "Nelson Mandela eleito presidente da \u00c1frica do Sul": [
         [
             "1994-05-10",
-            "Nelson Mandela presidente da \u00c1frica do Sul",
+            "Nelson Mandela eleito presidente da \u00c1frica do Sul",
             "Internacional",
             "",
             "",
@@ -3671,20 +3649,20 @@
             ""
         ]
     ],
-    "Unidade de Investiga\u00e7\u00e3o em Ci\u00eancias Sociais (UNICS)": [
+    "Cria\u00e7\u00e3o da Unidade de Investiga\u00e7\u00e3o em Desenvolvimento Empresarial (UNIDE)": [
         [
             "1994-02-14",
-            "Unidade de Investiga\u00e7\u00e3o em Ci\u00eancias Sociais (UNICS)",
+            "Cria\u00e7\u00e3o da Unidade de Investiga\u00e7\u00e3o em Desenvolvimento Empresarial (UNIDE)",
             "Iscte",
             "",
             "",
             ""
         ]
     ],
-    "Unidade de Investiga\u00e7\u00e3o em Desenvolvimento Empresarial (UNIDE)": [
+    "Unidade de Investiga\u00e7\u00e3o em Ci\u00eancias Sociais (UNICS)": [
         [
             "1994-02-14",
-            "Unidade de Investiga\u00e7\u00e3o em Desenvolvimento Empresarial (UNIDE)",
+            "Unidade de Investiga\u00e7\u00e3o em Ci\u00eancias Sociais (UNICS)",
             "Iscte",
             "",
             "",
@@ -3721,10 +3699,10 @@
             ""
         ]
     ],
-    "Discentes: 3531": [
+    "N\u00famero de discentes: 3531": [
         [
             "1993-09-30",
-            "Discentes: 3531",
+            "N\u00famero de discentes: 3531",
             "Iscte",
             "",
             "",
@@ -3771,10 +3749,10 @@
             ""
         ]
     ],
-    "Inaugura\u00e7\u00e3o do edif\u00edcio do INDEG (\u00e1rea 30.153 m2)": [
+    "Inaugura\u00e7\u00e3o do Edif\u00edcio do INDEG (30.153 m2)": [
         [
             "1993-06-11",
-            "Inaugura\u00e7\u00e3o do edif\u00edcio do INDEG (\u00e1rea 30.153 m2)",
+            "Inaugura\u00e7\u00e3o do Edif\u00edcio do INDEG (30.153 m2)",
             "Iscte",
             "",
             "imagem",
@@ -3831,11 +3809,11 @@
             ""
         ]
     ],
-    "Jo\u00e3o Ferreira de Almeida presidente do Iscte": [
+    "Jo\u00e3o Ferreira de Almeida eleito presidente": [
         [
-            "ERRO NO EVENTO!",
-            "Jo\u00e3o Ferreira de Almeida presidente do Iscte",
-            "ERRO NO EVENTO!",
+            "1992-04-08",
+            "Jo\u00e3o Ferreira de Almeida eleito presidente ",
+            "Iscte",
             "",
             "",
             ""
@@ -3851,10 +3829,10 @@
             ""
         ]
     ],
-    "Revista Portuguesa de Gest\u00e3o": [
+    "Criada a Revista Portuguesa de Gest\u00e3o": [
         [
             "1992-01-01",
-            "Revista Portuguesa de Gest\u00e3o",
+            "Criada a Revista Portuguesa de Gest\u00e3o",
             "Iscte",
             "",
             "",
@@ -3961,11 +3939,11 @@
             ""
         ]
     ],
-    "Afonso de Barros, presidente do ISCTE": [
+    "Afonso de Barros eleito presidente": [
         [
-            "ERRO NO EVENTO!",
-            "Afonso de Barros, presidente do ISCTE",
-            "ERRO NO EVENTO!",
+            "1990-03-23",
+            "Afonso de Barros eleito presidente ",
+            "Iscte",
             "",
             "",
             ""
@@ -3981,12 +3959,12 @@
             ""
         ]
     ],
-    "Estatutos do ISCTE": [
+    "Publica\u00e7\u00e3o dos Estatutos do ISCTE": [
         [
             "1990-01-04",
-            "Estatutos do ISCTE",
+            "Publica\u00e7\u00e3o dos Estatutos do ISCTE",
             "Iscte",
-            "",
+            "Despacho Normativo n\u00ba 11/90, de 7 de Fevereiro",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/51971105863/in/album-72177720297729830/"
         ]
@@ -4021,20 +3999,12 @@
             "https://www.flickr.com/photos/iscteiul/51971034116/in/album-72177720297729830/"
         ]
     ],
-    "Licenciatura em Inform\u00e1tica e Gest\u00e3o de Empresas": [
+    "Cria\u00e7\u00e3o da Licenciatura em Inform\u00e1tica e Gest\u00e3o de Empresas": [
         [
-            "ERRO NO EVENTO!",
-            "Licenciatura em Inform\u00e1tica e Gest\u00e3o de Empresas",
-            "ERRO NO EVENTO!",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/51971105968/in/album-72177720297729830/"
-        ],
-        [
-            "ERRO NO EVENTO!",
-            "Licenciatura em Inform\u00e1tica e Gest\u00e3o de Empresas",
-            "ERRO NO EVENTO!",
-            "",
+            "1989-07-12",
+            "Cria\u00e7\u00e3o da Licenciatura em Inform\u00e1tica e Gest\u00e3o de Empresas",
+            "Iscte",
+            "Portaria n.\u00ba 536/89 - DR n.\u00ba 158/1989, S\u00e9rie 2 de 12 de Julho",
             "imagem",
             "https://dre.pt/dre/detalhe/portaria/536-1989-619571"
         ]
@@ -4059,10 +4029,10 @@
             ""
         ]
     ],
-    "Centro de Estudos sobre Mudan\u00e7as Socioeconomicas (DINAMIA)": [
+    "Cria\u00e7\u00e3o do Centro de Estudos sobre Mudan\u00e7as Socioeconomicas (DINAMIA)": [
         [
             "1989-04-11",
-            "Centro de Estudos sobre Mudan\u00e7as Socioeconomicas (DINAMIA)",
+            "Cria\u00e7\u00e3o do Centro de Estudos sobre Mudan\u00e7as Socioeconomicas (DINAMIA)",
             "Iscte",
             "",
             "",
@@ -4099,10 +4069,10 @@
             "https://www.flickr.com/photos/iscteiul/51971034186/in/album-72177720297729830/"
         ]
     ],
-    "Discentes: 2893": [
+    "N\u00famero de discentes: 2893": [
         [
             "1988-09-30",
-            "Discentes: 2893",
+            "N\u00famero de discentes: 2893",
             "Iscte",
             "",
             "",
@@ -4235,20 +4205,20 @@
             ""
         ]
     ],
-    "Sociologia, Problemas e Pr\u00e1ticas, n\u00ba1": [
+    "Criada a revista Sociologia, Problemas e Pr\u00e1ticas": [
         [
             "1986-06-30",
-            "Sociologia, Problemas e Pr\u00e1ticas, n\u00ba1",
+            "Criada a revista Sociologia, Problemas e Pr\u00e1ticas",
             "Iscte",
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/51971106468/in/album-72177720297729830/"
         ]
     ],
-    "Centro de Estudos de Antropologia Social (CEAS)": [
+    "Cria\u00e7\u00e3o do Centro de Estudos de Antropologia Social (CEAS)": [
         [
             "1986-06-09",
-            "Centro de Estudos de Antropologia Social (CEAS)",
+            "Cria\u00e7\u00e3o do Centro de Estudos de Antropologia Social (CEAS)",
             "Iscte",
             "",
             "imagem",
@@ -4295,20 +4265,20 @@
             ""
         ]
     ],
-    "Centro de Investiga\u00e7\u00e3o e Estudos de Sociologia, C.R.L. (CIES)": [
+    "Cria\u00e7\u00e3o do Centro de Investiga\u00e7\u00e3o e Estudos de Sociologia (CIES)": [
         [
             "1985-06-19",
-            "Centro de Investiga\u00e7\u00e3o e Estudos de Sociologia, C.R.L. (CIES)",
+            "Cria\u00e7\u00e3o do Centro de Investiga\u00e7\u00e3o e Estudos de Sociologia (CIES)",
             "Iscte",
             "",
             "",
             ""
         ]
     ],
-    "Revista de Gest\u00e3o": [
+    "Criada a Revista de Gest\u00e3o": [
         [
             "1985-01-01",
-            "Revista de Gest\u00e3o",
+            "Criada a Revista de Gest\u00e3o",
             "Iscte",
             "",
             "",
@@ -4365,10 +4335,10 @@
             ""
         ]
     ],
-    "Ler Hist\u00f3ria n\u00ba1": [
+    "Criada a revista Ler Hist\u00f3ria": [
         [
             "1983-12-20",
-            "Ler Hist\u00f3ria n\u00ba1",
+            "Criada a revista Ler Hist\u00f3ria",
             "Iscte",
             "",
             "imagem",
@@ -4397,17 +4367,17 @@
     ],
     "Cria\u00e7\u00e3o da Licenciatura em Antropologia Social": [
         [
-            "ERRO NO EVENTO!",
+            "1982-10-29",
             "Cria\u00e7\u00e3o da Licenciatura em Antropologia Social",
-            "ERRO NO EVENTO!",
+            "Iscte",
             "",
             "imagem",
             "https://www.flickr.com/photos/iscteiul/51971325089/in/album-72177720297729830/"
         ],
         [
-            "ERRO NO EVENTO!",
+            "1982-10-29",
             "Cria\u00e7\u00e3o da Licenciatura em Antropologia Social",
-            "ERRO NO EVENTO!",
+            "Iscte",
             "",
             "pagina_web",
             "https://dre.pt/dre/detalhe/decreto/121-1982-378174"
@@ -4423,10 +4393,10 @@
             "https://www.flickr.com/photos/iscteiul/51971034996/in/album-72177720297729830/"
         ]
     ],
-    "Discentes: 2268": [
+    "N\u00famero de discentes: 2268": [
         [
             "1982-09-30",
-            "Discentes: 2268",
+            "N\u00famero de discentes: 2268",
             "Iscte",
             "",
             "",
@@ -4453,10 +4423,10 @@
             "https://www.flickr.com/photos/iscteiul/51971325199/in/album-72177720297729830/"
         ]
     ],
-    "Centro de Estudos Africanos criado pelo Conselho Cient\u00edfico": [
+    "Cria\u00e7\u00e3o do Centro de Estudos Africanos (CEA)": [
         [
             "1981-10-22",
-            "Centro de Estudos Africanos criado pelo Conselho Cient\u00edfico",
+            "Cria\u00e7\u00e3o do Centro de Estudos Africanos (CEA)",
             "Iscte",
             "",
             "",
@@ -4623,10 +4593,10 @@
             ""
         ]
     ],
-    "Edif\u00edcio1 (11.349 m2)": [
+    "Inaugura\u00e7\u00e3o do Edif\u00edcio1 (11.349 m2)": [
         [
             "1978-12-31",
-            "Edif\u00edcio1 (11.349 m2)",
+            "Inaugura\u00e7\u00e3o do Edif\u00edcio1 (11.349 m2)",
             "Iscte",
             "",
             "",
@@ -4699,10 +4669,10 @@
             "https://dre.pt/dre/detalhe/decreto-lei/463-a-1977-164638"
         ]
     ],
-    "Discentes: 1569": [
+    "N\u00famero de discentes: 1569": [
         [
             "1977-09-30",
-            "Discentes: 1569",
+            "N\u00famero de discentes: 1569",
             "Iscte",
             "",
             "",
@@ -4765,8 +4735,8 @@
             "Acordos de Hels\u00ednquia",
             "Internacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://en.wikipedia.org/wiki/Helsinki_Accords"
         ]
     ],
     "Independ\u00eancia de S\u00e3o Tom\u00e9 e Pr\u00edncipe": [
@@ -4775,8 +4745,8 @@
             "Independ\u00eancia de S\u00e3o Tom\u00e9 e Pr\u00edncipe",
             "Internacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=CsR3ddfcT18"
         ]
     ],
     "Independ\u00eancia de Mo\u00e7ambique": [
@@ -4785,8 +4755,18 @@
             "Independ\u00eancia de Mo\u00e7ambique",
             "Internacional",
             "",
+            "video",
+            "https://www.youtube.com/watch?v=IEDKT26ADCo"
+        ]
+    ],
+    "Independ\u00eancia de Cabo Verde": [
+        [
+            "1975-06-05",
+            "Independ\u00eancia de Cabo Verde",
+            "Internacional",
             "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=pCuLF458_gs"
         ]
     ],
     "Rendi\u00e7\u00e3o de Saig\u00e3o. Fim da Guerra do Vietname": [
@@ -4795,8 +4775,8 @@
             "Rendi\u00e7\u00e3o de Saig\u00e3o. Fim da Guerra do Vietname",
             "Internacional",
             "",
-            "",
-            ""
+            "video",
+            "https://www.youtube.com/watch?v=og6bi3cgf5g"
         ]
     ],
     "M\u00e1rio Murteira ministro do Planeamento e Coordena\u00e7\u00e3o Econ\u00f3mica": [
@@ -4819,21 +4799,11 @@
             ""
         ]
     ],
-    "N\u00famero de Discentes: 879": [
+    "N\u00famero de discentes: 879": [
         [
             "1974-09-30",
-            "N\u00famero de Discentes: 879",
+            "N\u00famero de discentes: 879",
             "Iscte",
-            "",
-            "",
-            ""
-        ]
-    ],
-    "Independ\u00eancia de Cabo Verde": [
-        [
-            "1974-08-26",
-            "Independ\u00eancia de Cabo Verde",
-            "Internacional",
             "",
             "",
             ""
@@ -4841,12 +4811,12 @@
     ],
     "Gr\u00e9cia: Queda da ditadura dos Coron\u00e9is": [
         [
-            "1974-07-24",
+            "1974-07-15",
             "Gr\u00e9cia: Queda da ditadura dos Coron\u00e9is",
             "Internacional",
             "",
-            "",
-            ""
+            "pagina_web",
+            "https://www.greeknewsagenda.gr/topics/politics-polity/7031-restoration-of-democracy"
         ]
     ],
     "Protestos de estudantes do ISCTE por um controlo democr\u00e1tico do ensino": [
@@ -4920,9 +4890,9 @@
             "1974-04-29",
             "Decreto-Lei n\u00ba 176/74 exonora os reitores, vice-reitores das universidades, directores das faculdades, escolas ou institutos universit\u00e1rios",
             "Nacional",
-            "",
-            "",
-            ""
+            "Di\u00e1rio do Governo n.\u00ba 100/1974, S\u00e9rie I de 1974-04-29.",
+            "pagina_web",
+            "https://dre.pt/dre/detalhe/decreto-lei/176-623176"
         ]
     ],
     "Primeira reuni\u00e3o do Conselho Escolar p\u00f3s golpe militar": [
@@ -4940,9 +4910,9 @@
             "1974-04-25",
             "Portugal: Revolu\u00e7\u00e3o dos Cravos",
             "Nacional",
+            "Notici\u00e1rio da RTP anunciando a revolu\u00e7\u00e3o do 25 de Abril",
             "",
-            "",
-            ""
+            "https://www.youtube.com/watch?v=N-PS3V5Hrek"
         ]
     ],
     "Henrique Martins de Carvalho nomeado diretor do Iscte": [
@@ -4955,10 +4925,10 @@
             ""
         ]
     ],
-    "Discentes: 942": [
+    "N\u00famero de discentes: 942": [
         [
             "1973-09-30",
-            "Discentes: 942",
+            "N\u00famero de discentes: 942",
             "Iscte",
             "",
             "",
@@ -5013,16 +4983,6 @@
             ""
         ]
     ],
-    "CEE: ades\u00e3o da Dinamarca, Irlanda, Reino Unido": [
-        [
-            "1973-01-01",
-            "CEE: ades\u00e3o da Dinamarca, Irlanda, Reino Unido",
-            "Internacional",
-            "",
-            "video",
-            "https://www.youtube.com/watch?v=GyTDpmi1eQY"
-        ]
-    ],
     "Matricula-se o estudante n\u00ba. 1 Abel dos Santos Alves": [
         [
             "1972-12-21",
@@ -5041,6 +5001,32 @@
             "",
             "pagina_web",
             "https://dre.pt/dre/detalhe/decreto-lei/520-1972-685446"
+        ]
+    ],
+    "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro": [
+        [
+            "1972-12-15",
+            "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/51943905401/in/album-72177720297419006/"
+        ],
+        [
+            "1972-12-15",
+            "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro",
+            "Iscte",
+            "",
+            "pagina_web",
+            "https://dre.pt/dre/detalhe/decreto-lei/522-1972-685448"
+        ],
+        [
+            "1972-12-15",
+            "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro",
+            "Iscte",
+            "",
+            "imagem",
+            "https://www.flickr.com/photos/iscteiul/51942926652/in/album-72177720297419006/"
         ]
     ],
     "Instala\u00e7\u00f5es funcionam no Campo Grande 185": [
@@ -5099,30 +5085,14 @@
             "https://dre.pt/dre/detalhe/decreto-lei/520-1972-685446"
         ]
     ],
-    "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro": [
+    "CEE: ades\u00e3o da Dinamarca, Irlanda e Reino Unido": [
         [
-            "1972-12-15",
-            "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro",
-            "Iscte",
+            "1972-01-22",
+            "CEE: ades\u00e3o da Dinamarca, Irlanda e Reino Unido",
+            "Internacional",
             "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/51943905401/in/album-72177720297419006/"
-        ],
-        [
-            "1972-12-15",
-            "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro",
-            "Iscte",
-            "",
-            "pagina_web",
-            "https://dre.pt/dre/detalhe/decreto-lei/522-1972-685448"
-        ],
-        [
-            "1972-12-15",
-            "Cria\u00e7\u00e3o do ISCTE atrav\u00e9s do Decreto-lei n\u00ba522/72, de 15 de Dezembro",
-            "Iscte",
-            "",
-            "imagem",
-            "https://www.flickr.com/photos/iscteiul/51942926652/in/album-72177720297419006/"
+            "video",
+            "https://www.youtube.com/watch?v=GyTDpmi1eQY"
         ]
     ]
 }
