@@ -29,8 +29,7 @@ while True:
     elif script == 6:
         if sure_prompt():
             from __scripts import check_broken_content_links
-    elif script == 6:
+    elif script == 7:
         if sure_prompt():
             from __scripts import export_quiz_questions
-
     exit(0)

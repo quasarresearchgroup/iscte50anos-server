@@ -128,4 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+#Idea IDE
+.idea/
+
+
 .vim/coc-settings.json
+
+#
+#
