@@ -28,7 +28,7 @@ except KeyError as e:
 
 DEBUG = False
 USE_PROXY = True
-PROXY_URL = os.environ["PROXY_URL"]
+#PROXY_URL = os.environ["PROXY_URL"]
 
 ALLOWED_HOSTS = ["194.210.120.48", "194.210.120.193", "isctespots.iscte-iul.pt"]
 
