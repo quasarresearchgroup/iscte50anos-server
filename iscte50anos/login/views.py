@@ -15,6 +15,8 @@ from rest_framework.authtoken.models import Token
 
 from django.contrib.auth import authenticate
 
+from _controllers import users_controller
+
 
 @api_view(['POST'])
 @transaction.atomic
@@ -25,8 +27,10 @@ def exchange_access_token(request):
     if token_serializer.is_valid():
         access_token = token_serializer.validated_data["access_token"]
 
+        #proxies = {"https": "tostas"}
         profile_response = requests.get('https://login.iscte-iul.pt/oauth2/ausyeqjx8GS8Nj1Y9416/v1/userinfo',
-                                headers={'Authorization': f'Bearer {access_token}'})
+                                headers={'Authorization': f'Bearer {access_token}'},)
+                                        #proxies=proxies)
 
         if profile_response.status_code != 200:
             return Response(status=profile_response.status_code)
@@ -36,15 +40,7 @@ def exchange_access_token(request):
             try:
                 user = User.objects.get(username=profile_data["preferred_username"])
             except User.DoesNotExist:
-                # create profile
-                user = User.objects.create(username=profile_data["upn"],
-                                           email=profile_data["upn"],
-                                           first_name=profile_data["givenName"],
-                                           last_name=profile_data["familyName"])
-
-                affiliation = Affiliation.objects.get_or_create(title=profile_data["title"],
-                                                                department=profile_data["department"])[0]
-                profile = Profile.objects.create(user=user, affiliation=affiliation)
+                user = users_controller.create_user(profile_data)
 
             Token.objects.filter(user=user).delete()
             user_token = Token.objects.create(user=user).key
@@ -97,8 +93,6 @@ def openday_logout(request):
     #profile.save()
 
     return Response({"message": "Logout bem sucedido"}, status=200)
-
-
 
 
 @api_view(['POST'])

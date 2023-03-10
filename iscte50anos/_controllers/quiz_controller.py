@@ -43,7 +43,7 @@ def create_quiz_old(user, level):
 
 
 def create_quiz(user):
-    next_quiz_number = Quiz.objects.filter(user=user).count()+1
+    next_quiz_number = Quiz.objects.filter(user=user).count()
 
     topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
     accessed_topics = [t.topic for t in topic_accesses]
@@ -51,6 +51,12 @@ def create_quiz(user):
     # Create quiz for the  visited topics
     quiz = Quiz.objects.create(user=user, number=next_quiz_number)
     quiz.topics.set(accessed_topics)
+
+
+def create_first_quiz(user):
+    # Create first quiz with all topics
+    quiz = Quiz.objects.create(user=user, number=0)
+    quiz.topics.set(Topic.objects.all())
 
 
 def assign_trial_questions(user, trial, topics):
@@ -83,5 +89,7 @@ def assign_trial_questions(user, trial, topics):
 def calculate_user_score(user):
     total_score = 0
     for quiz in user.quizzes.all():
+        if quiz.number == 0:
+            continue
         total_score += quiz.score()
     return total_score

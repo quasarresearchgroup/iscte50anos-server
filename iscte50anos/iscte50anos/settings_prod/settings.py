@@ -27,6 +27,8 @@ except KeyError as e:
     SECRET_KEY = 'django-insecure-68s=q%s6@xm&$excwzygo*!j)^oifm#_ycnrs554(trqz0sv!a'
 
 DEBUG = False
+USE_PROXY = True
+PROXY_URL = os.environ["PROXY_URL"]
 
 ALLOWED_HOSTS = ["194.210.120.48", "194.210.120.193", "isctespots.iscte-iul.pt"]
 
