@@ -56,7 +56,7 @@ def create_quiz(user):
 def create_first_quiz(user):
     # Create first quiz with all topics
     quiz = Quiz.objects.create(user=user, number=0)
-    quiz.topics.set(Topic.objects.all())
+    quiz.topics.set(Topic.objects.all().exclude(title="Georeferenciação"))
 
 
 def assign_trial_questions(user, trial, topics):
