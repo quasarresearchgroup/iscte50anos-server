@@ -44,7 +44,7 @@ def exchange_access_token(request):
 
             Token.objects.filter(user=user).delete()
             user_token = Token.objects.create(user=user).key
-            return Response(data={"api_token": user_token})
+            return Response(status=200, data={"api_token": user_token})
 
     else:
         return Response(status=400) # Bad request (invalid serializer)
