@@ -18,7 +18,10 @@ from _controllers import quiz_controller
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_topic(request, pk):
-    topic = Topic.objects.get(id=pk)
+    topic = Topic.objects.filter(id=pk).first()
+    if not topic:
+        return Response(data={"status":"The requested topic does not exist"})
+
     is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
     if is_first_access:
         has_completed_latest_quiz = Trial.objects.filter(is_completed=True,
