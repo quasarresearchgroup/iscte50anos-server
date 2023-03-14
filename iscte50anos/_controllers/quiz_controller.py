@@ -19,7 +19,6 @@ def update_level(user):
         create_quiz(user)
 
 
-# TODO How to use read topics?
 def create_quiz_old(user, level):
     # If the user does not have a quiz for its current level
 
