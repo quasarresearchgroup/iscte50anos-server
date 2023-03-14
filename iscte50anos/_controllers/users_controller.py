@@ -25,7 +25,6 @@ def create_user(profile_data):
     affiliation = Affiliation.objects.get_or_create(title=profile_data["title"],
                                                     department=profile_data["department"])[0]
     profile = Profile.objects.create(user=user, affiliation=affiliation)
-
-    quiz_controller.create_first_quiz(user)
+    #quiz_controller.create_first_quiz(user)
 
     return user

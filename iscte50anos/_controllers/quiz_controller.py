@@ -14,8 +14,7 @@ def update_level(user):
 
     next_level = Level.objects.get(num_topics=num_accessed_topics)
     if next_level.number != profile.level:
-        profile.level = next_level.number
-        profile.save()
+        Profile.objects.filter(user=user).update(level=next_level.number)
         create_quiz(user)
 
 
