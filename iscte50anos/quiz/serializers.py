@@ -31,7 +31,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ['text', 'type', 'image_link', 'choices', 'is_timed']
+        fields = ['text', 'type', 'image_link', 'category', 'choices', 'is_timed']
 
 
 class TrialQuestionSerializer(serializers.ModelSerializer):

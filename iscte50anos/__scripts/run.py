@@ -13,6 +13,7 @@ while True:
     print("5: Delete Quiz Data")
     print("6: Check Broken Content Links")
     print("7: Export Quiz Questions")
+    print("8: Import Quiz Question types")
     script = int(input())
     if script == 1:
         if sure_prompt():
@@ -32,4 +33,7 @@ while True:
     elif script == 7:
         if sure_prompt():
             from __scripts import export_quiz_questions
+    elif script == 8:
+        if sure_prompt():
+            from __scripts import import_quiz_question_types
     exit(0)
