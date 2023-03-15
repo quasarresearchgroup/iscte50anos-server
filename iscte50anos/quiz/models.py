@@ -7,7 +7,7 @@ from django.db import models
 from topics.models import Topic, TopicAccess
 from users.models import Level
 
-QUIZ_SIZE = 8
+QUIZ_SIZE = 5
 QUESTION_POINTS = 10
 
 

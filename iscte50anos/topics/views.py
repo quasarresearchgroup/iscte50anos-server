@@ -20,7 +20,9 @@ from _controllers import quiz_controller
 def get_topic(request, pk):
     topic = Topic.objects.filter(id=pk).first()
     if not topic:
-        return Response(data={"status":"The requested topic does not exist"})
+        return Response(status=404, data={"status":"The requested topic does not exist"})
+    if topic.title == "Georeferenciação":
+        return Response(status=400, data={"status":"The requested topic cannot be accessed"})
 
     is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
     if is_first_access:
