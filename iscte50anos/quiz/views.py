@@ -19,7 +19,7 @@ from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestion
 from _controllers import quiz_controller
 
 ANSWER_TIME = 45  # segundos
-QUIZ_SIZE = 8 # TODO change for experiences (5)
+QUIZ_SIZE = 5 # TODO change for experiences (8)
 
 
 @api_view()
