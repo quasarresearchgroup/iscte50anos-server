@@ -50,7 +50,7 @@ def start_quiz_trial(request, quiz_num):
 
     quiz_controller.assign_trial_questions(request.user, new_trial, quiz.topics.all())
 
-    return Response(status=201, data={"trial_number": trial_count + 1})
+    return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
 
 
 @api_view()
