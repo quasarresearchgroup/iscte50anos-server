@@ -13,7 +13,7 @@ from users.serializers import ProfileSerializer, LeaderboardSerializer
 @permission_classes([IsAuthenticated])
 def get_affiliations(request):
     affiliations = Affiliation.objects.all()
-    affiliation_dict = {"-": "-"}
+    affiliation_dict = {"-": ["-"]}
     for affiliation in affiliations:
         if affiliation_dict.get(affiliation.title):
             affiliation_dict[affiliation.title].append(affiliation.department)
