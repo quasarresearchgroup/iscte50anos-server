@@ -10,7 +10,7 @@ from pathlib import Path
 from quiz.models import Question
 from quiz.serializers import QuestionSerializer
 
-p_quiz= Path(__file__).parent / 'files' / 'Cronologia Cinquentenário - Quiz.tsv'
+p_quiz = Path(__file__).parent / 'files' / 'Cronologia Cinquentenário - QUIZ.tsv'
 
 
 def translate_question_category(category:str)->Optional[str]:
