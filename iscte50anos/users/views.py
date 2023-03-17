@@ -18,7 +18,7 @@ def get_affiliations(request):
         if affiliation_dict.get(affiliation.title):
             affiliation_dict[affiliation.title].append(affiliation.department)
         else:
-            affiliation_dict[affiliation.title] = ["*", affiliation.department]
+            affiliation_dict[affiliation.title] = ["-", "*", affiliation.department]
 
     return Response(status=200, data=affiliation_dict)
 
