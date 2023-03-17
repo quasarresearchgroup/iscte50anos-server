@@ -38,10 +38,10 @@ def get_leaderboard(request):
 
     if user_type and affiliation:
         if affiliation == "*":
-            profiles = Profile.objects.exclude(points=0).filter(affiliation__subtype=user_type).order_by("-points")[:10]
+            profiles = Profile.objects.exclude(points=0).filter(affiliation__title=user_type).order_by("-points")[:10]
         else:
-            profiles = Profile.objects.exclude(points=0).filter(affiliation__subtype=user_type,
-                                                                affiliation__name=affiliation).order_by("-points")[:10]
+            profiles = Profile.objects.exclude(points=0).filter(affiliation__title=user_type,
+                                                                affiliation__department=affiliation).order_by("-points")[:10]
     else:
         profiles = Profile.objects.exclude(points=0).order_by("-points")[:10]
 
