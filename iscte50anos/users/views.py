@@ -5,11 +5,22 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from users.models import Profile
+from users.models import Profile, Affiliation
 
 from users.serializers import ProfileSerializer, LeaderboardSerializer
 
+@api_view()
+@permission_classes([IsAuthenticated])
+def get_affiliations(request):
+    affiliations = Affiliation.objects.all()
+    affiliation_dict = {"-": "-"}
+    for affiliation in affiliations:
+        if affiliation_dict[affiliation.title]:
+            affiliation_dict[affiliation.title].append(affiliation.department)
+        else:
+            affiliation_dict[affiliation_dict] = ["*", affiliation.department]
 
+    return Response(status=200, data=affiliation_dict)
 
 @api_view()
 @permission_classes([IsAuthenticated])

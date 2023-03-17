@@ -7,4 +7,5 @@ urlpatterns = [
     path('profile', views.get_profile),
     path('leaderboard', views.get_leaderboard),
     path('relative-leaderboard', views.get_relative_leaderboard),
+    path('affiliations', views.get_affiliations)
 ]
