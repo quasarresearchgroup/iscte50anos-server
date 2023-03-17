@@ -9,6 +9,7 @@ from users.models import Level
 
 QUIZ_SIZE = 5
 QUESTION_POINTS = 10
+ANSWER_TIME = 45
 
 
 class QuizImage(models.Model):
@@ -38,6 +39,9 @@ class Question(models.Model):
 
     def is_timed(self):
         return not self.topics.filter(title="Georeferenciação").exists()
+
+    def time(self):
+        return ANSWER_TIME
 
     def __str__(self):
         return f"{self.text}"
