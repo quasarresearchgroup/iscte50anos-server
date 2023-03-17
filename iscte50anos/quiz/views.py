@@ -19,7 +19,7 @@ from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestion
 from _controllers import quiz_controller
 
 ANSWER_TIME = 45  # segundos
-QUIZ_SIZE = 5 # TODO change for experiences (8)
+# QUIZ_SIZE = 5 # TODO change for experiences (8)
 
 
 @api_view()
@@ -50,7 +50,8 @@ def start_quiz_trial(request, quiz_num):
 
     quiz_controller.assign_trial_questions(request.user, new_trial, quiz.topics.all())
 
-    return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
+    # return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
+    return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": new_trial.quiz_size()})
 
 
 @api_view()
@@ -130,7 +131,7 @@ def get_next_question(request, quiz_num, num_trial):
     next_question = trial.questions.filter(accessed=False).select_related("question").first()
 
     if next_question is None:
-        last_question = trial.questions.filter(number=QUIZ_SIZE).select_related("question").first()
+        last_question = trial.questions.filter(number=trial.quiz_size()).select_related("question").first()
         if not last_question.is_answered():
             return Response(status=201, data=TrialQuestionSerializer(last_question).data)
 
