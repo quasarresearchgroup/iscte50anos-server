@@ -66,17 +66,20 @@ def assign_trial_questions(user, trial, topics):
                            .exclude(trial_questions__trial__quiz__user=user))
 
     if len(middle_questions) < QUIZ_SIZE - 2:
-        middle_questions = list(Question.objects.filter(topics__in=topics))
+        middle_questions = list(Question.objects.filter(topics__in=topics)
+                                .exclude(category="self_explanatory"))
     if len(first_questions) == 0:
         first_questions = list(Question.objects.filter(category="self_explanatory"))
 
     questions = [random.choice(first_questions)]
+    print(questions)
 
     questions = questions.append(random.sample(middle_questions, QUIZ_SIZE - 2))
 
     geo_questions = Question.objects.filter(topics__title="Georeferenciação") \
         .exclude(trial_questions__trial__quiz__user=user)
     geo_question = random.choice(geo_questions)
+
     questions.append(geo_question)
 
     trial_questions = []
