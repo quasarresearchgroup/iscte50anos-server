@@ -71,7 +71,8 @@ def assign_trial_questions(user, trial, topics):
     if len(first_questions) == 0:
         first_questions = list(Question.objects.filter(category="self_explanatory"))
 
-    questions = [random.choice(first_questions), random.sample(middle_questions, QUIZ_SIZE - 2)]
+    questions = [random.choice(first_questions)]
+    questions.append(random.sample(middle_questions, QUIZ_SIZE - 2))
 
     geo_questions = Question.objects.filter(topics__title="Georeferenciação") \
         .exclude(trial_questions__trial__quiz__user=user)
