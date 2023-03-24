@@ -37,10 +37,10 @@ def access_qrcode(request, uuid):
     if qrcode is None:
         return Response(data={"error": "QR Code does not exist"}, status=404)
     
-    is_first_access = not TopicAccess.objects.filter(user=request.user, topic=qrcode.topic).exists()
+    visited = TopicAccess.objects.filter(user=request.user, topic=qrcode.topic).exists() 
     
     topicData=TopicQRSerializer(qrcode.topic).data
-    return Response(data={"title":topicData["title"], "id":topicData["id"] ,"visited": is_first_access})
+    return Response(data={"title":topicData["title"], "id":topicData["id"] ,"visited": visited })
 
 @api_view()
 def get_spot_list(request):
