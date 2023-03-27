@@ -21,6 +21,8 @@ from spots.serializers import SpotSerializer
 
 
 @api_view()
+@permission_classes([IsAuthenticated])
+@transaction.atomic
 def access_qrcode(request, uuid):
     is_app = request.GET.get("app", False)
     if is_app is False:
@@ -34,8 +36,11 @@ def access_qrcode(request, uuid):
 
     if qrcode is None:
         return Response(data={"error": "QR Code does not exist"}, status=404)
-
-    return Response(data=TopicQRSerializer(qrcode.topic).data)
+    
+    visited = TopicAccess.objects.filter(user=request.user, topic=qrcode.topic).exists() 
+    
+    topicData=TopicQRSerializer(qrcode.topic).data
+    return Response(data={"title":topicData["title"], "id":topicData["id"] ,"visited": visited })
 
 @api_view()
 def get_spot_list(request):
