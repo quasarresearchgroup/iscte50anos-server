@@ -6,15 +6,15 @@ def sure_prompt():
 
 while True:
     print("\nScripts\n")
-    print("1: Import Timeline, Events and Content")
-    print("2: Import Spots")
-    print("3: Delete Logs")
-    print("4: Create Levels")
-    print("5: Delete Quiz Data")
-    print("6: Check Broken Content Links")
-    print("7: Export Quiz Questions")
-    print("8: Import Quiz Question types")
-    print("9: Fix Question images")
+    print("1:   Import Timeline, Events and Content")
+    print("2:   Import Spots")
+    print("3:   Delete Logs")
+    print("4:   Create Levels")
+    print("5:   Delete Quiz Data")
+    print("6:   Check Broken Content Links")
+    print("7:   Export Quiz Questions")
+    print("8:   Import Quiz Question types")
+    print("9:   Fix Question images")
     script = int(input())
     if script == 1:
         if sure_prompt():

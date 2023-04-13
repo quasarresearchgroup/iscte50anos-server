@@ -43,15 +43,19 @@ def start_quiz_trial(request, quiz_num):
 
     # Cannot create more trials
     # TODO already max score
-    if trial_count >= 3:
+    if trial_count >= quiz.max_num_trials:
         return Response(status=400, data={"status": "All available trials created"})  # Bad request
 
     new_trial = Trial.objects.create(quiz=quiz, number=trial_count + 1)
 
     quiz_controller.assign_trial_questions(request.user, new_trial, quiz.topics.all())
+    
+    trial_questions = [ TrialQuestionSerializer(question).data for question in new_trial.questions.all()]
+    print(f"new_trial_questions: {new_trial.questions.all()}")
+    print(f"trial_questions: {trial_questions}")
 
     # return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
-    return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": new_trial.quiz_size()})
+    return Response(status=201, data={"number": trial_count + 1, "quiz_size": new_trial.quiz_size(), "questions": trial_questions})
 
 
 @api_view()

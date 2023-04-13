@@ -58,6 +58,7 @@ class Choice(models.Model):
 
 class Quiz(models.Model):
     number = models.IntegerField(default=0)
+    max_num_trials = models.IntegerField(default=3)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="quizzes")
     level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
 
