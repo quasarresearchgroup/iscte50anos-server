@@ -50,7 +50,7 @@ class AnswerSerializer(serializers.ModelSerializer):
         fields = ['choices']
 
 
-class TrialAnswerSerializer(serializers.ModelSerializer):
+class TrialAnswerSerializer():
     answers = AnswerSerializer(many=True)
 
     class Meta:
