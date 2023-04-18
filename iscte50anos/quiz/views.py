@@ -56,7 +56,7 @@ def start_quiz_trial(request, quiz_num):
     return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": new_trial.quiz_size()})
 
 
-@api_view(["POST"])
+@api_view()
 @permission_classes([IsAuthenticated])
 def get_trial_questions(request, quiz_num, num_trial):
     trial_questions = TrialQuestion.objects.filter(trial__quiz__number=quiz_num,
