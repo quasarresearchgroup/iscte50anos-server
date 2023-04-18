@@ -29,6 +29,7 @@ def get_user_quiz_list(request):
     return Response(data=QuizListSerializer(quizzes, many=True).data)
 
 
+
 # Get and start quiz
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
@@ -57,6 +58,23 @@ def start_quiz_trial(request, quiz_num):
     # return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
     return Response(status=201, data={"number": trial_count + 1, "quiz_size": new_trial.quiz_size(), "questions": trial_questions})
 
+# Get and start quiz
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+@transaction.atomic
+def get_trial(request, quiz_num, num_trial):
+
+    trial = Trial.objects.select_for_update().filter(quiz__number=quiz_num,
+                                                    quiz__user=request.user,
+                                                    number=num_trial).first()
+    if trial is None:
+        return Response(status=404, data={"status": "Trial does not exist"})
+
+    trial_questions = [ TrialQuestionSerializer(question).data for question in trial.questions.all()]
+    print(f"new_trial_questions: {trial.questions.all()}")
+    print(f"trial_questions: {trial_questions}")
+
+    return Response(status=201, data={"number": num_trial, "quiz_size": trial.quiz_size(), "questions": trial_questions})
 
 @api_view()
 @permission_classes([IsAuthenticated])
