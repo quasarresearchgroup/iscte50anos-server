@@ -61,7 +61,7 @@ def start_quiz_trial(request, quiz_num):
 def get_trial_questions(request, quiz_num, num_trial):
     trial_questions = TrialQuestion.objects.filter(trial__quiz__number=quiz_num,
                                                    trial__quiz__user=request.user,
-                                                   trial__number=num_trial, )
+                                                   trial__number=num_trial)#.select_related("questions")
     print(trial_questions)
     return Response(status=200, data=TrialQuestionSerializer(trial_questions).data)
 
