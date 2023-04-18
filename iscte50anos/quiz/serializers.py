@@ -55,5 +55,3 @@ class AnswerSerializer(serializers.ModelSerializer):
 class TrialAnswerSerializer(serializers.Serializer):
     answers = AnswerSerializer(many=True)
 
-    class Meta:
-        fields = ['number']
