@@ -1,3 +1,5 @@
+from abc import ABC
+
 from rest_framework import serializers
 
 from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion, Trial
@@ -50,7 +52,7 @@ class AnswerSerializer(serializers.ModelSerializer):
         fields = ['choices']
 
 
-class TrialAnswerSerializer():
+class TrialAnswerSerializer(serializers.Serializer):
     answers = AnswerSerializer(many=True)
 
     class Meta:
