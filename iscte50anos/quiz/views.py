@@ -210,7 +210,7 @@ def answer_trial(request, quiz_num, num_trial):
     # Acquire lock
     trial = Trial.objects.select_for_update().filter(quiz__number=quiz_num,
                                                      quiz__user=request.user,
-                                                     number=num_trial, ).select_related(
+                                                     number=num_trial, ).prefetch_related(
         "questions__question").first()
     # TODO Atenção a este select related
 
@@ -228,7 +228,7 @@ def answer_trial(request, quiz_num, num_trial):
             answer_trial_question = None
             for trial_question in trial_questions:
                 question_id = trial_question.question.id
-                if question_id == answer.question_id:
+                if question_id == answer.validated_data["question_id"]:
                     answer_trial_question = trial_question
                     break
 
