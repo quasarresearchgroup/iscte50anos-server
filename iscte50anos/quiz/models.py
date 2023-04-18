@@ -148,6 +148,7 @@ class Trial(models.Model):
 
 class Answer(models.Model):
     answer_time = models.DateTimeField(auto_now_add=True)
+    question_id = models.IntegerField(default=0)
     choices = models.ManyToManyField(Choice)
 
 

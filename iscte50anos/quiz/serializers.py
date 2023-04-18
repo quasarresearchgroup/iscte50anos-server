@@ -45,11 +45,10 @@ class TrialQuestionSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
-    question_id = serializers.IntegerField()
 
     class Meta:
         model = Answer
-        fields = ['choices']
+        fields = ['choices', 'answer', 'question_id']
 
 
 class TrialAnswerSerializer(serializers.Serializer):
