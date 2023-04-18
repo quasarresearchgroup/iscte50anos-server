@@ -31,11 +31,11 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ['text', 'type', 'image_link', 'category', 'choices', 'is_timed', 'time']
+        fields = ['text', 'type', 'image_link', 'category', 'choices', 'is_timed', 'time', 'id']
 
 
 class TrialQuestionSerializer(serializers.ModelSerializer):
-    question = QuestionSerializer(read_only=True)
+    question = QuestionSerializer(read_only=True, many=True)
 
     class Meta:
         model = TrialQuestion
@@ -43,6 +43,15 @@ class TrialQuestionSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
+    question_id = serializers.IntegerField()
+
     class Meta:
         model = Answer
         fields = ['choices']
+
+
+class TrialAnswerSerializer(serializers.ModelSerializer):
+    answers = AnswerSerializer(many=True)
+
+    class Meta:
+        fields = ['number']

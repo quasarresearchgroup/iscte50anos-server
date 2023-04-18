@@ -14,11 +14,13 @@ from rest_framework.response import Response
 
 from quiz.models import Trial, TrialQuestion, Question
 
-from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestionSerializer
+from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestionSerializer, TrialAnswerSerializer
 
 from _controllers import quiz_controller
 
 ANSWER_TIME = 45  # segundos
+
+
 # QUIZ_SIZE = 5 # TODO change for experiences (8)
 
 
@@ -53,6 +55,14 @@ def start_quiz_trial(request, quiz_num):
     # return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
     return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": new_trial.quiz_size()})
 
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def get_trial_questions(request, quiz_num, num_trial):
+    trial_questions = TrialQuestion.objects.filter(trial_quiz__number=quiz_num,
+                                                   trial__quiz__user=request.user,
+                                                   trial__number=num_trial, ).select_related("question").first()
+    return Response(status=200, data=TrialQuestionSerializer(trial_questions).data)
 
 @api_view()
 @permission_classes([IsAuthenticated])
@@ -188,6 +198,54 @@ def answer_question(request, quiz_num, num_trial, question_num):
                 return Response(status=400, data={"status": "Invalid answer"})
         answer = answer_serializer.save(choices=answer_choices, trial_question=[trial_question])
 
+        return Response(status=201)
+    else:
+        return Response(status=400, data={"status": "Invalid body"})
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+@transaction.atomic
+def answer_trial(request, quiz_num, num_trial):
+    # Acquire lock
+    trial = Trial.objects.select_for_update().filter(quiz__number=quiz_num,
+                                                     quiz__user=request.user,
+                                                     number=num_trial, ).select_related(
+        "questions__question").first()
+    # TODO Atenção a este select related
+
+    if trial is None:
+        return Response(status=404, data={"status": "Trial or Quiz do not exist"})
+
+    if trial.is_completed:
+        return Response(status=400, data={"status": "Trial already answered"})
+
+    trial_answer_serializer = TrialAnswerSerializer(data=request.data)
+    if trial_answer_serializer.is_valid():
+        # TODO optimize
+        trial_questions = trial.questions
+        for answer in trial_answer_serializer.validated_data["answers"]:
+            answer_trial_question = None
+            for trial_question in trial_questions:
+                question_id = trial_question.question.id
+                if question_id == answer.question_id:
+                    answer_trial_question = trial_question
+                    break
+
+            if answer_trial_question is None:
+                return Response(status=400, data={"status": "Invalid answer"})
+
+            question = answer_trial_question.question
+            question_choices = question.choices.all()
+            answer_choices = answer.validated_data["choices"]
+            for choice in answer_choices:
+                if choice not in question_choices:
+                    return Response(status=400, data={"status": "Invalid answer"})
+
+            answer = answer.save(choices=answer_choices, trial_question=[trial_question])
+
+        trial.is_completed = True
+        trial.save()
         return Response(status=201)
     else:
         return Response(status=400, data={"status": "Invalid body"})
