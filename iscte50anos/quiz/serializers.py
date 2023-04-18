@@ -48,7 +48,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Answer
-        fields = ['choices', 'answer', 'question_id']
+        fields = ['choices', 'question_id']
 
 
 class TrialAnswerSerializer(serializers.Serializer):
