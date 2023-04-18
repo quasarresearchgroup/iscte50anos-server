@@ -62,8 +62,7 @@ def get_trial_questions(request, quiz_num, num_trial):
     trial_questions = TrialQuestion.objects.filter(trial__quiz__number=quiz_num,
                                                    trial__quiz__user=request.user,
                                                    trial__number=num_trial)#.select_related("questions")
-    print(TrialQuestionSerializer(trial_questions).data)
-    return Response(status=200, data=TrialQuestionSerializer(trial_questions).data)
+    return Response(status=200, data=TrialQuestionSerializer(trial_questions, many=True).data)
 
 @api_view()
 @permission_classes([IsAuthenticated])

@@ -35,7 +35,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class TrialQuestionSerializer(serializers.ModelSerializer):
-    question = QuestionSerializer(read_only=True, many=True)
+    question = QuestionSerializer(read_only=True)
 
     class Meta:
         model = TrialQuestion
