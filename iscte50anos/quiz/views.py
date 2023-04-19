@@ -245,7 +245,7 @@ def answer_trial(request, quiz_num, num_trial):
 
             answer = Answer.objects.create()
             answer.choices.set(answer_choices)
-            answer.trial_question = trial_question
+            answer.trial_question.set([trial_question])
             answer.save()
 
         trial.is_completed = True
