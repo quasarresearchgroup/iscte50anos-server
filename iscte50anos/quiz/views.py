@@ -223,7 +223,7 @@ def answer_trial(request, quiz_num, num_trial):
     trial_answer_serializer = TrialAnswerSerializer(data=request.data)
     if trial_answer_serializer.is_valid():
         # TODO optimize
-        trial_questions = trial.questions
+        trial_questions = trial.questions.all()
         for answer in trial_answer_serializer.validated_data["answers"]:
             answer_trial_question = None
             for trial_question in trial_questions:
