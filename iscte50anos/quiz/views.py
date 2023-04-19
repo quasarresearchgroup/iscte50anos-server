@@ -228,7 +228,7 @@ def answer_trial(request, quiz_num, num_trial):
             answer_trial_question = None
             for trial_question in trial_questions:
                 question_id = trial_question.question.id
-                if question_id == answer.validated_data["question_id"]:
+                if question_id == answer.question_id:
                     answer_trial_question = trial_question
                     break
 
@@ -237,6 +237,7 @@ def answer_trial(request, quiz_num, num_trial):
 
             question = answer_trial_question.question
             question_choices = question.choices.all()
+
             answer_choices = answer.validated_data["choices"]
             for choice in answer_choices:
                 if choice not in question_choices:
