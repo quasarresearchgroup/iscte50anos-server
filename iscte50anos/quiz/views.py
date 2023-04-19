@@ -211,7 +211,7 @@ def answer_trial(request, quiz_num, num_trial):
     trial = Trial.objects.select_for_update().filter(quiz__number=quiz_num,
                                                      quiz__user=request.user,
                                                      number=num_trial, ).prefetch_related(
-        "questions__question").first()
+        "questions__question__choices").first()
     # TODO Atenção a este select related
 
     if trial is None:
