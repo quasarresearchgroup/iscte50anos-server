@@ -224,11 +224,11 @@ def answer_trial(request, quiz_num, num_trial):
     if trial_answer_serializer.is_valid():
         # TODO optimize
         trial_questions = trial.questions.all()
-        for answer in trial_answer_serializer.validated_data["answers"]:
+        for answer in trial_answer_serializer.answers:
             answer_trial_question = None
             for trial_question in trial_questions:
                 question_id = trial_question.question.id
-                if question_id == answer.question_id:
+                if question_id == answer["question_id"]:
                     answer_trial_question = trial_question
                     break
 
@@ -238,7 +238,7 @@ def answer_trial(request, quiz_num, num_trial):
             question = answer_trial_question.question
             question_choices = question.choices.all()
 
-            answer_choices = answer.validated_data["choices"]
+            answer_choices = answer["choices"]
             for choice in answer_choices:
                 if choice not in question_choices:
                     return Response(status=400, data={"status": "Invalid answer"})
