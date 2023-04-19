@@ -243,7 +243,10 @@ def answer_trial(request, quiz_num, num_trial):
                 if choice not in question_choices:
                     return Response(status=400, data={"status": "Invalid answer"})
 
-            Answer.objects.create(choices=answer_choices, trial_question=[trial_question])
+            answer = Answer()
+            answer.choices.set(answer_choices)
+            answer.trial_question = trial_question
+            answer.save()
 
         trial.is_completed = True
         trial.save()
