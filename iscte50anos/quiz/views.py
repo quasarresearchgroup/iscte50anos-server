@@ -250,6 +250,13 @@ def answer_trial(request, quiz_num, num_trial):
 
         trial.is_completed = True
         trial.save()
-        return Response(status=201)
+
+        user_updated_score = quiz_controller.calculate_user_score(request.user)
+        profile = request.user.profile
+        profile.points = user_updated_score
+        profile.save()
+
+        # Profile.objects.filter(user=request.user).update(points=user_updated_score)
+        return Response(status=201, data={"trial_score": trial.score()})
     else:
         return Response(status=400, data={"status": "Invalid body"})
