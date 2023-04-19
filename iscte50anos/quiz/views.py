@@ -12,7 +12,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from quiz.models import Trial, TrialQuestion, Question
+from quiz.models import Trial, TrialQuestion, Question, Answer
 
 from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestionSerializer, TrialAnswerSerializer
 
@@ -224,11 +224,11 @@ def answer_trial(request, quiz_num, num_trial):
     if trial_answer_serializer.is_valid():
         # TODO optimize
         trial_questions = trial.questions.all()
-        for answer in trial_answer_serializer.validated_data["answers"]:
+        for answer_data in trial_answer_serializer.validated_data["answers"]:
             answer_trial_question = None
             for trial_question in trial_questions:
                 question_id = trial_question.question.id
-                if question_id == answer["question_id"]:
+                if question_id == answer_data["question_id"]:
                     answer_trial_question = trial_question
                     break
 
@@ -238,12 +238,12 @@ def answer_trial(request, quiz_num, num_trial):
             question = answer_trial_question.question
             question_choices = question.choices.all()
 
-            answer_choices = answer["choices"]
+            answer_choices = answer_data["choices"]
             for choice in answer_choices:
                 if choice not in question_choices:
                     return Response(status=400, data={"status": "Invalid answer"})
 
-            answer = answer.save(choices=answer_choices, trial_question=[trial_question])
+            Answer.objects.create(choices=answer_choices, trial_question=[trial_question])
 
         trial.is_completed = True
         trial.save()
