@@ -17,7 +17,7 @@ class QuizListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Quiz
-        fields = ['number', 'num_trials', 'score', 'topic_names', 'trials']
+        fields = ['number', 'max_num_trials', 'num_trials', 'score', 'topic_names', 'trials']
 
 
 # Serializer for possible choices of a question
@@ -33,7 +33,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ['text', 'type', 'image_link', 'category', 'choices', 'is_timed', 'time', 'id']
+        fields = ['id','text', 'type', 'image_link', 'category', 'choices', 'is_timed', 'time', 'id']
 
 
 class TrialQuestionSerializer(serializers.ModelSerializer):
