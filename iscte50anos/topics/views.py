@@ -27,9 +27,9 @@ def get_topic(request, pk):
     is_first_access = not TopicAccess.objects.filter(user=request.user, topic=topic).exists()
     if is_first_access:
         has_completed_latest_quiz = Trial.objects.filter(is_completed=True,
-                                                         quiz__number=request.user.profile.level).exists()
-        print(Trial.objects.filter(is_completed=True, quiz__number=request.user.profile.level))
-        print(request.user.profile.level)
+                                                         quiz__number=request.user.profile.level,
+                                                         quiz__user=request.user).exists()
+
         if not has_completed_latest_quiz and request.user.profile.level != 0:
             return Response(status=400, data={"status": "The quiz for this level was not completed"})
 
