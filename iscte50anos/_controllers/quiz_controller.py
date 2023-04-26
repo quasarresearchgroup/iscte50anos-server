@@ -62,7 +62,7 @@ def assign_trial_questions(user, trial, topics):
     middle_questions = list(Question.objects.filter(topics__in=topics)
                             .exclude(trial_questions__trial__quiz__user=user, category="self_explanatory"))
 
-    first_questions = list(Question.objects.filter(category="self_explanatory")
+    first_questions = list(Question.objects.filter(topics__in=topics, category="self_explanatory")
                            .exclude(trial_questions__trial__quiz__user=user))
 
     if len(middle_questions) < QUIZ_SIZE - 2:

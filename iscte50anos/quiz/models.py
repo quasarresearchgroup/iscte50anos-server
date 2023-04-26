@@ -121,7 +121,6 @@ class Trial(models.Model):
             if question.type == "S":
                 choice = answer.choices.first()
                 if choice is not None and choice.is_correct:
-                    # TODO add score according to level (for now each question scores 10 points)
                     question_score = QUESTION_POINTS
             elif question.type == "M":
                 for choice in answer.choices.all():
@@ -139,6 +138,7 @@ class Trial(models.Model):
 
             trial_score = trial_score + question_score
 
+        # TODO include penalty?
         max_score = (QUIZ_SIZE * QUESTION_POINTS) - ((self.number - 1) * QUESTION_POINTS)
         return trial_score if trial_score <= max_score else max_score
 

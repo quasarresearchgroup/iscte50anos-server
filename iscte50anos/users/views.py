@@ -65,10 +65,20 @@ def get_relative_leaderboard(request):
 
     upper_limit = rank + half_range
 
-    relative_profiles = Profile.objects.all().order_by("-points")[lower_limit: upper_limit]
+    relative_profiles = Profile.objects.exclude(points=0).order_by("-points")[lower_limit: upper_limit]
+    user_position = -1
+    for i, rank_profile in enumerate(relative_profiles):
+        if rank_profile == profile:
+            user_position = i
+            break
 
     serializer = LeaderboardSerializer(relative_profiles, many=True)
-    return Response(data=serializer.data)
+    data = serializer.data
+
+    if user_position > -1:
+        data[user_position]["is_user"] = True
+
+    return Response(data=data)
 
 
 '''@api_view()
