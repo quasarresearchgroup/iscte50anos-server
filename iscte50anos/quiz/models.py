@@ -44,7 +44,7 @@ class Question(models.Model):
         return ANSWER_TIME
 
     def __str__(self):
-        return f"{self.text}"
+        return f"ID:{self.id} -> {self.text}"
 
 
 class Choice(models.Model):
@@ -151,6 +151,10 @@ class Answer(models.Model):
     answer_time = models.DateTimeField(auto_now_add=True)
     question_id = models.IntegerField(default=0)
     choices = models.ManyToManyField(Choice)
+
+    def __str__(self):
+        return f" Answer to question '{self.trial_question.question} by {self.trial_question.trial.quiz.user}'. Choices: {self.choices} || " \
+               f"Answer time: {self.answer_time}"
 
 
 class TrialQuestion(models.Model):
