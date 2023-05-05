@@ -153,7 +153,7 @@ class Answer(models.Model):
     choices = models.ManyToManyField(Choice)
 
     def __str__(self):
-        return f" Answer to question '{self.trial_question.question} by {self.trial_question.trial.quiz.user}'. Choices: {self.choices} || " \
+        return f" Answer to question '{self.question_id}'. Choices: {self.choices.all()} || " \
                f"Answer time: {self.answer_time}"
 
 
