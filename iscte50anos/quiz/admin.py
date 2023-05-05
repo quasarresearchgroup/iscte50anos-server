@@ -14,9 +14,9 @@ class QuestionAdmin(admin.ModelAdmin):
         ChoiceInline,
     ]
     list_filter = [
-         "topics"
+         "topics",
     ]
-    search_fields = ['text', 'image__description']
+    search_fields = ['text', 'image__description', "id"]
 
 
 class TrialQuestionInline(admin.TabularInline):

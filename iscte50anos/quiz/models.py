@@ -44,7 +44,7 @@ class Question(models.Model):
         return ANSWER_TIME
 
     def __str__(self):
-        return f"ID:{self.id} -> {self.text}"
+        return f"ID: {self.id} -> {self.text}"
 
 
 class Choice(models.Model):
