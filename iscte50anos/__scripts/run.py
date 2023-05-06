@@ -1,7 +1,10 @@
 
 def sure_prompt():
-    choice = int(input("\nAre you sure? 1 for Yes, 2 for No:"))
-    return choice == 1
+    try:
+        choice = int(input("\nAre you sure? 1 for Yes, 2 for No:"))
+        return choice == 1
+    except:
+        return False
 
 
 while True:
@@ -15,6 +18,8 @@ while True:
     print("7: Export Quiz Questions")
     print("8: Import Quiz Question types")
     print("9: Fix Question images")
+    print("10: Sync Questions")
+
     script = int(input())
     if script == 1:
         if sure_prompt():
@@ -40,5 +45,8 @@ while True:
     elif script == 9:
         if sure_prompt():
             from __scripts import fix_quiz_images
+    elif script == 10:
+        if sure_prompt():
+            from __scripts import sync_questions
 
     exit(0)
