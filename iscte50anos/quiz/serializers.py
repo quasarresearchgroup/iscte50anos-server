@@ -3,7 +3,7 @@ from abc import ABC
 from rest_framework import serializers
 
 from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion, Trial
-from topics.models import TopicSerializer
+from topics.serializers import TopicSerializer
 
 class TrialSerializer(serializers.ModelSerializer):
     class Meta:
