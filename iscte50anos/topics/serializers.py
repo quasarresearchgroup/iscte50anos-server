@@ -6,11 +6,10 @@ from content.serializers import ContentSerializer
 
 
 class TopicSerializer(serializers.ModelSerializer):
-    content = ContentSerializer(many=True, read_only=True,)
 
     class Meta:
         model = Topic
-        fields = ['id', 'title', 'content']
+        fields = ['id', 'title']
 
 
 class TopicQRSerializer(serializers.ModelSerializer):
