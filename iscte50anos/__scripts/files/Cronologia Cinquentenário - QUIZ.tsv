@@ -1,18 +1,18 @@
- 	PERGUNTA	Link Imagem	VALIDADO	RESPOSTA CORRETA	Tipo de Pergunta	KEY	Estado	DATA	ACONTECIMENTO	ÂMBITO	COMENTÁRIO
+ 	PERGUNTA	Link Imagem	VALIDADO	RESPOSTA CORRETA	Tipo de Pergunta	KEY TIMELINE	Estado	DATA	ACONTECIMENTO	ÂMBITO	COMENTÁRIO
 5	Qual a licenciatura mais antiga no Iscte?		TRUE	Licenciatura em Ciências do Trabalho; Decreto-Lei n.º 520/72 - DR n.º290/1972, Série 2 de 15 de Dezembro;Licenciatura em Organização e Gestão de Empresas (OGE); Decreto-Lei n.º 520/72 - DR n.º290/1972, Série 2 de 15 de Dezembro;Licenciatura em Economia; Decreto-Lei n.º 520/72 - DR n.º290/1972, Série 2 de 15 de Dezembro;	Cronologia	1972121501	Ok	1972-12-15	Criação de licenciaturas em Organização e Gestão de Empresas e em Ciências do Trabalho no ISCTE, no quadro de uma reestruturação dos cursos lecionados nos então ISCEF e ISCPU. Os alunos  excedentários de um destes institutos podem ir para outros, sendo este o caso de Economia.	Iscte	
 6	Qual o primeiro endereço do Iscte?	https://www.flickr.com/photos/iscteiul/51943990973/in/album-72177720297419006/	TRUE	Instalações funcionam no Campo Grande 185. Decreto-Lei n.º 522/72, Diário do Governo n.º 290/1972, Série 1 de 15 de Dezembro	Cronologia	1972121502	Ok	1972-12-15	Instalações funcionam no Campo Grande 185	Iscte	
 7	Qual a relação da Feira Popular de Lisboa com o Iscte?		TRUE	Aulas	Cronologia	1975123101	Ok	1975-12-31	Ano letivo funciona também em espaço alugado da Feira Popular de Lisboa	Iscte	
 9	Qual a singularidade do estudante Abel do Santos Alves		TRUE	O número de matrícula	Cronologia		Não Colocar	#N/A	#N/A	#N/A	
-11	O Iscte esteve integrado na Universidade Nova de Lisboa?		TRUE	Sim	Cronologia	1973081100	Para alterar	1973-08-11	Criação da Universidade Nova de Lisboa, onde figura o ISCTE, bem como das Universidades do Minho, Aveiro e do Instituto Universitário de Évora	Iscte	Pergunta não devia ser binária. Possíveis respostas (Universidade Nova de Lisboa, Universidade Técnica de Lisboa, Universidade Clássica de Lisboa, Universidade Aberta)
-12	O Iscte esteve integrado na Universidade Técnica de Lisboa		TRUE	Não	Cronologia	1983042900	Para alterar	1983-04-29	Criação dos doutoramentos em Organização e Gestão de Empresas, Sociologia e Antropologia Social através do ISCTE conferido pela Universidade Técnica de Lisboa	Iscte	Pergunta devia ser: "Que outra universidade atribuiu graus de doutoramentos realizados no ISCTE?". Possíveis respostas (Universidade Nova de Lisboa, Universidade Técnica de Lisboa, Universidade Clássica de Lisboa, Universidade Aberta)
-13	Qual é a licenciatura mais recente do Iscte?		TRUE	Licenciatura em Ciência de Dados; Despacho n.º 11562/2019, DR n.º 235/2019, Série 2 de 6 de Dezembro	Cronologia	2019120601	Para alterar	2019-12-06	Criação da Licenciatura em Ciência de Dados	Iscte	Alterar pergunta para "Qual é a licenciatura mais recente no campus de Lisboa do Iscte?"
+11	O Iscte esteve integrado na Universidade Nova de Lisboa?		TRUE	Sim	Cronologia	1973081100	Ok	1973-08-11	Criação da Universidade Nova de Lisboa, onde figura o ISCTE, bem como das Universidades do Minho, Aveiro e do Instituto Universitário de Évora	Iscte	Pergunta não devia ser binária. Possíveis respostas (Universidade Nova de Lisboa, Universidade Técnica de Lisboa, Universidade Clássica de Lisboa, Universidade Aberta)
+12	O Iscte esteve integrado na Universidade Técnica de Lisboa		TRUE	Não	Cronologia	1983042900	Ok	1983-04-29	Criação dos doutoramentos em Organização e Gestão de Empresas, Sociologia e Antropologia Social através do ISCTE conferido pela Universidade Técnica de Lisboa	Iscte	Pergunta devia ser: "Que outra universidade atribuiu graus de doutoramentos realizados no ISCTE?". Possíveis respostas (Universidade Nova de Lisboa, Universidade Técnica de Lisboa, Universidade Clássica de Lisboa, Universidade Aberta)
+13	Qual é a licenciatura mais recente do Iscte?		TRUE	Licenciatura em Ciência de Dados; Despacho n.º 11562/2019 in Diário da República, n.º 235, II Série, Parte E, 06/12/2019, pp. 140-144	Cronologia	2019120601	Ok	2019-12-06	Criação da Licenciatura em Ciência de Dados	Iscte	Alterar pergunta para "Qual é a licenciatura mais recente no campus de Lisboa do Iscte?"
 14	O Professor Mário Murteira foi ministro de..		TRUE	Ministro do Planeamento e Coordenação Económica	Cronologia	1975032601	Ok	1975-03-26	Mário Murteira, ministro do Planeamento e Coordenação Económica do IV Governo Provisório	Nacional	
 15	O Professor Mário Murteira foi ministro de..		TRUE	Ministro dos Assuntos Sociais	Cronologia		Não Colocar	#N/A	#N/A	#N/A	
 16	Quando se realizou o primeiro protesto de estudantes do Iscte por um controlo democrático do ensino?		TRUE	26 Junho 1974	Cronologia		Não Colocar	#N/A	#N/A	#N/A	
 17	Quando foi a queda dos coronéis na Grécia?		TRUE	24 Julho 1974	Cronologia	1974071500	Ok	1974-07-15	Grécia: queda da ditadura dos Coronéis	Internacional	
 18	Em que ano se inicia a construção do edifício Sedas Nunes?		TRUE	1976	Cronologia	1976123100	Ok	1976-12-31	Início da construção do edifício I, atual edifício Sedas Nunes, neste ano	Iscte	
 19	O professor José Joaquim Laginha foi...	https://www.flickr.com/photos/iscteiul/51970032427/in/album-72177720297729830/	TRUE	Presidente do Conselho Pedagógico;Presidente do Conselho Diretivo;	Cronologia	1977050300	Ok	1977-05-03	José Joaquim Laginha é presidente do Conselho Diretivo (eleito)	Iscte	aparece também em: 1979042600
-20	Em que ano se atingem 10000 discentes?		TRUE	2012	Dimensões	2015093000	Duvida	2015-09-30	Número de estudantes: 10646	Iscte	apenas em 2015 temos atualização na timeline  do numero de alunos (a atualiação previa a esta é em 2010 com chave: 2010093000)
+20	Em que ano se atingem 10000 discentes?		TRUE	2015/ e são estudantes e não discentes/ alterar em todos	Dimensões	2015093000	Ok	2015-09-30	Número de estudantes: 10646	Iscte	apenas em 2015 temos atualização na timeline  do numero de alunos (a atualiação previa a esta é em 2010 com chave: 2010093000)
 21	Que funções políticas teve o Professor Adérito Sedas Nunes?		TRUE	Ministro da Cultura e Ciência	Cronologia	1979080100	Ok	1979-08-01	Adérito Sedas Nunes, Ministro da Cultura e da Ciência do V Governo Constitucional	Nacional	
 22	A Professora Maria João Rodrigues foi ministra de..		TRUE	Ministra da Qualificação e Emprego	Cronologia	1995103000	Ok	1995-10-30	Maria João Rodrigues, ministra da Qualificação e Emprego	Nacional	
 23	Paulo Pedroso foi ministro de...		TRUE	Ministro do Trabalho e da Solidariedade	Cronologia	2001031002	Ok	2001-03-10	Paulo Pedroso, ministro do Trabalho e da Solidariedade 	Iscte	
@@ -23,7 +23,7 @@
 28	O Professor Luís Filipe Pereira foi ministro de...		TRUE	Ministro da Saúde	Cronologia	2002040600	Ok	2002-04-06	Luís Filipe Pereira, ministro da Saúde	Iscte	
 29	O Professor Pedro Adão e Silva é ministro de...		TRUE	Ministro da Cultura	Cronologia	2022033001	Ok	2022-03-30	Pedro Adão e Silva, ministro da Cultura	Iscte	
 30	O Professor João Leão foi ministro de..		TRUE	Ministro de Estado e das Finanças	Cronologia	2020061500	Ok	2020-06-15	João Leão, ministro de Estado e das Finanças	Iscte	
-31	A Professora Helena Carreiras foi ministra de..		TRUE		Cronologia		Duvida	#N/A	#N/A	#N/A	Pergunta não se encontra na base de dados: https://194.210.120.48/
+31	A Professora Helena Carreiras foi ministra de..		TRUE	Ministra da Defesa	Cronologia		Ok	#N/A	#N/A	#N/A	Pergunta não se encontra na base de dados: https://194.210.120.48/
 32	Quantos reitores teve o Iscte?		TRUE	2	Dimensões	2009110600	Ok	2009-11-06	Luís Antero Reto é eleito Reitor 	Iscte	reitora: 2018030800
 33	Em que ano se introduz o Numeros Clausus nas universidades?		TRUE	1978	Cronologia	1978101400	Ok	1978-10-14	Institucionalização do Numerus Clausus	Nacional	
 34	O Iscte faz parte do Conselho de Reitores das Universidades Portuguesas (CRUP)?		TRUE	Sim	Cronologia	2005060300	Ok	2005-06-03	Integração no Conselho de Reitores da Universidades Portuguesas (CRUP)	Iscte	
@@ -55,37 +55,37 @@
 60	Identifique o objeto	https://www.flickr.com/photos/iscteiul/52013754725/in/album-72177720298200772/	TRUE	Pisa papéis	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 62	Medalha	https://www.flickr.com/photos/iscteiul/52014086972/in/album-72177720298221622/	FALSE	Comemorativa dos 40º aniversário	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 64	Identifique o objeto	https://www.flickr.com/photos/iscteiul/52014086972/in/album-72177720298221622/	TRUE	Medalha comemorativa	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-65	Medalha		FALSE	Comemorativa dos 25º aniversário	AutoExplicativa		Falta imagem	#N/A	#N/A	#N/A	
+65	Medalha	https://www.flickr.com/photos/iscteiul/52013292873/in/album-72177720298200772/	FALSE	Comemorativa dos 25º aniversário	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 66	Objeto evocativo	https://www.flickr.com/photos/iscteiul/52013754725/in/album-72177720298200772/	FALSE	Refere-se aos 25º. aniversário	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 67	Nascido para inovar" é o título do livro comemorativo dos 35 anos do Iscte. Quando aconteceu?"		TRUE	2007	Cronologia	2007121500	Ok	2007-12-15	Publicação de "ISCTE 35 anos. Nascido para inovar" (organizado por Carlos Oliveira Santos, Luísa Tiago de Oliveira e Jorge Freitas Branco)	Iscte	
 68	Formar para a sociedade do conhecimento. INDEG-ISCTE 30 anos" é o título do livro comemorativo dos 30 anos do INDEG. Quando aconteceu?"		TRUE	2018	Cronologia	2018110201	Ok	2018-11-02	Publicação de "Formar para a sociedade do conhecimento. INDEG-ISCTE. 30 anos" (Carlos Oliveira Santos)	Iscte	
 69	Afirmação de uma identidade. 45 anos de ISCTE Instituto Universitário de Lisboa" é o título do livro comemorativo dos 45 anos do Iscte. Quando aconteceu?"		TRUE	2017	Cronologia	2017121501	Ok	2017-12-15	Publicação de "Afirmação de uma identidade. 45 anos de ISCTE Instituto Universitário de Lisboa" (Carlos Oliveira Santos)	Iscte	
 70	Até onde nos leva o saber. Uma história de 40 anos do ISCTE Instituto Universitário de Lisboa" é o título do livro comemorativo dos 40 anos do Iscte. Quando aconteceu?"		TRUE	2012	Cronologia	2012121500	Ok	2012-12-15	Comemoração dos 40 anos. Publicação do livro “Até onde nos leva o saber. Uma história dos 40 anos do ISCTE Instituto Universitário de Lisboa” (Carlos Oliveira Santos)	Iscte	
 71	Em 2017 foi elaborado o documento A praxe como fenómeno social. Relatório final". Quem o encomendou?"		TRUE	Direção-Geral do Ensino Superior (DGES)	Cronologia	2017013100	Ok	2017-01-31	Publicação de "Praxe como fenómeno social. Relatório Final" (coordenado por João Teixeira Lopes e João Sebastião), estudo solicitado pela Direção Geral do Ensino Superior	Nacional	
-72	O Grande Auditório fica no edifício 2. Qual a sua lotação?		TRUE	497	Dimensões	2002060100	Duvida	2002-06-01	Edifício II: Inauguração do Grande Auditório (500 lugares)	Iscte	Cronologia refere 500 lugares
+72	O Grande Auditório fica no edifício 2. Qual a sua lotação?		TRUE	498	Dimensões	2002060100	Ok	2002-06-01	Edifício II: Inauguração do Grande Auditório (500 lugares)	Iscte	Cronologia refere 500 lugares
 73	Praça central (2.315 m2): quantas oliveiras tem?		TRUE	9	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 74	Remodelação do pavilhão interior (1870 m2): quantos limoeiros tem?		TRUE	7	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 75	Qual é a árvore comemorativa do cinquentenário?		TRUE	Árvore da Vida	Cronologia	2022030701	Ok	2022-03-07	Plantada Árvore de Vida pelos 50 anos do Iscte	Iscte	
 76	Qual o maior edifício do campus do Iscte?		TRUE	Edifício II	Georeferenciação		Ok	#N/A	#N/A	#N/A	
-77	Qual é o acervo da Biblioteca?		TRUE	130.000 exemplares	Dimensões	1999111400	Duvida	1999-11-14	O acervo da Biblioteca contém cerca de 20.000 referências bibliográficas respeitantes aos documentos existentes	Iscte	cronologia: 20000 referencias enquanto que resposta da pergunta refere 130000 exemplares
+77	Qual é o acervo da Biblioteca?		TRUE	130 000 exemplares (monografias, obras de referência, teses e dissertações), 20 000 e-books e 67 000 periódicos, em suporte papel e digital.	Dimensões	1999111400	Ok	1999-11-14	O acervo da Biblioteca contém cerca de 20.000 referências bibliográficas respeitantes aos documentos existentes	Iscte	cronologia: 20000 referencias enquanto que resposta da pergunta refere 130000 exemplares
 78	O que é o mISCuTEm?		TRUE	Grupo de Teatro	Cronologia	2001091700	Ok	2001-09-17	Criação do grupo estudantil de teatro mISCuTEm	Iscte	
 79	Existiu uma Universidade Metropolitana de Lisboa?		TRUE	Não	Cronologia	2002123103	Ok	2002-12-31	Negociações para a passagem do Iscte a Universidade Metropolitana (aprovada pelo XIV mas não homologada) neste ano	Iscte	
 80	Desde quando funciona a plataforma Fenix no Iscte?		TRUE	2005	Cronologia	2005071800	Ok	2005-07-18	Protocolo com o Instituto Superior Técnico relativo ao Sistema FénixEDU	Iscte	
 81	Qual foi o autor dos edifícios do Iscte?		TRUE	Raúl Hestnes Ferreira	Cronologia		Não Colocar	#N/A	#N/A	#N/A	
-82	Em que ano foi implementada a reforma de Bolonha?		TRUE	2006	Cronologia	2008073100	Duvida	2008-07-31	Neste ano e no anterior, tinham sido adequados ao modelo de Bolonha 14 cursos de licenciaturas, 27 mestrados e 6 doutoramentos	Iscte	anos não coincidem
+82	Em que ano foi implementada a reforma de Bolonha?		TRUE	2006/ não sei. Tirar? não aparece na cronologia, tínhamos que ir buscar à internet.. não acho que seja esse o objetivo	Cronologia	2008073100	Não Colocar	2008-07-31	Neste ano e no anterior, tinham sido adequados ao modelo de Bolonha 14 cursos de licenciaturas, 27 mestrados e 6 doutoramentos	Iscte	anos não coincidem
 83	Desde quando os estudantes deixaram de fazer as inscrições em papel?		TRUE	2008	Cronologia	2008090100	Ok	2008-09-01	Desmaterialização das inscrição dos estudantes	Iscte	
 84	Em que altura o Iscte adere à rede Eduroam?		TRUE	2008	Cronologia	2008103100	Ok	2008-10-31	Adesão à rede Eduroam	Iscte	
 85	O que é o Iscte?		TRUE	Fundação	Cronologia	2009042700	Ok	2009-04-27	Instituição da Fundação ISCTE-Instituto Universitário de Lisboa (ISCTE-IUL)	Iscte	
 86	Com base na nova orgânica quantos departamentos tem o Iscte?		TRUE	16	Dimensões		Ok	#N/A	#N/A	#N/A	
 87	Com base na nova orgânica quantas escolas tem o Iscte?		TRUE	5	Dimensões		Ok	#N/A	#N/A	#N/A	
-88	Com base na nova orgânica quantas unidades de investigação tem o Iscte?		TRUE		Dimensões		Falta resposta	#N/A	#N/A	#N/A	resposta correta nao definida na base de dados
+88	Com base na nova orgânica quantas unidades de investigação tem o Iscte?		TRUE	tirar. São muitas e a resposta é longíssima, os estudantes tinham que estar 5 minutos a ler a resposta e contar as unidades.	Dimensões		Não Colocar	#N/A	#N/A	#N/A	resposta correta nao definida na base de dados
 89	Quando começa a monitorização pedagógica desmaterializada?		TRUE	2008	Cronologia	2008053100	Ok	2008-05-31	Desmaterialização do Inquérito de monitorização pedagógica (1º ciclo)	Iscte	
 90	Desde quando funciona o portal myISCTE (Intranet)?		TRUE	2014	Cronologia	2014121500	Ok	2014-12-15	Início de Intranet MyISCTE. https://intranet.iscte-iul.pt/user/login?destination=home	Iscte	
 91	Em que ano o Iscte é classificado no no ranking Times Higher Education (THE)?		TRUE		Cronologia	2016123101	Ok	2016-12-31	ISCTE consta pela primeira vez, neste ano, no ranking do The Times Higher Education	Iscte	
 92	Quando foi instituído o Código de Conduta Académica (plágio)?		TRUE	2017	Cronologia	2017010900	Ok	2017-01-09	Código de Conduta Académica (plágio)	Iscte	
 93	O Iscte é a primeira universidade a obter a Certificação ambiental. Quando?		TRUE	2018	Cronologia	2018121100	Ok	2018-12-11	Iscte é a primeira universidade portuguesa a obter a Certificação Ambiental	Iscte	
 94	O site do Ciberdúvidas é mantido por que instituição?		TRUE	Iscte-IUL	Cronologia	2019053100	Ok	2019-05-31	 Site Ciberdúvidas da Língua Português alojado no site do Iscte	Iscte	
-95	Desde quando se atribuem contas de e-mail à comunidade?		TRUE		Cronologia	1993123100	Para alterar	1993-12-31	Atribuição de contas de e-mail à comunidade como alternativa ao fax nº +351217903059 e ao telex nº 62542ISCTE-P	Iscte	Não tem resposta
+95	Desde quando se atribuem contas de e-mail à comunidade?		TRUE	1993	Cronologia	1993123100	Para alterar	1993-12-31	Atribuição de contas de e-mail à comunidade como alternativa ao fax nº +351217903059 e ao telex nº 62542ISCTE-P	Iscte	Não tem resposta
 96	Praça central (2.315 m2): quantos citrinos tem?		TRUE	7	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 97	José Manuel Paquete Oliveira (1936- 2016), sociólogo, foi presidente do Conselho Diretivo.		TRUE	O auditório Paquete de Oliveira localiza-se: Canto ONE	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 98	Mário Murteira (1933-2013), economista, foi presidente do Conselho Científico e várias vezes ministro		TRUE	O auditório Mário Murteira localiza-se: ONE03	Georeferenciação		Ok	#N/A	#N/A	#N/A	
@@ -103,7 +103,7 @@
 110	Onde fica a Unidade de Investigação DINAMIA'CET_Iscte		TRUE	2W4	Georeferenciação	1989041100	Ok	1989-04-11	Criação do Centro de Estudos sobre a Mudança Socioeconómica (DINAMIA)	Iscte	
 111	Onde fica a Unidade de Investigação Istar_Iscte?		TRUE	D0.10	Georeferenciação	2014060500	Ok	2014-06-05	Criação do ISTAR-IUL	Iscte	
 112	Onde fica a Unidade de Investigação CRIA_Iscte?		TRUE	2W02	Georeferenciação		Ok	#N/A	#N/A	#N/A	
-113	Onde fica a Unidade de Investigação i.t_Iscte		TRUE	D0.06	Georeferenciação		Para alterar	#N/A	#N/A	#N/A	mudar i.t_iscte para IT-Iscte
+113	Onde fica a Unidade de Investigação i.t_Iscte		TRUE	D0.06/ talvez, não está na crono, tem de se ir confirmar in loco	Georeferenciação		Para alterar	#N/A	#N/A	#N/A	mudar i.t_iscte para IT-Iscte
 114	Onde fica a Unidade de Investigação MediaLab_Iscte		TRUE	AA124	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 115	Onde fica o Laboratório Audiovisual do CRIA Polo Iscte		TRUE	AA126	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 116	Onde fica o laboratório LAPSO?		TRUE	DO.09	Georeferenciação		Ok	#N/A	#N/A	#N/A	
@@ -133,17 +133,17 @@
 140	Quando e constitui o INDEG?		TRUE	1988	Cronologia	1988110200	Ok	1988-11-02	Criação do Instituto para o Desenvolvimento da Gestão Empresarial (INDEG)	Iscte	
 141	Quando se constituiu o AUDAX		TRUE	2005	Cronologia	2005123100	Ok	2005-12-31	Criação do AUDAX presidido por José Paulo Esperança neste ano	Iscte	
 142	Quando se constituiu o Observatório das desigualdades?		TRUE	2008	Cronologia	2008123100	Ok	2008-12-31	Criação do Observatório das Desigualdades neste ano	Nacional	
-143	Quando se constituiu o Observatório da Imigração?		TRUE	2008	Cronologia	2008050700	Para alterar	2008-05-07	Criação do Observatório da Emigração	Nacional	nome da pergunta errada, imigração -> Emigração
+143	Quando se constituiu o Observatório da Imigração?		TRUE	2008	Cronologia	2008050700	Ok	2008-05-07	Criação do Observatório da Emigração	Nacional	nome da pergunta errada, imigração -> Emigração
 144	Quando se constituiu o Observatório das famílias e das políticas de família? 		TRUE	2010	Cronologia		Não Colocar	#N/A	#N/A	#N/A	
 145	Quando se constituiu o Observatório português das atividades culturais?		TRUE	2018	Cronologia	2018120100	Ok	2018-12-01	Criação do Observatório Português das Atividades Culturais	Nacional	
 146	Quando se criou o Criação do Vitruvius FABLAB?		TRUE	2012	Cronologia	2011091000	Ok	2011-09-10	Criação do Vitruvius FABLAB	Iscte	
-147	Em que ano ao Iscte passa ao regime fundacional?		TRUE	2009	Cronologia	2008010700	Duvida	2008-01-07	Eleição da Assembleia estatutária, destinada a decidir a passagem para o regime fundacional e a elaborar os novos estatutos no âmbito do Regime Jurídico das Instituições do Ensino Superior, com a presença do ministro Mariano Gago	Iscte	anos não coincidem
-148	O repositório institucional do Iscte tem como objetivo preservar, divulgar e dar acesso à sua produção intelectual em formato digital. Em que ano foi lançado?		TRUE	2005	Cronologia	2006103100	Duvida	2006-10-31	Acesso público ao Repositório Institucional do ISCTE neste mês	Iscte	anos não coincidem
+147	Em que ano ao Iscte passa ao regime fundacional?		TRUE	tirar/ não existe resposta (concisa) na crono	Cronologia	2008010700	Não Colocar	2008-01-07	Eleição da Assembleia estatutária, destinada a decidir a passagem para o regime fundacional e a elaborar os novos estatutos no âmbito do Regime Jurídico das Instituições do Ensino Superior, com a presença do ministro Mariano Gago	Iscte	anos não coincidem
+148	O repositório institucional do Iscte tem como objetivo preservar, divulgar e dar acesso à sua produção intelectual em formato digital. Em que ano foi lançado?		TRUE	2006	Cronologia	2006103100	Ok	2006-10-31	Acesso público ao Repositório Institucional do ISCTE neste mês	Iscte	anos não coincidem
 149	Quando se passou à assinatura eletrónica de pautas?		TRUE	2017	Cronologia	2017020100	Ok	2017-02-01	Assinatura eletrónica de pautas	Iscte	
 150	Desde quando está automatizada a inscrição no 1º ciclo (licenciatura)?		TRUE	2007	Cronologia	2007090100	Ok	2007-09-01	Automatização plena das inscrições do 1º ciclo	Iscte	
 151	Desde quando está automatizada a inscrição no 2º ciclo (mestrado)?		TRUE	2011	Cronologia	2011030100	Ok	2011-03-01	Automatização plena das inscrições do 2º ciclo	Iscte	
 152	Desde quando está automatizada a inscrição no 3º ciclo (doutoramento)?		TRUE	2014	Cronologia	2014090100	Ok	2014-09-01	Inscrições on-line do 3º ciclo	Iscte	
-153	Quando se iniciou a desmaterialização das inscrições?		TRUE	2007	Cronologia	2008090100	Duvida	2008-09-01	Desmaterialização das inscrição dos estudantes	Iscte	anos não coincidem mas na entrada: 2007090100 realmente diz que 2007 foi o ano da automatização das inscrições do 1º ciclo
+153	Quando se iniciou a desmaterialização das inscrições?		TRUE	tirar/ há várias	Cronologia	2008090100	Não Colocar	2008-09-01	Desmaterialização das inscrição dos estudantes	Iscte	anos não coincidem mas na entrada: 2007090100 realmente diz que 2007 foi o ano da automatização das inscrições do 1º ciclo
 154	Uma das  principais figuras promotoras do programa Erasmus...?		TRUE	Manuel Marín	Cronologia	1987061500	Ok	1987-06-15	Criação do Programa Erasmus (entre os seus promotores europeus está Manuel Marín (1949-2017) 	Internacional	
 155	O Iscte e a Southern Medical University (SMU) Guangzhou, China, estabeleceram um acordo bilateral. Em que data se realizou o primeiro doutoramento neste âmbito?		TRUE	2015	Cronologia		Não Colocar	#N/A	#N/A	#N/A	cursos diferentes
 156	O Iscte e a  University of Electronic Sciences and Technology of China (UESTC), Chengdu, China, estabeleceram um acordo bilateral. Em que data se realizou o primeiro doutoramento neste âmbito?		TRUE	2013	Cronologia	2013110400	Ok	2013-11-04	Primeiro doutoramento em Gestão Empresarial Aplicada, no âmbito do acordo com a University of Electronic Sciences and Technology of China, Chengdu, China, Shen Jun	Iscte	
@@ -154,7 +154,7 @@
 161	Quando se generalizou o uso da Internet na comunidade do Iscte?		TRUE	1992	Cronologia	1992123100	Ok	1992-12-31	Acesso à Internet neste ano	Iscte	
 162	O que é o CRIA?		TRUE	Centro de Informações e Comunicação Social	Cronologia		Não Colocar	#N/A	#N/A	#N/A	
 163	O que é a AEISCTE?		TRUE	Associação de Estudantes (atual AEISCTE-IUL)	Cronologia	1975063000	Ok	1975-06-30	Criação da Associação de Estudantes do ISCTE (AEISCTE) neste semestre	Iscte	
-164	A Associação de Estudantes do Iscte formalizou-se no ano...		TRUE	1988	Cronologia	1975063000	Para alterar	1975-06-30	Criação da Associação de Estudantes do ISCTE (AEISCTE) neste semestre	Iscte	anos não coincidem
+164	A Associação de Estudantes do Iscte formalizou-se no ano...		TRUE	1975	Cronologia	1975063000	Para alterar	1975-06-30	Criação da Associação de Estudantes do ISCTE (AEISCTE) neste semestre	Iscte	anos não coincidem
 165	O que era o CIISCTE?		TRUE	Centro de informática (CIISCTE)	Cronologia	2002051700	Ok	2002-05-17	Formalização do Centro de informática (CIISCTE)	Iscte	
 166	As normas ISO (International Organization for Standardization) certificam os sistemas de gestão da qualidade. Quando foi atribuído ao Iscte o ISO 9001:2008?		FALSE	2008	Cronologia		Não Colocar	#N/A	#N/A	#N/A	As normas ISO 9001:2008, da International Organization for Standardization, permitem a certificação de sistemas de gestão da qualidade. Quando foi atribuída ao Iscte essa certificação?
 167	Devido ao confinamento em que altura se iniciou o ensino não presencial e o teletrabalho no ISCTE?		TRUE	Março 2020	Cronologia	2020031200	Ok	2020-03-12	Devido ao confinamento inicia-se o ensino não presencial e o teletrabalho	Iscte	
@@ -168,7 +168,7 @@
 175	No ano 2020, qual foi o valor homologado do orçamento do Iscte?		TRUE	49 M€	Dimensões		Não Colocar	#N/A	#N/A	#N/A	
 176	No ano 2021, qual foi o valor homologado do orçamento do Iscte?		TRUE	44 M€	Dimensões		Não Colocar	#N/A	#N/A	#N/A	
 177	A se refere esta imagem?	https://www.flickr.com/photos/iscteiul/51944521770/in/album-72177720297419006/	TRUE	Às Instalações do Iscte: Campo Grande 185.	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-178	Eleito presidente do Conselho Científico em 1982. Quem foi?	https://www.flickr.com/photos/iscteiul/51971035236/in/album-72177720297729830/	TRUE	Mário Murteira	Quotidiano	1983063001	Duvida	1983-06-30	Mário Murteira é Presidente do Conselho Científico (eleito)	Iscte	anos não coincidem
+178	Eleito presidente do Conselho Científico em 1983. Quem foi?	https://www.flickr.com/photos/iscteiul/51971035236/in/album-72177720297729830/	TRUE	Mário Murteira/ atenção pergunta está mal.. o ano é 1983	Quotidiano	1983063001	Duvida	1983-06-30	Mário Murteira é Presidente do Conselho Científico (eleito)	Iscte	anos não coincidem
 179	Eleito presidente do Conselho Diretivo em 1984. Quem foi?	https://www.flickr.com/photos/iscteiul/51971599230/in/album-72177720297729830/	TRUE	José Manuel Prostes de Fonseca	Quotidiano	1984073000	Ok	1984-07-30	José Manuel Prostes da Fonseca é presidente do Conselho Diretivo (eleito)	Iscte	
 180	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/51970031767/in/album-72177720297729830/	TRUE	Constituição da Associação de Estudantes (atual AEISCTE-IUL)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 181	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/51971324069/in/album-72177720297729830/	TRUE	Criação da Tuna Académica	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
@@ -178,16 +178,16 @@
 185	Quando foi inaugurado este edifício?	https://www.flickr.com/photos/iscteiul/52013293143/in/album-72177720298200772/	TRUE	1995	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 186	Identifique um dos autores nesta revista.	https://www.flickr.com/photos/iscteiul/52013481989/in/album-72177720298200772/	TRUE	Immanuel Wallerstein	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 187	Antes da disponibilização do catálogo da biblioteca em linha, as buscas bibliográficas faziam-se num catálogo manual. Localize o que se vê na imagem.	https://www.flickr.com/photos/iscteiul/52013482289/in/album-72177720298200772/	TRUE	AA4.07	Georeferenciação		Ok	#N/A	#N/A	#N/A	
-188	Identifique esta cerimónia?		TRUE	Honoris Causa atribuído a Immanuel Wallerstein ✝︎	AutoExplicativa		Falta imagem	#N/A	#N/A	#N/A	
+188	Identifique esta cerimónia?	https://www.flickr.com/photos/iscteiul/52013292598/in/album-72177720298200772/	TRUE	Honoris Causa atribuído a Immanuel Wallerstein ✝︎	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 189	Identifique o artigo de Isabel Duarte e Maria José Maranhão	https://www.flickr.com/photos/iscteiul/52013482439/in/album-72177720298200772/	TRUE	Necessidades e expetactivas de inquilinos e arrendatários	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-190	A que se refere esta imagem?		TRUE	Criação do grupo de teatro mISCuTEm	AutoExplicativa		Falta imagem	#N/A	#N/A	#N/A	
+190	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/52867258838/in/album-72177720307574458/	TRUE	Atuação do grupo de teatro mISCuTEm	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 191	A que se refere esta imagem?	https://flic.kr/p/2nfqpFZ	TRUE	Assembleia estatutária, preparação para o regime fundacional, com a presença do ministro Mariano Gago	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 192	O que se passou nesta ocasião?	https://flic.kr/p/2nfp42D	TRUE	Evacuação das instalações após alarme por libertação de gás nas imediações	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 193	A que se refere esta imagem?	https://flic.kr/p/2nfqpAi	TRUE	Carlos Lopes eleito presidente do Conselho Geral	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 194	Quem é esta professora?	https://flic.kr/p/2nfp3V6	TRUE	A provedora Isabel Nicolau	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 195	Quem foi eleito reitor?	https://flic.kr/p/2nfqpDp	TRUE	Luís Antero Reto	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 196	Quantas escolas são criadas?		TRUE	4	Dimensões		Ok	#N/A	#N/A	#N/A	
-197	De que evento se trata?		TRUE	Prémio L'Oreal Brandstorm para os alunos de Marketing	AutoExplicativa		Falta imagem	#N/A	#N/A	#N/A	
+197	De que evento se trata?		TRUE	Prémio L'Oreal Brandstorm para os alunos de Marketing	AutoExplicativa		Não Colocar	#N/A	#N/A	#N/A	
 198	Quem é esta professora?	https://flic.kr/p/2nfqpzG	TRUE	Maria Luísa Pedroso de Lima	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 199	Quem foi este professor?	https://flic.kr/p/2nfqpzm	TRUE	Juan Mozzicafreddo ✝︎	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 200	Quem é este professor?	https://flic.kr/p/2nfqpyQ	TRUE	Francisco Cercas	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
@@ -195,22 +195,22 @@
 202	Identifique este professor	https://flic.kr/p/2nfo1LC	TRUE	José Veiga Simão ✝︎	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 203	A que evento se refere esta imagem?	https://flic.kr/p/2nfp4Hk	TRUE	Filipe Reis eleito diretor da ECSH	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 204	A que se refere esta imagem?	https://flic.kr/p/2nfp4L1	TRUE	Clara Carvalho primeira diretora do recém criado Centro de Estudos Internacionais (CEI_ISCTE)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-205	A que se refere esta imagem?	https://flic.kr/p/2nfiN4W	TRUE	Ricardo Fonseca eleito diretor da Escola de tecnologias e arquitetura (ISTA)	AutoExplicativa		Duvida	#N/A	#N/A	#N/A	imagem ambigua, quem responde ao quiz não saberá a qual dos professores presentes na imagem a pergunta se refere
+205	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/30004161755/in/album-72157674445608046/	TRUE	Ricardo Fonseca eleito diretor da Escola de tecnologias e arquitetura (ISTA)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	imagem ambigua, quem responde ao quiz não saberá a qual dos professores presentes na imagem a pergunta se refere
 206	A que se refere esta imagem?	https://flic.kr/p/2nfiN2m	TRUE	José Rebelo eleito presidente do Conselho Cientifico	AutoExplicativa	2013100800	Ok	2013-10-08	José Manuel Rebelo é presidente do Conselho Científico (eleito)	Iscte	
 207	A que se refere esta imagem?	https://flic.kr/p/2nfpj9r	TRUE	Luís Antero Reto eleito reitor	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 208	A que se refere esta imagem?	https://flic.kr/p/2nfrH7t	TRUE	ISTAR-ISCTE	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 209	A que se refere esta imagem?	https://flic.kr/p/2nfqkYT	TRUE	IULCOME: receção aos novos estudantes	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 210	A que se refere esta imagem?	https://flic.kr/p/2nfp4Ku	TRUE	Francisco Cercas eleito presidente do Conselho Cientifico	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-211	Identifique este professor		TRUE	Jorge Freitas Branco	AutoExplicativa		Falta imagem	#N/A	#N/A	#N/A	
+211	Identifique este professor	https://www.flickr.com/photos/iscteiul/52068585264/in/album-72177720298870727/	TRUE	Jorge Freitas Branco	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 212	A que se refere esta imagem?	https://flic.kr/p/2nfpiMp	TRUE	Criação do Coro ISCTE. Maestro Pedro Miguel	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 213	A que se refere esta imagem?	https://flic.kr/p/2nfp4Jh	TRUE	Carlos Santos Ferreira eleito presidente do Conselho de Curadores	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 214	Onde está este mural?	https://flic.kr/p/2nfiN4q	TRUE	Edifício 2, Piso 1	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 215	De que evento se trata?	https://flic.kr/p/2nfiN5x	TRUE	Homenagem ao general A. Ramalho Eanes no 7º aniversário do regime fundacional	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 216	A que se refere esta imagem?	https://flic.kr/p/2nfrH42	TRUE	Fernando Batista presidente do Conselho Pedagógico	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 217	A que evento se refere esta imagem?	https://flic.kr/p/2nfp4FS	TRUE	Maria de Lurdes Rodrigues eleita primeira reitora	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-218	Identifique este professor		TRUE	Carlos Sá da Costa	AutoExplicativa		Falta imagem	#N/A	#N/A	#N/A	
+218	Identifique este professor	https://flic.kr/p/dCnpEW	TRUE	Carlos Sá da Costa	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 219	A que é que se refere esta imagem?	https://flic.kr/p/2nfqmdF	TRUE	Tomada de posse do Conselho Científico do ISCTE-IUL	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 220	A que se refere esta imagem?	https://flic.kr/p/2nfpj2h	TRUE	Tomada de posse do Conselho Pedagógico do ISCTE- IUL	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 221	A que se refere esta imagem?	https://flic.kr/p/2nfp4zQ	TRUE	Júlio Pedrosa reeleito presidente do Conselho Geral	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 222	De que evento se tratou?	https://flic.kr/p/2nfpiTM	TRUE	Plantação de Árvore da Vida (Thujia occidentalis) comemorativos do Cinquentenário	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-223	No ano 2015, qual foi o valor aprovado do orçamento do Iscte?		TRUE	40 M€	Dimensões		Duvida	#N/A	#N/A	#N/A	
+223	No ano 2015, qual foi o valor aprovado do orçamento do Iscte?		TRUE	40 M€/tirar	Dimensões		Não Colocar	#N/A	#N/A	#N/A	
