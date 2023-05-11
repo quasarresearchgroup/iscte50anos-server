@@ -4,12 +4,16 @@ from bs4 import BeautifulSoup
 
 images = QuizImage.objects.all()
 
-for image in images:
-    if "flic.kr" in image.link:
-        response = requests.get(image.link)
+def fix_image_link(link:str)-> str:
+    if "flic.kr" in link:
+        response = requests.get(link)
         soup = BeautifulSoup(response.text, 'html.parser')
         url = soup.find("meta", property="og:url")
-        print(url)
-        image.link = url["content"]
-        image.save()
+        print(url["content"])
+        return url["content"]
+    return link
 
+for image in images:
+    newlink:str = fix_image_link(image.link)
+    image.link = newlink
+    image.save()

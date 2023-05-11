@@ -12,7 +12,7 @@
 17	Quando foi a queda dos coronéis na Grécia?		TRUE	24 Julho 1974	Cronologia	1974071500	Ok	1974-07-15	Grécia: queda da ditadura dos Coronéis	Internacional	
 18	Em que ano se inicia a construção do edifício Sedas Nunes?		TRUE	1976	Cronologia	1976123100	Ok	1976-12-31	Início da construção do edifício I, atual edifício Sedas Nunes, neste ano	Iscte	
 19	O professor José Joaquim Laginha foi...	https://www.flickr.com/photos/iscteiul/51970032427/in/album-72177720297729830/	TRUE	Presidente do Conselho Pedagógico;Presidente do Conselho Diretivo;	Cronologia	1977050300	Ok	1977-05-03	José Joaquim Laginha é presidente do Conselho Diretivo (eleito)	Iscte	aparece também em: 1979042600
-20	Em que ano se atingem 10000 discentes?		TRUE	2015/ e são estudantes e não discentes/ alterar em todos	Dimensões	2015093000	Ok	2015-09-30	Número de estudantes: 10646	Iscte	apenas em 2015 temos atualização na timeline  do numero de alunos (a atualiação previa a esta é em 2010 com chave: 2010093000)
+20	Em que ano se atingem 10000 estudantes?		TRUE	2015	Dimensões	2015093000	Ok	2015-09-30	Número de estudantes: 10646	Iscte	apenas em 2015 temos atualização na timeline  do numero de alunos (a atualiação previa a esta é em 2010 com chave: 2010093000)
 21	Que funções políticas teve o Professor Adérito Sedas Nunes?		TRUE	Ministro da Cultura e Ciência	Cronologia	1979080100	Ok	1979-08-01	Adérito Sedas Nunes, Ministro da Cultura e da Ciência do V Governo Constitucional	Nacional	
 22	A Professora Maria João Rodrigues foi ministra de..		TRUE	Ministra da Qualificação e Emprego	Cronologia	1995103000	Ok	1995-10-30	Maria João Rodrigues, ministra da Qualificação e Emprego	Nacional	
 23	Paulo Pedroso foi ministro de...		TRUE	Ministro do Trabalho e da Solidariedade	Cronologia	2001031002	Ok	2001-03-10	Paulo Pedroso, ministro do Trabalho e da Solidariedade 	Iscte	
@@ -23,7 +23,7 @@
 28	O Professor Luís Filipe Pereira foi ministro de...		TRUE	Ministro da Saúde	Cronologia	2002040600	Ok	2002-04-06	Luís Filipe Pereira, ministro da Saúde	Iscte	
 29	O Professor Pedro Adão e Silva é ministro de...		TRUE	Ministro da Cultura	Cronologia	2022033001	Ok	2022-03-30	Pedro Adão e Silva, ministro da Cultura	Iscte	
 30	O Professor João Leão foi ministro de..		TRUE	Ministro de Estado e das Finanças	Cronologia	2020061500	Ok	2020-06-15	João Leão, ministro de Estado e das Finanças	Iscte	
-31	A Professora Helena Carreiras foi ministra de..		TRUE	Ministra da Defesa	Cronologia		Ok	#N/A	#N/A	#N/A	Pergunta não se encontra na base de dados: https://194.210.120.48/
+31	A Professora Helena Carreiras foi ministra de..		TRUE	Ministra da Defesa Nacional	Cronologia		Ok	#N/A	#N/A	#N/A	
 32	Quantos reitores teve o Iscte?		TRUE	2	Dimensões	2009110600	Ok	2009-11-06	Luís Antero Reto é eleito Reitor 	Iscte	reitora: 2018030800
 33	Em que ano se introduz o Numeros Clausus nas universidades?		TRUE	1978	Cronologia	1978101400	Ok	1978-10-14	Institucionalização do Numerus Clausus	Nacional	
 34	O Iscte faz parte do Conselho de Reitores das Universidades Portuguesas (CRUP)?		TRUE	Sim	Cronologia	2005060300	Ok	2005-06-03	Integração no Conselho de Reitores da Universidades Portuguesas (CRUP)	Iscte	
@@ -85,7 +85,7 @@
 92	Quando foi instituído o Código de Conduta Académica (plágio)?		TRUE	2017	Cronologia	2017010900	Ok	2017-01-09	Código de Conduta Académica (plágio)	Iscte	
 93	O Iscte é a primeira universidade a obter a Certificação ambiental. Quando?		TRUE	2018	Cronologia	2018121100	Ok	2018-12-11	Iscte é a primeira universidade portuguesa a obter a Certificação Ambiental	Iscte	
 94	O site do Ciberdúvidas é mantido por que instituição?		TRUE	Iscte-IUL	Cronologia	2019053100	Ok	2019-05-31	 Site Ciberdúvidas da Língua Português alojado no site do Iscte	Iscte	
-95	Desde quando se atribuem contas de e-mail à comunidade?		TRUE	1993	Cronologia	1993123100	Para alterar	1993-12-31	Atribuição de contas de e-mail à comunidade como alternativa ao fax nº +351217903059 e ao telex nº 62542ISCTE-P	Iscte	Não tem resposta
+95	Desde quando se atribuem contas de e-mail à comunidade?		TRUE	1993	Cronologia	1993123100	Para alterar	1993-12-31	Atribuição de contas de e-mail à comunidade como alternativa ao fax nº +351217903059 e ao telex nº 62542ISCTE-P	Iscte	
 96	Praça central (2.315 m2): quantos citrinos tem?		TRUE	7	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 97	José Manuel Paquete Oliveira (1936- 2016), sociólogo, foi presidente do Conselho Diretivo.		TRUE	O auditório Paquete de Oliveira localiza-se: Canto ONE	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 98	Mário Murteira (1933-2013), economista, foi presidente do Conselho Científico e várias vezes ministro		TRUE	O auditório Mário Murteira localiza-se: ONE03	Georeferenciação		Ok	#N/A	#N/A	#N/A	
@@ -103,7 +103,7 @@
 110	Onde fica a Unidade de Investigação DINAMIA'CET_Iscte		TRUE	2W4	Georeferenciação	1989041100	Ok	1989-04-11	Criação do Centro de Estudos sobre a Mudança Socioeconómica (DINAMIA)	Iscte	
 111	Onde fica a Unidade de Investigação Istar_Iscte?		TRUE	D0.10	Georeferenciação	2014060500	Ok	2014-06-05	Criação do ISTAR-IUL	Iscte	
 112	Onde fica a Unidade de Investigação CRIA_Iscte?		TRUE	2W02	Georeferenciação		Ok	#N/A	#N/A	#N/A	
-113	Onde fica a Unidade de Investigação i.t_Iscte		TRUE	D0.06/ talvez, não está na crono, tem de se ir confirmar in loco	Georeferenciação		Para alterar	#N/A	#N/A	#N/A	mudar i.t_iscte para IT-Iscte
+113	Onde fica a Unidade de Investigação IT-Iscte		TRUE	D0.06	Georeferenciação		Para alterar	#N/A	#N/A	#N/A	D0.06/ talvez, não está na crono, tem de se ir confirmar in loco
 114	Onde fica a Unidade de Investigação MediaLab_Iscte		TRUE	AA124	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 115	Onde fica o Laboratório Audiovisual do CRIA Polo Iscte		TRUE	AA126	Georeferenciação		Ok	#N/A	#N/A	#N/A	
 116	Onde fica o laboratório LAPSO?		TRUE	DO.09	Georeferenciação		Ok	#N/A	#N/A	#N/A	
@@ -168,7 +168,7 @@
 175	No ano 2020, qual foi o valor homologado do orçamento do Iscte?		TRUE	49 M€	Dimensões		Não Colocar	#N/A	#N/A	#N/A	
 176	No ano 2021, qual foi o valor homologado do orçamento do Iscte?		TRUE	44 M€	Dimensões		Não Colocar	#N/A	#N/A	#N/A	
 177	A se refere esta imagem?	https://www.flickr.com/photos/iscteiul/51944521770/in/album-72177720297419006/	TRUE	Às Instalações do Iscte: Campo Grande 185.	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-178	Eleito presidente do Conselho Científico em 1983. Quem foi?	https://www.flickr.com/photos/iscteiul/51971035236/in/album-72177720297729830/	TRUE	Mário Murteira/ atenção pergunta está mal.. o ano é 1983	Quotidiano	1983063001	Duvida	1983-06-30	Mário Murteira é Presidente do Conselho Científico (eleito)	Iscte	anos não coincidem
+178	Eleito presidente do Conselho Científico em 1983. Quem foi?	https://www.flickr.com/photos/iscteiul/51971035236/in/album-72177720297729830/	TRUE	Mário Murteira	Quotidiano	1983063001	Duvida	1983-06-30	Mário Murteira é Presidente do Conselho Científico (eleito)	Iscte	
 179	Eleito presidente do Conselho Diretivo em 1984. Quem foi?	https://www.flickr.com/photos/iscteiul/51971599230/in/album-72177720297729830/	TRUE	José Manuel Prostes de Fonseca	Quotidiano	1984073000	Ok	1984-07-30	José Manuel Prostes da Fonseca é presidente do Conselho Diretivo (eleito)	Iscte	
 180	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/51970031767/in/album-72177720297729830/	TRUE	Constituição da Associação de Estudantes (atual AEISCTE-IUL)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 181	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/51971324069/in/album-72177720297729830/	TRUE	Criação da Tuna Académica	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
@@ -195,7 +195,7 @@
 202	Identifique este professor	https://flic.kr/p/2nfo1LC	TRUE	José Veiga Simão ✝︎	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 203	A que evento se refere esta imagem?	https://flic.kr/p/2nfp4Hk	TRUE	Filipe Reis eleito diretor da ECSH	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 204	A que se refere esta imagem?	https://flic.kr/p/2nfp4L1	TRUE	Clara Carvalho primeira diretora do recém criado Centro de Estudos Internacionais (CEI_ISCTE)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
-205	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/30004161755/in/album-72157674445608046/	TRUE	Ricardo Fonseca eleito diretor da Escola de tecnologias e arquitetura (ISTA)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	imagem ambigua, quem responde ao quiz não saberá a qual dos professores presentes na imagem a pergunta se refere
+205	A que se refere esta imagem?	https://www.flickr.com/photos/iscteiul/30004161755/in/album-72157674445608046/	TRUE	Ricardo Fonseca eleito diretor da Escola de tecnologias e arquitetura (ISTA)	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 206	A que se refere esta imagem?	https://flic.kr/p/2nfiN2m	TRUE	José Rebelo eleito presidente do Conselho Cientifico	AutoExplicativa	2013100800	Ok	2013-10-08	José Manuel Rebelo é presidente do Conselho Científico (eleito)	Iscte	
 207	A que se refere esta imagem?	https://flic.kr/p/2nfpj9r	TRUE	Luís Antero Reto eleito reitor	AutoExplicativa		Ok	#N/A	#N/A	#N/A	
 208	A que se refere esta imagem?	https://flic.kr/p/2nfrH7t	TRUE	ISTAR-ISCTE	AutoExplicativa		Ok	#N/A	#N/A	#N/A	

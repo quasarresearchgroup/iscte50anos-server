@@ -6,6 +6,7 @@ from typing import Optional
 
 from events.models import Event
 from pathlib import Path
+from __scripts.fix_quiz_images import fix_image_link
 
 from quiz.models import Question , Choice, QuizImage
 
@@ -42,7 +43,7 @@ def generateJsonWithDiffs() -> dict:
             # print(quizRow)
             csv_question_id:int = int(quizRow[0])
             csv_question_string:str = quizRow[1]
-            csv_question_image_link:str = quizRow[2]
+            csv_question_image_link:str = fix_image_link(quizRow[2])
             csv_question_correct_choice:str = quizRow[4]
             csv_question_category:str = translate_question_category(quizRow[5])
             csv_question_state:str = quizRow[7]
@@ -158,7 +159,7 @@ def synchronizeDbWithDict(questionsDict:dict)->None:
         print(f"id:{id}")
         print(f"\t{storedQuestion}")
 
-        if "question_text" in sync:
+        if questionTextField in sync:
             print(f"\t updating question_text for index nr {id}")
             print(f"\t db: question_text: {db[questionTextField]}")
             print(f"\t csv: question_text: {csv[questionTextField]}")
@@ -168,7 +169,7 @@ def synchronizeDbWithDict(questionsDict:dict)->None:
                 print(f"saved question_text {storedQuestion.text}")
 
 
-        if "question_category" in sync:
+        if questionCategoryField in sync:
             print(f"\t updating question_category for index nr {id}")
             print(f"\t db: question_category: {db[questionCategoryField]}")
             print(f"\t csv: question_category: {csv[questionCategoryField]}")
@@ -178,11 +179,12 @@ def synchronizeDbWithDict(questionsDict:dict)->None:
                 storedQuestion.save()
                 print(f"saved question_category {storedQuestion.category}")
 
-        if "question_image_link" in sync:
+        if questionImageLinkField in sync:
             print(f"\tupdating question_image_link for index nr {id}")
             print(f"\t db: question_image_link: {db[questionImageLinkField]}")
             print(f"\t csv: question_image_link: {csv[questionImageLinkField]}")
             print(storedQuestion.image)
+
             if(storedQuestion.image is None):
                 print("No image set, creating new one")
                 if SAVETODBGUARD and savetoDb:
@@ -196,38 +198,46 @@ def synchronizeDbWithDict(questionsDict:dict)->None:
                     storedQuestion.image.save()
                     print(f"saved new image {storedQuestion.image}")
             else:
-                storedQuestion.image.link = csv[questionImageLinkField]
                 if SAVETODBGUARD and savetoDb:
+                    storedQuestion.image.link = csv[questionImageLinkField]
                     storedQuestion.image.save()
                     storedQuestion.save()
                     print(f"saved new image link {storedQuestion.image}")
 
-        if "correct_choice" in sync:
+        if correctChoiceField in sync:
             print(f"\t updating correct_choice for index nr {id}")
             print(f"\t db: correct_choice: {db[correctChoiceField]}")
             print(f"\t csv: correct_choice: {csv[correctChoiceField]}")
 
             correct_choices = Choice.objects.filter(question=id, is_correct=True)
             other_choices = Choice.objects.filter(question=id, is_correct=False)
-
-            if len(correct_choices) > 0:
-                print(f"correct_choice {correct_choices}")
-                correct_choices[0].text = csv[correctChoiceField]
-                if SAVETODBGUARD and savetoDb:
-                    correct_choices[0].save()
-                    print("saved new correct_choice text")
-            else:
-                if len(other_choices) == 0:
-                    print(f"other_choices: {other_choices}")
-                    print("QUESTION WITHOUTH CHOICES NEED TO CREATE MORE (CORRECT CHOICE ALREADY ADDED FROM CSV)")
-                if SAVETODBGUARD and savetoDb:
-                    newChoice = Choice.objects.create(
-                        question=storedQuestion,
-                        text=csv[correctChoiceField],
-                        is_correct=True,
-                    )
-                    newChoice.save()
-                    print(f"saved new correct_choice: {newChoice}")
+            
+            choiceNotSetToCorrect : bool = False
+            for choice in other_choices:
+                if(choice.text == csv[correctChoiceField]):
+                    choiceNotSetToCorrect = True
+                    choice.is_correct = True
+                    choice.save()
+            
+            if not choiceNotSetToCorrect:
+                if len(correct_choices) > 0:
+                    print(f"correct_choice {correct_choices}")
+                    correct_choices[0].text = csv[correctChoiceField]
+                    if SAVETODBGUARD and savetoDb:
+                        correct_choices[0].save()
+                        print("saved new correct_choice text")
+                else:
+                    if len(other_choices) == 0:
+                        print(f"other_choices: {other_choices}")
+                        print("QUESTION WITHOUTH CHOICES NEED TO CREATE MORE (CORRECT CHOICE ALREADY ADDED FROM CSV)")
+                    if SAVETODBGUARD and savetoDb:
+                        newChoice = Choice.objects.create(
+                            question=storedQuestion,
+                            text=csv[correctChoiceField],
+                            is_correct=True,
+                        )
+                        newChoice.save()
+                        print(f"saved new correct_choice: {newChoice}")
 
 
         print ("="*20)
@@ -240,8 +250,14 @@ def sure_prompt()-> bool:
     except:
         return False
 
-changesJson = generateJsonWithDiffs()
-synchronizeDbWithDict(changesJson)
+other_choices = Choice.objects.filter(question=31, is_correct=False)
+print(other_choices)
+print([choice.text for choice in other_choices])
 
+
+changesJson = generateJsonWithDiffs()
 with open("db_question_test.json", mode="w", encoding="UTF8") as f:
     f.write(json.dumps(changesJson,indent=2))
+    
+synchronizeDbWithDict(changesJson)
+
