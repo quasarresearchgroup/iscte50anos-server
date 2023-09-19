@@ -23,7 +23,7 @@ pf = ProfanityFilter()
 curse_words = []
 
 with open('curse_words_pt.txt') as f:
-    curse_words = f.readlines()
+    curse_words = f.read().splitlines()
 
 pf.define_words(curse_words)
 print(curse_words)
