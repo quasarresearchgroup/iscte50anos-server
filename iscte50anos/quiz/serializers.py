@@ -5,6 +5,7 @@ from rest_framework import serializers
 from quiz.models import Question, Quiz, Choice, Answer, TrialQuestion, Trial
 from topics.serializers import TopicSerializer
 
+
 class TrialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trial

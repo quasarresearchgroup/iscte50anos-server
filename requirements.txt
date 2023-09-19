@@ -5,3 +5,4 @@ Pillow
 gunicorn
 requests
 mysqlclient
+profanityfilter

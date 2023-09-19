@@ -9,7 +9,7 @@ QUIZ_SIZE = 5
 
 # QUIZ_SIZE = 8
 
-
+# TODO change for final version
 def update_level(user):
     profile = Profile.objects.get(user=user)
     num_accessed_topics = TopicAccess.objects.filter(user=user).count()
@@ -17,7 +17,29 @@ def update_level(user):
     next_level = Level.objects.get(num_topics=num_accessed_topics)
     if next_level.number != profile.level:
         Profile.objects.filter(user=user).update(level=next_level.number)
-        create_quiz(user)
+
+        #create_quiz(user)
+        create_quiz_single_topic(user, next_level)
+
+
+def create_quiz_single_topic(user, level):
+    last_topic_access = TopicAccess.objects.filter(user=user).select_related("topic").latest("-date")
+    topic = last_topic_access.topic
+
+    # Create quiz for the  visited topics
+    quiz = Quiz.objects.create(user=user, number=level)
+    quiz.topics.set([topic])
+
+
+def create_quiz(user):
+    topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
+    accessed_topics = [t.topic for t in topic_accesses]
+
+    # Create quiz for the  visited topics
+    quiz = Quiz.objects.create(user=user, number=len(topic_accesses))
+    quiz.topics.set(accessed_topics)
+
+# OLD FUNCTIONS
 
 
 def create_quiz_old(user, level):
@@ -40,15 +62,6 @@ def create_quiz_old(user, level):
         quiz = Quiz.objects.create(user=user, level=level)
         quiz.questions.set(single_questions + multiple_questions)
         quiz.save()
-
-
-def create_quiz(user):
-    topic_accesses = TopicAccess.objects.filter(user=user).select_related("topic")
-    accessed_topics = [t.topic for t in topic_accesses]
-
-    # Create quiz for the  visited topics
-    quiz = Quiz.objects.create(user=user, number=len(topic_accesses))
-    quiz.topics.set(accessed_topics)
 
 
 def create_first_quiz(user):

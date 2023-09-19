@@ -17,6 +17,15 @@ from django.contrib.auth import authenticate
 
 from _controllers import users_controller
 
+from profanityfilter import ProfanityFilter
+
+pf = ProfanityFilter()
+curse_words = []
+
+with open('curse_words_pt.txt') as f:
+    curse_words = f.readlines()
+
+pf.define_words(curse_words)
 
 @api_view(['POST'])
 @transaction.atomic
@@ -117,6 +126,7 @@ def openday_signup(request):
         first_name = signup_serializer.validated_data["first_name"]
         last_name = signup_serializer.validated_data["last_name"]
 
+        '''
         affiliation_name = signup_serializer.validated_data["affiliation_name"]
         affiliation_type = signup_serializer.validated_data["affiliation_type"]
 
@@ -124,13 +134,58 @@ def openday_signup(request):
             affiliation = Affiliation.objects.get(subtype=affiliation_type, name=affiliation_name)
         except Affiliation.DoesNotExist:
             return Response(data={"message": "Afiliação Inválida", "code": 4}, status=400)
+        '''
 
         # SUCCESS
         try:
             user = User(username=username, first_name=first_name, last_name=last_name, email=email)
             user.set_password(password)
             user.save()
-            profile = Profile.objects.create(user=user, affiliation=affiliation)
+            profile = Profile.objects.create(user=user, )#affiliation=affiliation)
+            token = Token.objects.get_or_create(user=user)
+            return Response(data={"message": "Perfil criado com sucesso", "api_token": token[0].key})
+        except Exception as e:
+            return Response(data={"message": "Erro a criar utilizador. Tentar novamente.", "code": 6}, status=500)
+
+    else:
+        return Response(data={"message": "Email inválido", "code": 5}, status=400) # Bad request (invalid serializer)
+
+
+@api_view(['POST'])
+@transaction.atomic
+def nei_signup(request):
+    signup_serializer = SignupSerializer(data=request.data)
+    if signup_serializer.is_valid():
+
+        # VALIDATION
+        username = signup_serializer.validated_data["username"]
+        if User.objects.filter(username=username).exists():
+            return Response(data={"message": "O username já existe", "code": 1}, status=400)
+
+        if pf.is_profane(username):
+            return Response(data={"message": "O username é inválido", "code": 10}, status=400)
+
+        password = signup_serializer.validated_data["password"]
+        password_confirmation = signup_serializer.validated_data["password_confirmation"]
+        if password != password_confirmation:
+            return Response(data={"message": "As palavras-passe não coincidem", "code": 3}, status=400)
+
+        '''
+        affiliation_name = signup_serializer.validated_data["affiliation_name"]
+        affiliation_type = signup_serializer.validated_data["affiliation_type"]
+
+        try:
+            affiliation = Affiliation.objects.get(subtype=affiliation_type, name=affiliation_name)
+        except Affiliation.DoesNotExist:
+            return Response(data={"message": "Afiliação Inválida", "code": 4}, status=400)
+        '''
+
+        # SUCCESS
+        try:
+            user = User(username=username, first_name=first_name, last_name=last_name, email=email)
+            user.set_password(password)
+            user.save()
+            profile = Profile.objects.create(user=user, )#affiliation=affiliation)
             token = Token.objects.get_or_create(user=user)
             return Response(data={"message": "Perfil criado com sucesso", "api_token": token[0].key})
         except Exception as e:
