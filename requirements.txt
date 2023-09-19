@@ -6,3 +6,4 @@ gunicorn
 requests
 mysqlclient
 profanityfilter
+bs4
