@@ -22,11 +22,18 @@ from profanityfilter import ProfanityFilter
 pf = ProfanityFilter()
 curse_words = []
 
-with open('curse_words_pt.txt') as f:
+with open('curse_words.txt') as f:
     curse_words = f.read().splitlines()
 
 pf.define_words(curse_words)
-print(curse_words)
+
+
+def is_profane(str):
+    for word in curse_words:
+        if word in str:
+            return True
+    return False
+
 
 @api_view(['POST'])
 @transaction.atomic
@@ -163,7 +170,7 @@ def nei_signup(request):
         if User.objects.filter(username=username).exists():
             return Response(data={"message": "O username já existe", "code": 1}, status=400)
 
-        if pf.is_profane(username):
+        if is_profane(username):
             return Response(data={"message": "O username é inválido", "code": 10}, status=400)
 
         password = signup_serializer.validated_data["password"]
