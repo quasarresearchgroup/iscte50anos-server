@@ -25,6 +25,7 @@ with open('profane_words.txt') as f:
 
 def is_profane(s):
     processed_str = s.lower().translate({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t"})
+    print(processed_str)
     for word in curse_words:
         if word in processed_str:
             return True
