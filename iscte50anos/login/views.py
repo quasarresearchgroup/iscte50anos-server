@@ -22,7 +22,7 @@ from profanityfilter import ProfanityFilter
 pf = ProfanityFilter()
 curse_words = []
 
-with open('curse_words.txt') as f:
+with open('profane_words.txt') as f:
     curse_words = f.read().splitlines()
 
 pf.define_words(curse_words)
