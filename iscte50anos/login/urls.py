@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     path('', views.exchange_access_token),
-    #path('signup', views.openday_signup),
+    path('signup', views.nei_signup),
     path('login', views.openday_login),
     path('logout', views.openday_logout),
 ]
