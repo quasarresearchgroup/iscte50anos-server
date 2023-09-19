@@ -23,10 +23,10 @@ def update_level(user):
 
 
 def create_quiz_single_topic(user, level):
-    last_topic_access = TopicAccess.objects.filter(user=user).select_related("topic").latest("-date")
+    last_topic_access = TopicAccess.objects.filter(user=user).select_related("topic").latest("when")
     topic = last_topic_access.topic
 
-    # Create quiz for the  visited topics
+    # Create quiz for the visited topics
     quiz = Quiz.objects.create(user=user, number=level)
     quiz.topics.set([topic])
 
@@ -70,6 +70,25 @@ def create_first_quiz(user):
     quiz.topics.set(Topic.objects.all().exclude(title="Georeferenciação"))
 
 
+def assign_trial_questions_simple(user, trial, topics):
+    # Get all questions not previously associated
+    questions = list(Question.objects.filter(topics__in=topics).exclude(trial_questions__trial__quiz__user=user))
+
+    if len(questions) < QUIZ_SIZE:
+        middle_questions = list(Question.objects.filter(topics__in=topics))
+
+    questions = questions + random.sample(middle_questions, QUIZ_SIZE)
+
+    trial_questions = []
+    question_number = 1
+    for question in questions:
+        trial_question = TrialQuestion(trial=trial, question=question, number=question_number)
+        trial_questions.append(trial_question)
+        question_number += 1
+
+    TrialQuestion.objects.bulk_create(trial_questions)
+
+
 def assign_trial_questions(user, trial, topics):
     # Get all questions not previously associated
     middle_questions = list(Question.objects.filter(topics__in=topics)
@@ -101,7 +120,6 @@ def assign_trial_questions(user, trial, topics):
         question_number += 1
 
     TrialQuestion.objects.bulk_create(trial_questions)
-
 
 def assign_trial_questions_final(user, trial, topics):
     # Get all questions not previously associated

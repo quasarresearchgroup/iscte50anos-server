@@ -22,9 +22,10 @@ with open('profane_words.txt') as f:
     curse_words = f.read().splitlines()
     curse_words = [s.lower() for s in curse_words]
 
+mapping_table = str.maketrans({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t"})
+
 
 def is_profane(s):
-    mapping_table = str.maketrans({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t"})
     processed_str = s.lower().translate(mapping_table)
     print(processed_str)
     for word in curse_words:
@@ -176,22 +177,12 @@ def nei_signup(request):
         if password != password_confirmation:
             return Response(data={"message": "As palavras-passe não coincidem", "code": 3}, status=400)
 
-        '''
-        affiliation_name = signup_serializer.validated_data["affiliation_name"]
-        affiliation_type = signup_serializer.validated_data["affiliation_type"]
-
-        try:
-            affiliation = Affiliation.objects.get(subtype=affiliation_type, name=affiliation_name)
-        except Affiliation.DoesNotExist:
-            return Response(data={"message": "Afiliação Inválida", "code": 4}, status=400)
-        '''
-
         # SUCCESS
         try:
             user = User(username=username)
             user.set_password(password)
             user.save()
-            profile = Profile.objects.create(user=user, )#affiliation=affiliation)
+            profile = Profile.objects.create(user=user)
             token = Token.objects.get_or_create(user=user)
             return Response(data={"message": "Perfil criado com sucesso", "api_token": token[0].key})
         except Exception as e:

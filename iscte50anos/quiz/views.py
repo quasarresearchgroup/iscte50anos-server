@@ -52,7 +52,7 @@ def start_quiz_trial(request, quiz_num):
 
     quiz_controller.assign_trial_questions(request.user, new_trial, quiz.topics.all())
 
-    trial_questions = [ TrialQuestionSerializer(question).data for question in new_trial.questions.all()]
+    trial_questions = [TrialQuestionSerializer(question).data for question in new_trial.questions.all()]
     
     # return Response(status=201, data={"trial_number": trial_count + 1, "quiz_size": QUIZ_SIZE})
     return Response(status=201,
