@@ -30,8 +30,9 @@ def get_topic(request, pk):
                                                          quiz__number=request.user.profile.level,
                                                          quiz__user=request.user).exists()
 
-        if not has_completed_latest_quiz and request.user.profile.level != 0:
-            return Response(status=400, data={"status": "The quiz for this level was not completed"})
+        # TODO activate for final version
+       # if not has_completed_latest_quiz and request.user.profile.level != 0:
+        #    return Response(status=400, data={"status": "The quiz for this level was not completed"})
 
         with transaction.atomic():
             TopicAccess.objects.create(user=request.user, topic=topic)

@@ -22,7 +22,7 @@ ANSWER_TIME = 45  # segundos
 
 
 # QUIZ_SIZE = 5 # TODO change for experiences (8)
-
+QUIZ_SIZE = 8
 
 @api_view()
 @permission_classes([IsAuthenticated])
