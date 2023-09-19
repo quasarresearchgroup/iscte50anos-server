@@ -27,7 +27,7 @@ def create_quiz_single_topic(user, level):
     topic = last_topic_access.topic
 
     # Create quiz for the visited topics
-    quiz = Quiz.objects.create(user=user, number=level)
+    quiz = Quiz.objects.create(user=user, number=level.number)
     quiz.topics.set([topic])
 
 
