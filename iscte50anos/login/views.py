@@ -17,20 +17,16 @@ from django.contrib.auth import authenticate
 
 from _controllers import users_controller
 
-from profanityfilter import ProfanityFilter
-
-pf = ProfanityFilter()
-curse_words = []
-
+# PROFANITY FILTER REVIEW
 with open('profane_words.txt') as f:
     curse_words = f.read().splitlines()
-
-pf.define_words(curse_words)
+    curse_words = [s.lower() for s in curse_words]
 
 
 def is_profane(str):
+    str_low = str.lower()
     for word in curse_words:
-        if word in str:
+        if word in str_low:
             return True
     return False
 
