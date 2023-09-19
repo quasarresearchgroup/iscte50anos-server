@@ -182,7 +182,7 @@ def nei_signup(request):
 
         # SUCCESS
         try:
-            user = User(username=username, first_name=first_name, last_name=last_name, email=email)
+            user = User(username=username)
             user.set_password(password)
             user.save()
             profile = Profile.objects.create(user=user, )#affiliation=affiliation)
