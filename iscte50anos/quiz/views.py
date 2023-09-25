@@ -50,7 +50,7 @@ def start_quiz_trial(request, quiz_num):
 
     new_trial = Trial.objects.create(quiz=quiz, number=trial_count + 1)
 
-    quiz_controller.assign_trial_questions(request.user, new_trial, quiz.topics.all())
+    quiz_controller.assign_trial_questions_simple(request.user, new_trial, quiz.topics.all())
 
     trial_questions = [TrialQuestionSerializer(question).data for question in new_trial.questions.all()]
     
