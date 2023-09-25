@@ -13,6 +13,7 @@ from quiz.serializers import QuestionSerializer
 
 p_quiz = Path(__file__).parent / 'files' / 'quiz.tsv'
 
+Question.objects.all().delete()
 
 with p_quiz.open(encoding='UTF8') as quizFile:
     quiz_reader = csv.reader(quizFile, delimiter="\t")
