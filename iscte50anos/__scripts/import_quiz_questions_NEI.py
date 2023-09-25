@@ -25,8 +25,11 @@ with p_quiz.open(encoding='UTF8') as quizFile:
         question.topics.set([topic])
 
         correct_id = int(quizRow[6])
+
+        choices = []
         for i in range(2, 6):
-            Choice.objects.create(text=quizRow[i], is_correct=(correct_id == i-1), question=question)
+            choices.append(Choice(text=quizRow[i], is_correct=(correct_id == i-1), question=question))
+        Choice.objects.bulk_create(choices)
 
 
 # for question in Question.objects.all():
