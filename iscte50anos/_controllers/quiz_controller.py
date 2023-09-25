@@ -75,9 +75,9 @@ def assign_trial_questions_simple(user, trial, topics):
     questions = list(Question.objects.filter(topics__in=topics).exclude(trial_questions__trial__quiz__user=user))
 
     if len(questions) < QUIZ_SIZE:
-        middle_questions = list(Question.objects.filter(topics__in=topics))
+        questions = list(Question.objects.filter(topics__in=topics))
 
-    questions = questions + random.sample(middle_questions, QUIZ_SIZE)
+    questions = random.sample(questions, QUIZ_SIZE)
 
     trial_questions = []
     question_number = 1
