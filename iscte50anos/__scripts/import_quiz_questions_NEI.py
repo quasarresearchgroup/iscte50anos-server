@@ -18,16 +18,15 @@ with p_quiz.open(encoding='UTF8') as quizFile:
     quiz_reader = csv.reader(quizFile, delimiter="\t")
     header = next(quiz_reader)
     for index, quizRow in enumerate(quiz_reader):
-        topic = Topic.objects.get_or_create(title=quizRow[0])
+        topic = Topic.objects.get_or_create(title=quizRow[0])[0]
 
-        question = Question(id=index, text=quizRow[1], type="S")
+        question = Question.objects.create(id=index, text=quizRow[1], type="S")
         question.topics.set([topic])
 
         correct_id = int(quizRow[6])
         for i in range(2, 6):
             question.choices.add(Choice.objects.create(text=quizRow[i], is_correct=(correct_id == i-1)))
 
-        question.save()
 
 # for question in Question.objects.all():
-#     print(QuestionSerializer(question).data)
+#     print(QuestionSerializer(question).da
