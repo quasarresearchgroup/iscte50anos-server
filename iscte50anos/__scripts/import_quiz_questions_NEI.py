@@ -20,7 +20,7 @@ with p_quiz.open(encoding='UTF8') as quizFile:
     for index, quizRow in enumerate(quiz_reader):
         topic = Topic.objects.get_or_create(title=quizRow[0])[0]
 
-        question = Question.objects.create(id=index, text=quizRow[1], type="S")
+        question = Question.objects.create(text=quizRow[1], type="S")
         question.topics.set([topic])
 
         correct_id = int(quizRow[6])
