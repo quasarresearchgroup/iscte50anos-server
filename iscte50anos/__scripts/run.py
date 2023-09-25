@@ -19,6 +19,7 @@ while True:
     print("8: Import Quiz Question types")
     print("9: Fix Question images")
     print("10: Sync Questions")
+    print("11: Import Quiz Questions")
 
     script = int(input())
     if script == 1:
@@ -48,5 +49,8 @@ while True:
     elif script == 10:
         if sure_prompt():
             from __scripts import sync_questions
+    elif script == 11:
+        if sure_prompt():
+            from __scripts import import_quiz_questions_NEI
 
     exit(0)
