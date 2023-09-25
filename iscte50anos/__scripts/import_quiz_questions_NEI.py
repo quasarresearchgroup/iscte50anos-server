@@ -25,7 +25,7 @@ with p_quiz.open(encoding='UTF8') as quizFile:
 
         correct_id = int(quizRow[6])
         for i in range(2, 6):
-            question.choices.add(Choice(text=quizRow[i], is_correct=(correct_id == i-1)))
+            question.choices.add(Choice.objects.create(text=quizRow[i], is_correct=(correct_id == i-1)))
 
         question.save()
 
