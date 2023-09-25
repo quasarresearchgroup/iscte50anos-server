@@ -42,12 +42,14 @@ class Profile(models.Model):
     total_time = models.IntegerField(default=0)
     is_logged = models.BooleanField(default=False)
 
+    # TODO redo for final app
     def name(self):
-        last_name = ""
+        """last_name = ""
         surname = self.user.last_name
         if surname != "":
             last_name = surname.split()[-1]
-        return f"{self.user.first_name} {last_name}"
+        return f"{self.user.first_name} {last_name}" """
+        return self.username()
 
     def username(self):
         return self.user.username
