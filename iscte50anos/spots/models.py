@@ -31,7 +31,7 @@ class QRCodeAccess(models.Model):
 
 class Spot(models.Model):
     description = models.CharField(max_length=100, blank=True)
-    location_photo_link = models.CharField(max_length=100, blank=True)
+    location_photo_link = models.CharField(max_length=300, blank=True)
 
     def __str__(self):
         return f'{self.id} - {self.description}'
