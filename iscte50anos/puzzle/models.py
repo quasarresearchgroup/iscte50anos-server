@@ -4,7 +4,7 @@ from spots.models import Spot
 
 
 class Puzzle(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="questions")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="puzzles")
     spot = models.ForeignKey(Spot, on_delete=models.CASCADE)
 
     def __str__(self):
