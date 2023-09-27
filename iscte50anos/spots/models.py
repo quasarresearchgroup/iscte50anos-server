@@ -34,7 +34,7 @@ class Spot(models.Model):
     location_photo_link = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
-        return f'{self.description}'
+        return f'{self.id} - {self.description}'
 
 
 class LayoutPeriod(models.Model):
