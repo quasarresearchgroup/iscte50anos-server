@@ -8,6 +8,8 @@ from spots.models import Spot
 
 from puzzle.models import Puzzle
 
+from _controllers import users_controller
+
 
 @api_view(["POST"])
 @transaction.atomic
@@ -21,5 +23,8 @@ def submit_puzzle(request, spot_id):
         return Response(status=400, data={"status": "This puzzle is already submitted"})
 
     Puzzle.objects.create(user=request.user, spot=spot)
+
+    request.user.profile.points = users_controller.calculate_user_score()
+    request.user.profile.save()
 
     return Response(status=201, data={"status": "Puzzle submitted"})
