@@ -27,4 +27,4 @@ def submit_puzzle(request, spot_id):
     request.user.profile.points = users_controller.calculate_user_score(request.user)
     request.user.profile.save()
 
-    return Response(status=201, data={"status": "Puzzle submitted"})
+    return Response(status=201, data={"status": "Puzzle submitted", "points": 10})
