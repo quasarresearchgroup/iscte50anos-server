@@ -3,7 +3,7 @@ from django.urls import path, include
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
-from iscte50anos.puzzle.migrations import views
+from . import views
 
 # Quizzes endpoint
 
