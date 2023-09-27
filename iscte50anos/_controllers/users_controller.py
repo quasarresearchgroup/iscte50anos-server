@@ -25,6 +25,20 @@ def create_user(profile_data):
     affiliation = Affiliation.objects.get_or_create(title=profile_data["title"],
                                                     department=profile_data["department"])[0]
     profile = Profile.objects.create(user=user, affiliation=affiliation)
-    #quiz_controller.create_first_quiz(user)
+    # quiz_controller.create_first_quiz(user)
 
     return user
+
+
+def calculate_user_score(user):
+    # Calculate quiz score
+    total_score = 0
+    for quiz in user.quizzes.all():
+        if quiz.number == 0:
+            continue
+        total_score += quiz.score()
+
+    # Calculate puzzle score
+    total_score += user.puzzles.all().count() * 10
+
+    return total_score

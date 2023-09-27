@@ -121,6 +121,7 @@ def assign_trial_questions(user, trial, topics):
 
     TrialQuestion.objects.bulk_create(trial_questions)
 
+
 def assign_trial_questions_final(user, trial, topics):
     # Get all questions not previously associated
     questions = list(Question.objects.filter(topics__in=topics)
@@ -145,12 +146,3 @@ def assign_trial_questions_final(user, trial, topics):
         question_number += 1
 
     TrialQuestion.objects.bulk_create(trial_questions)
-
-
-def calculate_user_score(user):
-    total_score = 0
-    for quiz in user.quizzes.all():
-        if quiz.number == 0:
-            continue
-        total_score += quiz.score()
-    return total_score

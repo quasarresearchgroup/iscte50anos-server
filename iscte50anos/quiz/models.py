@@ -139,8 +139,9 @@ class Trial(models.Model):
 
             trial_score = trial_score + question_score
 
-        # TODO include penalty?
-        max_score = (QUIZ_SIZE * QUESTION_POINTS) - ((self.number - 1) * QUESTION_POINTS)
+        # TODO include penalty in final version
+        # max_score = (QUIZ_SIZE * QUESTION_POINTS) - ((self.number - 1) * QUESTION_POINTS)
+        max_score = (QUIZ_SIZE * QUESTION_POINTS)
         return trial_score if trial_score <= max_score else max_score
 
     def __str__(self):

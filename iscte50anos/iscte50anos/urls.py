@@ -25,6 +25,7 @@ apipatterns = [
     path('users/', include('users.urls')),
     path('spots/', include('spots.urls')),
     path('feedback/', include('feedback.urls')),
+    path('puzzle/', include('puzzle.urls')),
 ]
 
 urlpatterns = [

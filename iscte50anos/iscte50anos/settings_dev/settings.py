@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'spots',
     'feedback',
     'log',
+    'puzzle',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

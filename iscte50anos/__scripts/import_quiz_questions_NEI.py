@@ -15,6 +15,7 @@ p_quiz = Path(__file__).parent / 'files' / 'quiz.tsv'
 
 Question.objects.all().delete()
 
+# TODO coluna muito longa
 with p_quiz.open(encoding='UTF8') as quizFile:
     quiz_reader = csv.reader(quizFile, delimiter="\t")
     header = next(quiz_reader)

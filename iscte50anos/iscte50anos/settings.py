@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'spots',
     'feedback',
     'log',
+    'puzzle',
 ]
 
 MIDDLEWARE = [

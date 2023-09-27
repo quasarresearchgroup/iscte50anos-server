@@ -16,7 +16,7 @@ from quiz.models import Trial, TrialQuestion, Question, Answer
 
 from quiz.serializers import QuestionSerializer, AnswerSerializer, TrialQuestionSerializer, TrialAnswerSerializer
 
-from _controllers import quiz_controller
+from _controllers import quiz_controller, users_controller
 
 ANSWER_TIME = 45  # segundos
 
@@ -258,7 +258,7 @@ def answer_trial(request, quiz_num, num_trial):
         trial.is_completed = True
         trial.save()
 
-        user_updated_score = quiz_controller.calculate_user_score(request.user)
+        user_updated_score = users_controller.calculate_user_score(request.user)
         profile = request.user.profile
         profile.points = user_updated_score
         profile.save()
