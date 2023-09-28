@@ -7,26 +7,30 @@ Quantos lados tem um dodecágono?	10	11	12	13	3
 Quantos ângulos retos tem um retângulo?	2	3	4	5	3
 Quantos ângulos retos tem um quadrado?	2	3	4	5	3
 Quantos ângulos retos tem um triângulo retângulo?	1	2	3	4	1
-Qual é o número primo mais baixo?	1	2	3	4	2
+Qual é o número primo mais baixo?	0	2	3	4	2
 Qual é o próximo número na sequência: 1, 1, 2, 3, 5, ...?	7	8	10	13	4
-O que é um número inteiro negativo?	Um número menor que zero	Um número maior que zero	Um número fracionário	Um número decimal	1
-Qual é o termo matemático para uma figura de oito lados?	Octógono	Hexágono	Dodecágono	Pentágono	1
-O que é o teorema de Pitágoras aplicada a um triângulo retângulo?	A soma dos quadrados dos catetos é igual ao quadrado da hipotenusa	A soma dos ângulos internos é sempre 180 graus	A área é a base vezes a altura sobre dois	A soma do comprimento dos catetos é igual ao quadrado da hipotenusa	1
+Qual o maior destes números inteiros negativos?	-100	-50	-25	-5	4
+Qual o maior número em módulo?	-100	50	-25	5	1
+O que diz o teorema de Pitágoras, aplicado a um triângulo retângulo?	A soma dos quadrados dos catetos é igual ao quadrado da hipotenusa	A soma dos ângulos internos é sempre 180 graus	A área é a base vezes a altura sobre dois	A soma do comprimento dos catetos é igual ao quadrado da hipotenusa	1
 Quantos graus tem um ângulo reto?	45	90	180	360	2
 O que é o número "e" (número de Euler)?	Um número irracional aproximadamente igual a 2.71828	A base do sistema de numeração binária	Um número primo	A raiz quadrada de 2	1
 Qual é o valor de 6! (seis fatorial)?	120	30	720	24	3
-O que é uma fração equivalente a 1/2?	2/4	3/5	4/3	1/3	1
-O que é um número decimal?	Um número que pode ser expresso como uma fração	Um número que não tem uma parte decimal	Um número que tem uma parte decimal	Um número que é maior que 100	3
+Qual é a fração equivalente a 1/2?	2/4	3/5	4/3	1/3	1
+O que é um número decimal?	Um número que pode ser expresso como uma fração	Um número que não tem uma parte decimal	Um número não inteiro que tem uma parte decimal	Um número inteiro maior que 9	3
 Qual é a área de um quadrado com lados de comprimento 6 unidades?	12 unidades quadradas	18 unidades quadradas	24 unidades quadradas	36 unidades quadradas	4
-Qual é o resultado da soma de 3/4 e 1/4?	1/2	1/4	1	3/4	3
+Qual é o resultado da soma de 3/4 com 1/4?	1/2	1/4	1	4/8	3
 Qual é o número primo seguinte a 7?	8	10	9	11	4
-O que é uma equação linear?	Uma equação em que a variável é elevada a uma potência	Uma equação em que a variável é elevada ao quadrado	Uma equação em que a variável aparece apenas com expoente 1	Uma equação em que a variável é uma constante	3
-Qual destas figuras possui todos os lados de igual comprimento?	Quadrado	Triângulo	Retângulo	Pentágono	1
-O que é uma média aritmética?	A soma de todos os números em um conjunto dividida pelo número total de elementos	O número do meio em um conjunto de dados ordenados	O número que aparece com mais frequência em um conjunto de dados	O número mais alto em um conjunto de dados	1
-O que é um número primo?	Um número que pode ser dividido apenas por 1 e por ele mesmo	Um número que é maior que 100	Um número com uma parte decimal	Um número que é sempre positivo	1
+O que é uma equação linear?	Uma equação em que a variável tem expoente maior que 1	Uma equação em que a variável é elevada ao quadrado	Uma equação em que a variável aparece apenas com expoente 1	Uma equação em que a variável é uma constante	3
+Qual destes tipos de triângulos possui todos os lados de igual comprimento?	Escaleno	Retângulo	Equilátero	Isósceles	3
+O que é uma média aritmética?	A soma de todos os números de um conjunto dividida pelo número total de elementos	O número do meio numa sequência de dados ordenados	O número que aparece com maior frequência num conjunto de dados	O número mais alto num conjunto de dados	1
+O que é um número primo?	Um número que é divisível apenas por 1 e por ele mesmo	Um número que é maior do que 100	Um número com uma parte decimal	Um número que é sempre positivo	1
 Qual é a soma de todos os ângulos internos de um triângulo?	45 graus	90 graus	180 graus	360 graus	3
-O que é um número irracional?	Um número que pode ser expresso como uma fração simples	Um número que não pode ser expresso como uma fração simples	Um número que é sempre um inteiro	Um número que é sempre positivo	2
-Qual é o próximo número na sequência: 2, 4, 8, 16, ...?	24	32	48	64	4
+O que é um número irracional?	Um número que pode ser expresso como uma dízima infinita não periódica	Um número que não pode ser expresso como dízima infinita não periódica	Um número que é sempre um número inteiro	Um número que é sempre positivo	2
+Qual é o próximo número na sequência: 2, 4, 8, 16, ...?	24	32	48	64	2
 O que é uma média ponderada?	Uma média que leva em consideração a frequência de ocorrência de cada valor	A média dos números ímpares	A média dos números pares	A média dos números primos	1
 O que é um número inteiro?	Um número quebrado	Um número que não é positivo	Um número que é resultado de uma divisão	Um número que não possui parte decimal	4
-Qual é o valor de 3/5 + 1/5?	2/5	4/5	1	1/10	1
+Qual é o valor absoluto de 3/5 - 8/5?	-5/5	4/5	1	11/5	3
+Qual é a diferença entre uma população e uma amostra?	Uma população é um subconjunto de uma amostra	Uma amostra é um subconjunto de uma população	Uma população e uma amostra designam a mesma coisa	São a mesma coisa, mas população usa-se para pessoas e amostra para tudo o resto	2
+O que é o desvio padrão?	A média dos desvios dos dados em relação à média	A raiz quadrada da variância	A amplitude dos dados	A mediana dos desvios dos dados em relação à média	2
+O que é a moda de uma amostra?	O valor mais comum	O valor menos comum	O valor médio	O valor mediano	1
+O que é a mediana de um conjunto de dados com cardinalidade ímpar?	O valor mais comum	O valor menos comum	O valor no meio quando os dados são ordenados	O valor médio	3
