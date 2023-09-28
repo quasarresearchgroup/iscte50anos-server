@@ -56,7 +56,7 @@ def import_2():
 
                 choices = []
                 for i in range(1, 5):
-                    choices.append(Choice(text=quizRow[i], is_correct=(correct_id == i - 1), question=question))
+                    choices.append(Choice(text=quizRow[i], is_correct=(correct_id == i), question=question))
                 Choice.objects.bulk_create(choices)
 
 
