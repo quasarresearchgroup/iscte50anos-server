@@ -9,6 +9,7 @@ from users.models import Profile, Affiliation
 
 from users.serializers import ProfileSerializer, LeaderboardSerializer
 
+
 @api_view()
 @permission_classes([IsAuthenticated])
 def get_affiliations(request):

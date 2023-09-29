@@ -33,6 +33,14 @@ def is_profane(s):
     return False
 
 
+@api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
+def delete_user(request):
+    profile = Profile.objects.get(user=request.user)
+    request.user.delete()
+    return Response(status=200, data={"status": "User deleted"})
+
+
 @api_view(['POST'])
 @transaction.atomic
 # Exchange OAuth2 access token by an in-house access token

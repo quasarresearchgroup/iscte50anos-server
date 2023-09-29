@@ -8,4 +8,5 @@ urlpatterns = [
     path('signup', views.nei_signup),
     path('login', views.openday_login),
     path('logout', views.openday_logout),
+    path('delete', views.delete_user),
 ]
