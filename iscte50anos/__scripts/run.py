@@ -34,6 +34,9 @@ while True:
     elif script == 4:
         if sure_prompt():
             from __scripts import create_levels
+    elif script == 5:
+        if sure_prompt():
+            from __scripts import delete_quiz_data
     elif script == 6:
         if sure_prompt():
             from __scripts import check_broken_content_links
