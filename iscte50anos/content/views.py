@@ -12,7 +12,7 @@ from content.serializers import ContentSerializer
 @api_view()
 def get_content(request):
     contents = Content.objects.all()
-    serializer = ContentSerializer(contents , many=True)
+    serializer = ContentSerializer(contents, many=True)
     return Response(data=serializer.data)
 
 

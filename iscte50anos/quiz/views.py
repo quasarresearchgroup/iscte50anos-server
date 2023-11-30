@@ -71,31 +71,66 @@ def get_trial_questions(request, quiz_num, num_trial):
                                                    trial__number=num_trial)#.select_related("questions")
     return Response(status=200, data=TrialQuestionSerializer(trial_questions, many=True).data)
 
-@api_view()
+
+@api_view(["POST"])
 @permission_classes([IsAuthenticated])
-def get_current_question_old(request, quiz_num, num_trial):
-    trial = Trial.objects.filter(quiz__number=quiz_num,
-                                 quiz__user=request.user,
-                                 number=num_trial).first()
+@transaction.atomic
+def answer_trial(request, quiz_num, num_trial):
+    # Acquire lock
+    trial = Trial.objects.select_for_update().filter(quiz__number=quiz_num,
+                                                     quiz__user=request.user,
+                                                     number=num_trial, ).prefetch_related(
+        "questions__question__choices").first()
+    # TODO Atenção a este select related
 
     if trial is None:
         return Response(status=404, data={"status": "Trial or Quiz do not exist"})
 
-    id_answered_questions_id = [tq.question.id for tq in list(trial.questions.all())]
+    if trial.is_completed:
+        return Response(status=400, data={"status": "Trial already answered"})
+    
+    trial_answer_serializer = TrialAnswerSerializer(data=request.data)
+    if trial_answer_serializer.is_valid():
+        # TODO optimize
+        trial_questions = trial.questions.all()
+        for answer_data in trial_answer_serializer.validated_data["answers"]:
+            answer_trial_question = None
+            for trial_question in trial_questions:
+                question_id = trial_question.question.id
+                if question_id == answer_data["question_id"]:
+                    answer_trial_question = trial_question
+                    break
 
-    available_questions = list(trial.quiz.questions.exclude(id__in=id_answered_questions_id))
+            if answer_trial_question is None:
+                return Response(status=400, data={"status": "Invalid answer"})
 
-    if len(available_questions) == 0:
-        return Response(status=201, data={"trial_score": trial.calculate_score()})
+            question = answer_trial_question.question
+            question_choices = question.choices.all()
 
-    next_question = random.choice(available_questions)
+            answer_choices = answer_data["choices"]
+            for choice in answer_choices:
+                if choice not in question_choices:
+                    return Response(status=400, data={"status": "Invalid answer"})
 
-    trial_question = TrialQuestion.objects.create(trial=trial,
-                                                  question=next_question,
-                                                  number=len(id_answered_questions_id) + 1)
+            answer = Answer.objects.create()
+            answer.choices.set(answer_choices)
+            answer.trial_question.set([trial_question])
+            answer.save()
 
-    return Response(status=201, data=TrialQuestionSerializer(trial_question).data)
+        trial.is_completed = True
+        trial.save()
 
+        user_updated_score = users_controller.calculate_user_score(request.user)
+        profile = request.user.profile
+        profile.points = user_updated_score
+        profile.save()
+
+        # Profile.objects.filter(user=request.user).update(points=user_updated_score)
+        return Response(status=201, data={"trial_score": trial.score()})
+    else:
+        return Response(status=400, data={"status": "Invalid body"})
+
+# LEGACY CODE
 
 # Questions?
 @api_view(["POST"])
@@ -209,61 +244,27 @@ def answer_question(request, quiz_num, num_trial, question_num):
     else:
         return Response(status=400, data={"status": "Invalid body"})
 
-
-@api_view(["POST"])
+@api_view()
 @permission_classes([IsAuthenticated])
-@transaction.atomic
-def answer_trial(request, quiz_num, num_trial):
-    # Acquire lock
-    trial = Trial.objects.select_for_update().filter(quiz__number=quiz_num,
-                                                     quiz__user=request.user,
-                                                     number=num_trial, ).prefetch_related(
-        "questions__question__choices").first()
-    # TODO Atenção a este select related
+def get_current_question_old(request, quiz_num, num_trial):
+    trial = Trial.objects.filter(quiz__number=quiz_num,
+                                 quiz__user=request.user,
+                                 number=num_trial).first()
 
     if trial is None:
         return Response(status=404, data={"status": "Trial or Quiz do not exist"})
 
-    if trial.is_completed:
-        return Response(status=400, data={"status": "Trial already answered"})
-    
-    trial_answer_serializer = TrialAnswerSerializer(data=request.data)
-    if trial_answer_serializer.is_valid():
-        # TODO optimize
-        trial_questions = trial.questions.all()
-        for answer_data in trial_answer_serializer.validated_data["answers"]:
-            answer_trial_question = None
-            for trial_question in trial_questions:
-                question_id = trial_question.question.id
-                if question_id == answer_data["question_id"]:
-                    answer_trial_question = trial_question
-                    break
+    id_answered_questions_id = [tq.question.id for tq in list(trial.questions.all())]
 
-            if answer_trial_question is None:
-                return Response(status=400, data={"status": "Invalid answer"})
+    available_questions = list(trial.quiz.questions.exclude(id__in=id_answered_questions_id))
 
-            question = answer_trial_question.question
-            question_choices = question.choices.all()
+    if len(available_questions) == 0:
+        return Response(status=201, data={"trial_score": trial.calculate_score()})
 
-            answer_choices = answer_data["choices"]
-            for choice in answer_choices:
-                if choice not in question_choices:
-                    return Response(status=400, data={"status": "Invalid answer"})
+    next_question = random.choice(available_questions)
 
-            answer = Answer.objects.create()
-            answer.choices.set(answer_choices)
-            answer.trial_question.set([trial_question])
-            answer.save()
+    trial_question = TrialQuestion.objects.create(trial=trial,
+                                                  question=next_question,
+                                                  number=len(id_answered_questions_id) + 1)
 
-        trial.is_completed = True
-        trial.save()
-
-        user_updated_score = users_controller.calculate_user_score(request.user)
-        profile = request.user.profile
-        profile.points = user_updated_score
-        profile.save()
-
-        # Profile.objects.filter(user=request.user).update(points=user_updated_score)
-        return Response(status=201, data={"trial_score": trial.score()})
-    else:
-        return Response(status=400, data={"status": "Invalid body"})
+    return Response(status=201, data=TrialQuestionSerializer(trial_question).data)

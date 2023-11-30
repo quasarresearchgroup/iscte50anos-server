@@ -4,10 +4,8 @@ from topics.models import TopicAccess, Topic
 
 from users.models import Profile, Level
 
-QUIZ_SIZE = 5
+QUIZ_SIZE = 8
 
-
-# QUIZ_SIZE = 8
 
 # TODO change for final version
 def update_level(user):
@@ -18,17 +16,8 @@ def update_level(user):
     if next_level.number != profile.level:
         Profile.objects.filter(user=user).update(level=next_level.number)
 
-        #create_quiz(user)
-        create_quiz_single_topic(user, next_level)
-
-
-def create_quiz_single_topic(user, level):
-    last_topic_access = TopicAccess.objects.filter(user=user).select_related("topic").latest("when")
-    topic = last_topic_access.topic
-
-    # Create quiz for the visited topics
-    quiz = Quiz.objects.create(user=user, number=level.number)
-    quiz.topics.set([topic])
+        create_quiz(user)
+        # create_quiz_single_topic(user, next_level)
 
 
 def create_quiz(user):
@@ -38,6 +27,7 @@ def create_quiz(user):
     # Create quiz for the  visited topics
     quiz = Quiz.objects.create(user=user, number=len(topic_accesses))
     quiz.topics.set(accessed_topics)
+
 
 # OLD FUNCTIONS
 
@@ -68,25 +58,6 @@ def create_first_quiz(user):
     # Create first quiz with all topics
     quiz = Quiz.objects.create(user=user, number=0)
     quiz.topics.set(Topic.objects.all().exclude(title="Georeferenciação"))
-
-
-def assign_trial_questions_simple(user, trial, topics):
-    # Get all questions not previously associated
-    questions = list(Question.objects.filter(topics__in=topics).exclude(trial_questions__trial__quiz__user=user))
-
-    if len(questions) < QUIZ_SIZE:
-        questions = list(Question.objects.filter(topics__in=topics))
-
-    questions = random.sample(questions, QUIZ_SIZE)
-
-    trial_questions = []
-    question_number = 1
-    for question in questions:
-        trial_question = TrialQuestion(trial=trial, question=question, number=question_number)
-        trial_questions.append(trial_question)
-        question_number += 1
-
-    TrialQuestion.objects.bulk_create(trial_questions)
 
 
 def assign_trial_questions(user, trial, topics):
@@ -146,3 +117,34 @@ def assign_trial_questions_final(user, trial, topics):
         question_number += 1
 
     TrialQuestion.objects.bulk_create(trial_questions)
+
+
+# NEI Code
+
+
+def assign_trial_questions_simple(user, trial, topics):
+    # Get all questions not previously associated
+    questions = list(Question.objects.filter(topics__in=topics).exclude(trial_questions__trial__quiz__user=user))
+
+    if len(questions) < QUIZ_SIZE:
+        questions = list(Question.objects.filter(topics__in=topics))
+
+    questions = random.sample(questions, QUIZ_SIZE)
+
+    trial_questions = []
+    question_number = 1
+    for question in questions:
+        trial_question = TrialQuestion(trial=trial, question=question, number=question_number)
+        trial_questions.append(trial_question)
+        question_number += 1
+
+    TrialQuestion.objects.bulk_create(trial_questions)
+
+
+def create_quiz_single_topic(user, level):
+    last_topic_access = TopicAccess.objects.filter(user=user).select_related("topic").latest("when")
+    topic = last_topic_access.topic
+
+    # Create quiz for the visited topics
+    quiz = Quiz.objects.create(user=user, number=level.number)
+    quiz.topics.set([topic])
