@@ -76,7 +76,7 @@ def import_contents():
 
             # Ignore unvalidated
             if row[4] != "sim":
-                break
+                continue
 
             try:
                 validated = row[4] == "sim"
@@ -127,7 +127,7 @@ def create_events(map:dict):
 
             # Ignore unvalidated
             if eventRow[5] == "FALSE":
-                break
+                continue
 
             date = datetime.strptime(eventRow[1], '%Y-%m-%d')
             title=eventRow[2].strip()
