@@ -73,6 +73,11 @@ def import_contents():
         header = next(content_reader)
         for index, row in enumerate(content_reader):
             validated = False
+
+            # Ignore unvalidated
+            if row[4] != "sim":
+                break
+
             try:
                 validated = row[4] == "sim"
             except:
@@ -118,7 +123,12 @@ def create_events(map:dict):
         timeline_reader = csv.reader(eventsFile, delimiter="\t")
         header = next(timeline_reader)
         last_progress_str:str=""
-        for index,eventRow in enumerate(timeline_reader):
+        for index, eventRow in enumerate(timeline_reader):
+
+            # Ignore unvalidated
+            if eventRow[5] == "FALSE":
+                break
+
             date = datetime.strptime(eventRow[1], '%Y-%m-%d')
             title=eventRow[2].strip()
             scope=translate_scope(eventRow[3])

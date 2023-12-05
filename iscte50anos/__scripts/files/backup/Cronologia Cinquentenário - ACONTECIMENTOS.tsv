@@ -3,7 +3,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 1962123100	1962-12-31	Criação do Gabinete de Investigações Sociais, liderado por Adérito Sedas Nunes, neste ano	Iscte	1	TRUE			
 1963013100	1963-01-31	Criada a Revista Análise Social, dirigida por Adérito Sedas Nunes	Nacional	1	TRUE			
 1971010600	1971-01-06	Ministro da Educação José Veiga Simão anuncia a reforma da educação em Portugal	Nacional	1	TRUE			
-1972121500	1972-12-15	Criação do ISCTE, na dependência da Direccão-Geral do Ensino Superior, integrando os alunos do Instituto de Estudos Sociais	Iscte	1	TRUE	1972-1981		
+1972121500	1972-12-15	Criação do ISCTE, na dependència da Direccão-Geral do Ensino Superior, integrando os alunos do Instituto de Estudos Sociais.	Iscte	1	TRUE	1972-1981		
 1972121501	1972-12-15	Criação de licenciaturas em Organização e Gestão de Empresas e em Ciências do Trabalho no ISCTE, no quadro de uma reestruturação dos cursos lecionados nos então ISCEF e ISCPU. Os alunos  excedentários de um destes institutos podem ir para outros, sendo este o caso de Economia.	Iscte	1	TRUE	1972-1981	Ensino	Memória
 1972121502	1972-12-15	Instalações funcionam no Campo Grande 185	Iscte	1	TRUE	1972-1981	Memória	
 1972123100	1972-12-31	Número de estudantes (neste ano lectivo): 296, sendo 66 de Organização e Gestão de Empresas, 11 de Ciências do Trabalho e 219 de Economia	Iscte	1	TRUE	1972-1981		
@@ -525,4 +525,4 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2022070800	2022-07-08	Homenagem parlamentar ao professor João Ferreira de Almeida (1941-2022)	Nacional	1	TRUE	2012-2022	Comunidade	Pessoas
 2022072800	2022-07-28	Criação do Doutoramento em Economia Política, em Associação com o Instituto Superior de Economia e Gestão - Universidade de Lisboa e a Faculdade de Economia da Universidade de Coimbra	Iscte	1	TRUE	2012-2022		
 2022090100	2022-09-01	Começa a funcionar a quinta escola do Iscte em Sintra, Escola de Tecnologias Digitais, Economia e Sociedade, com 7 cursos de licenciatura	Iscte	1	TRUE	2012-2022		
-2022121500	2022-12-15	Cinquentenário do Iscte	Iscte	4	TRUE	2012-2022	Memória							
+2022121500	2022-12-15	Cinquentenário do Iscte	Iscte	4	TRUE	2012-2022	Memória	
