@@ -19,12 +19,12 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 1974042901	1974-04-29	Primeira reunião do Conselho Escolar após golpe militar	Iscte	1	TRUE	1972-1981		
 1974050200	1974-05-02	Eleição de uma Comissão Directiva	Iscte	1	TRUE	1972-1981	Comunidade	
 1974050201	1974-05-02	Extinção do Conselho Escolar pela Assembleia Plenária do ISCTE	Iscte	1	TRUE	1972-1981		
-1974051600	1974-05-16	Mário Murteira, ministro dos Assuntos Sociais do I Governo Provisório	Iscte	1	TRUE	1972-1981	Comunidade	Pessoas
+1974051600	1974-05-16	Mário Murteira, ministro dos Assuntos Sociais do I Governo Provisório	Nacional	1	TRUE	1972-1981	Comunidade	Pessoas
 1974052800	1974-05-28	Criação de um Conselho Diretivo no ISCTE composto por docentes, estudantes e funcionários. Ratificada a Assembleia Plenária com grandes poderes	Iscte	2	TRUE	1972-1981	Comunidade	
 1974071500	1974-07-15	Grécia: queda da ditadura dos Coronéis	Internacional	1	TRUE	1972-1981		
 1974093000	1974-09-30	Número de estudantes: 879	Iscte	1	TRUE	1972-1981	Comunidade	
 1974120400	1974-12-04	José Manuel Prostes da Fonseca, secretário de estado da Administração Escolar do III Governo Provisório	Nacional	1	TRUE	1972-1981		
-1975022400	1975-02-24	Jorge Correia Jesuíno, ministro da Comunicação Social do III Governo Provisório	Iscte	1	TRUE	1972-1981		
+1975022400	1975-02-24	Jorge Correia Jesuíno, ministro da Comunicação Social do III Governo Provisório	Nacional	1	TRUE	1972-1981		
 1975032600	1975-03-26	Jorge Correia Jesuíno, ministro da Comunicação Social do IV Governo Provisório	Nacional	1	TRUE	1972-1981		
 1975032601	1975-03-26	Mário Murteira, ministro do Planeamento e Coordenação Económica do IV Governo Provisório	Nacional	1	TRUE	1972-1981	Comunidade	Pessoas
 1975043000	1975-04-30	Rendição de Saigão. Fim da Guerra do Vietname	Internacional	1	TRUE	1972-1981		
@@ -81,7 +81,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 1983010100	1983-01-01	International Association for the Exchange of Students for Technical Experience (AIESTE)	Iscte	1	TRUE	1982-1991	Redes	
 1983011800	1983-01-18	José Madureira Pinto, primeiro doutorado no ISCTE (Sociologia)	Iscte	1	TRUE	1982-1991		
 1983042900	1983-04-29	Criação dos doutoramentos em Organização e Gestão de Empresas, Sociologia e Antropologia Social através do ISCTE conferido pela Universidade Técnica de Lisboa	Iscte	1	TRUE	1982-1991		
-1983042901	1983-04-29	Aberta a possibilidade de mestrados do ISCTE conferidos pela Universidade Técnica	Iscte	1	TRUE	1982-1991		
+1983042901	1983-04-29	Aberta a possibilidade de mestrados no ISCTE conferidos pela Universidade Técnica	Iscte	1	TRUE	1982-1991		
 1983063000	1983-06-30	Carlos Caiano Pereira é Presidente do Conselho Directivo (eleito)	Iscte	1	TRUE	1982-1991		
 1983063001	1983-06-30	Mário Murteira é Presidente do Conselho Científico (eleito)	Iscte	1	TRUE	1982-1991		
 1983063002	1983-06-30	Mário Pinto é Presidente do Conselho Pedagógico (reeleito) 	Iscte	3	TRUE	1982-1991		
@@ -113,7 +113,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 1986101400	1986-10-14	Lei de Bases do Sistema Educativo	Nacional	1	TRUE	1982-1991	Comunidade	
 1986122300	1986-12-23	Criação da Fundação para o Desenvolvimento dos Meios Nacionais de Cálculo Científico (FCCN)	Nacional	1	TRUE	1982-1991	Comunidade	Infraestruturação
 1986123100	1986-12-31	Criação da revista Sociologia. Problemas e Práticas neste ano	Iscte	1	TRUE	1982-1991	Investigação	
-1987061500	1987-06-15	Criação do Programa Erasmus (entre os seus promotores europeus está Manuel Marín (1949-2017) 	Internacional	1	TRUE	1982-1991	Pessoas	Redes
+1987061500	1987-06-15	Criação do Programa Erasmus - entre os seus promotores europeus está Manuel Marín (1949-2017) 	Internacional	1	TRUE	1982-1991	Pessoas	Redes
 1987062600	1987-06-26	José Manuel Prostes da Fonseca é Presidente do Conselho Diretivo (reeleito)	Iscte	4	TRUE	1982-1991		
 1987062601	1987-06-26	João Ferreira de Almeida é Presidente do Conselho Científico (reeleito)	Iscte	2	TRUE	1982-1991		
 1987062602	1987-06-26	António Silva Leal é Presidente do Conselho Pedagógico (eleito)	Iscte	1	TRUE	1982-1991		
@@ -202,7 +202,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 1997053000	1997-05-30	Criação da Etnográfica. Revista do Centro de Estudos de Antropologia Social	Iscte	4	TRUE	1992-2001	Investigação	
 1997072800	1997-07-28	Aprovação da Lei Orgânica da Fundação para a Ciência e a Tecnologia (FCT)	Nacional	1	TRUE	1992-2001	Investigação	
 1997100200	1997-10-02	Acordo de Schengen	Internacional	1	TRUE	1992-2001		
-1997112500	1997-11-25	Eduardo Ferro Rodrigues, ministro do Trabalho e da Solidariedade	Iscte	1	TRUE	1992-2001	Comunidade	Pessoas
+1997112500	1997-11-25	Eduardo Ferro Rodrigues, ministro do Trabalho e da Solidariedade	Nacional	1	TRUE	1992-2001	Comunidade	Pessoas
 1997121500	1997-12-15	Emissão da medalha do 25º aniversário 	Iscte	2	TRUE	1992-2001	Memória	Identidade
 1997121501	1997-12-15	Emissão de pisa-papéis do 25º aniversário	Iscte	2	TRUE	1992-2001	Memória	Identidade
 1998022600	1998-02-26	Inicío do conflito do Kosovo, entre a República Federal da Jugoslávia e os guerrilheiros rebeldes do Kosovo	Internacional	1	TRUE	1992-2001		
@@ -230,13 +230,13 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2000121500	2000-12-15	João Ferreira de Almeida é Presidente do ISCTE (reeleito)	Iscte	4	TRUE	1992-2001		
 2000123100	2000-12-31	Criada a revista Cidades, Comunidades e Territórios neste ano	Iscte	1	TRUE	1992-2001	Investigação	
 2001031000	2001-03-10	António Dornelas, Secretário de Estado do Trabalho e Formação	Nacional	1	TRUE	1992-2001		
-2001031001	2001-03-10	Eduardo Ferro Rodrigues, ministro do Equipamento Social	Iscte	1	TRUE	1992-2001	Comunidade	Pessoas
-2001031002	2001-03-10	Paulo Pedroso, ministro do Trabalho e da Solidariedade 	Iscte	1	TRUE	1992-2001	Comunidade	Pessoas
+2001031001	2001-03-10	Eduardo Ferro Rodrigues, ministro do Equipamento Social	Nacional	1	TRUE	1992-2001	Comunidade	Pessoas
+2001031002	2001-03-10	Paulo Pedroso, ministro do Trabalho e da Solidariedade 	Nacional	1	TRUE	1992-2001	Comunidade	Pessoas
 2001032000	2001-03-20	Criação do Doutoramento em Direito de Empresas	Iscte	1	TRUE	1992-2001		
 2001091100	2001-09-11	Dois aviões de passageiros colidem com as torres World Trade Center, em Nova Iorque, provocando o seu desmoronamento. Um terceiro avião despenha-se sobre o edifício do Pentágono e um quarto cai em Somerset County, no estado da Pensilvânia	Internacional	3	TRUE	1992-2001		
 2001091700	2001-09-17	Criação do grupo estudantil de teatro mISCuTEm	Iscte	1	TRUE	1992-2001	Comunidade	
 2002010100	2002-01-01	Euro entra em circulação em Portugal	Internacional	1	TRUE	2002-2011		
-2002040600	2002-04-06	Luís Filipe Pereira, ministro da Saúde	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
+2002040600	2002-04-06	Luís Filipe Pereira, ministro da Saúde	Nacional	1	TRUE	2002-2011	Comunidade	Pessoas
 2002051700	2002-05-17	Formalização do Centro de informática (CIISCTE)	Iscte	1	FALSE	2002-2011	Infraestruturação	Campus
 2002052000	2002-05-20	Independência de Timor Leste	Internacional	1	TRUE	2002-2011		
 2002060100	2002-06-01	Edifício II: Inauguração do Grande Auditório (500 lugares)	Iscte	1	TRUE	2002-2011	Campus	
@@ -271,8 +271,8 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2005021400	2005-02-14	Criação da plataforma Youtube	Internacional	1	TRUE	2002-2011		
 2005021600	2005-02-16	Mário Leston Bandeira é Presidente do Conselho Pedagógico (reeleito)	Iscte	4	TRUE	2002-2011		
 2005022800	2005-02-28	Luís Antero Reto é presidente do ISCTE (eleito)	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
-2005031200	2005-03-12	José António Vieira da Silva, ministro do Trabalho e da Solidariedade Social	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
-2005031201	2005-03-12	Maria de Lurdes Rodrigues, ministra da Educação	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
+2005031200	2005-03-12	José António Vieira da Silva, ministro do Trabalho e da Solidariedade Social	Nacional	1	TRUE	2002-2011	Comunidade	Pessoas
+2005031201	2005-03-12	Maria de Lurdes Rodrigues, ministra da Educação	Nacional	1	TRUE	2002-2011	Comunidade	Pessoas
 2005033100	2005-03-31	Criação do doutoramento em Gestão	Iscte	1	TRUE	2002-2011		
 2005042600	2005-04-26	Jorge Freitas Branco é presidente do Conselho Científico (eleito)	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
 2005060300	2005-06-03	Integração no Conselho de Reitores da Universidades Portuguesas (CRUP)	Iscte	0	FALSE	2002-2011	Estatuto	
@@ -311,7 +311,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2008080800	2008-08-08	Criação da Licenciatura em Finanças e Contabilidade (fusão da Licenciatura em Finanças e da Licenciatura em Contabilidade)	Iscte	1	TRUE	2002-2011	Ensino	
 2008082100	2008-08-21	Nelson Évora ganha medalha de ouro olímpica em Pequim	Nacional	1	TRUE	2002-2011		
 2008090100	2008-09-01	Desmaterialização das inscrição dos estudantes	Iscte	1	FALSE	2002-2011	Desmaterialização	Ensino
-2008102900	2008-10-29	Criação do Programa Interuniversitário de Doutoramento em História, em associação com a Universidade de Lisboa (Instituto de Ciências Sociais e Faculdade de Letras), a Universidade de èvora e a Universidade Católica	Iscte	1	TRUE	2002-2011		
+2008102900	2008-10-29	Criação do Programa Interuniversitário de Doutoramento em História, em associação com a Universidade de Lisboa (Instituto de Ciências Sociais e Faculdade de Letras), a Universidade de Évora e a Universidade Católica	Iscte	1	TRUE	2002-2011		
 2008103100	2008-10-31	Adesão à rede Eduroam	Iscte	1	FALSE	2002-2011	Infraestruturação	Campus
 2008123100	2008-12-31	Criação do Observatório das Desigualdades neste ano	Nacional	1	TRUE	2002-2011	Prestação de Serviços	Comunidade
 2008123101	2008-12-31	Remodelação do pátio interior (1870 m2) do Edifício Sedas Nunes neste ano	Iscte	1	TRUE	2002-2011	Estatuto	
@@ -322,7 +322,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2009050800	2009-05-08	Publicação dos Estatutos da Fundação ISCTE-IUL. Consagrados nesta orgânica os Departamentos, as Unidades de investigação e a Escola de Gestão	Iscte	1	TRUE	2002-2011	Comunidade	Estatuto
 2009070200	2009-07-02	 Criada a área de Competências Transversais da qual virá a ser responsável o Laboratório de Línguas e Competências Transversais	Iscte	1	TRUE	2002-2011		
 2009091100	2009-09-11	Carlos Lopes é eleito presidente do Conselho Geral	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
-2009102600	2009-10-26	José António Vieira da Silva, ministro da Economia da Inovação e Desenvolvimento 	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
+2009102600	2009-10-26	José António Vieira da Silva, ministro da Economia da Inovação e Desenvolvimento 	Nacional	1	TRUE	2002-2011	Comunidade	Pessoas
 2009110600	2009-11-06	Luís Antero Reto é eleito Reitor 	Iscte	1	TRUE	2002-2011		
 2009111300	2009-11-13	António Ramalho Eanes é eleito presidente do Conselho de Curadores 	Iscte	1	TRUE	2002-2011	Comunidade	Pessoas
 2010022000	2010-02-20	Enxurradas na ilha da Madeira (cerca de 50 mortos)	Nacional	1	TRUE	2002-2011		
@@ -380,7 +380,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2012103101	2012-10-31	Criação do Departamento de Métodos Quantitativos para Gestão e Economia (redenominação de Departamento de Métodos Quantitativos)	Iscte	1	TRUE	2002-2011	Comunidade	
 2012112000	2012-11-20	Mohamed Azzim Gulamhussen é presidente da escola de Gestão (IBS)	Iscte	2	TRUE	2012-2022	Comunidade	Pessoas
 2012112600	2012-11-26	Victor Franco é presidente do Conselho Científico (eleito)	Iscte	1	TRUE	2012-2022		
-2012121500	2012-12-15	Comemoração dos 40 anos. Publicação do livro “Até onde nos leva o saber. Uma história dos 40 anos do ISCTE Instituto Universitário de Lisboa” (Carlos Oliveira Santos)	Iscte	1	TRUE	2012-2022	Memória	
+2012121500	2012-12-15	Comemoração dos 40 anos. Publicação do livro “Até onde nos leva o saber. Uma história dos 40 anos do ISCTE - Instituto Universitário de Lisboa” (Carlos Oliveira Santos)	Iscte	1	TRUE	2012-2022	Memória	
 2012121501	2012-12-15	Clube ISCTE institui o mural solidário	Iscte	1	TRUE	2012-2022		
 2012121502	2012-12-15	Emissão da Medalha dos 40 anos	Iscte	1	TRUE	2012-2022	Memória	
 2013020400	2013-02-04	Desmaterialização do registo da assiduidade e sumários (docente e discente)	Iscte	1	FALSE	2012-2022	Desmaterialização	Ensino
@@ -392,7 +392,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2013091300	2013-09-13	Carlos Lopes é reeleito presidente do Conselho Geral	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2013091800	2013-09-18	Ricardo Fonseca é diretor da Escola de Tecnologias e Arquitetura (ISTA)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2013100800	2013-10-08	José Manuel Rebelo é presidente do Conselho Científico (eleito)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
-2013110400	2013-11-04	Primeiro doutoramento em Gestão Empresarial Aplicada, no âmbito do acordo com a University of Electronic Sciences and Technology of China, Chengdu, China, Shen Jun	Iscte	1	TRUE	2012-2022	Redes	Investigação
+2013110400	2013-11-04	Primeiro doutoramento em Gestão Empresarial Aplicada, no âmbito do acordo com a University of Electronic Sciences and Technology of China, Chengdu, China.	Iscte	1	TRUE	2012-2022	Redes	Investigação
 2013111100	2013-11-11	Plataforma de gestão curricular de investigação Ciência-IUL	Iscte	2	FALSE	2012-2022	Infraestruturação	
 2014030600	2014-03-06	Luís Antero Reto é Reitor (reeleito)	Iscte	1	TRUE	2012-2022		
 2014031300	2014-03-13	Criação do Doutoramento em Estudos de Comunicação: Tecnologia, Cultura e Sociedade em Associação com a Universidade do Minho, a Cooperativa de Formação e Animação Cultural e a Universidade da Beira Interior	Iscte	1	TRUE	2012-2022		
@@ -442,7 +442,7 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2017101500	2017-10-15	Fogos florestais na Zona Centro 	Nacional	1	TRUE	2012-2022		
 2017112400	2017-11-24	"Retrato da investigação científica no ISCTE-IUL. Documento síntese do estudo realizado pela CEIC" (A. Benavente, P. Guibentif, M. E. Gonçalves, V. Rato, M. Santos, A. Velez) publicado pela Comissão especializada de investigação científica do Conselho Geral mandato 2013-17	Iscte	1	TRUE	2012-2022	Investigação	
 2017121500	2017-12-15	45º aniversário do ISCTE-IUL	Iscte	1	TRUE	2012-2022	Memória	
-2017121501	2017-12-15	Publicação de "Afirmação de uma identidade. 45 anos de ISCTE Instituto Universitário de Lisboa" (Carlos Oliveira Santos)	Iscte	1	TRUE	2012-2022	Memória	
+2017121501	2017-12-15	Publicação de "Afirmação de uma identidade. 45 anos de ISCTE - Instituto Universitário de Lisboa" (Carlos Oliveira Santos)	Iscte	1	TRUE	2012-2022	Memória	
 2018012600	2018-01-26	Criação do Doutoramento em Gestão do Turismo, em associação com a Universidade Europeia (ISLA à data da criação)	Iscte	1	TRUE	2012-2022		
 2018020700	2018-02-07	Relatório de Atividades 2017	Iscte	1	TRUE	2012-2022	Comunidade	
 2018020701	2018-02-07	Integração da componente da Sustentabilidade no Sistema Integrado de Garantia da Qualidade	Iscte	1	TRUE	2012-2022		
@@ -464,14 +464,14 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2019032500	2019-03-25	Joana Alexandre é presidente do Conselho Pedagógico (eleita)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2019040900	2019-04-09	Maria João Cortinhal é diretora da Escola de Gestão (IBS)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2019041500	2019-04-15	Incêndio na Catedral Notre-Dame, Paris	Internacional	1	TRUE	2012-2022		
-2019053100	2019-05-31	 Site Ciberdúvidas da Língua Português alojado no site do Iscte	Iscte	1	FALSE	2012-2022		
+2019053100	2019-05-31	 Site Ciberdúvidas da Língua Português torna-se propriedade do ISCTE, vindo a ser alojado no seu site	Iscte	1	TRUE	2012-2022		
 2019071700	2019-07-17	Helena Carvalho é novamente diretora da Escola de Sociologia e Políticas Públicas (ESPP)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2019071701	2019-07-17	Maria de Fátima Ferreiro é diretora da Escola de Ciências Sociais e Humanas (ECSH)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2019072300	2019-07-23	Relatório Integrado de Atividades e de Gestão 2018	Iscte	1	TRUE	2012-2022	Comunidade	
 2019092300	2019-09-23	Apelo de Greta Thunberg na Cimeira de Ação Climática, ONU, Nova Iorque	Internacional	1	TRUE	2012-2022		
 2019102600	2019-10-26	Miguel Cabrita, Secretário de Estado Adjunto, do Trabalho e da Formação Profissional	Nacional	1	TRUE	2012-2022		
-2019102601	2019-10-26	Cláudia Pereira, Secretária de Estado para a Integração e as Migrações	Iscte	1	TRUE	2012-2022		
-2019102602	2019-10-26	Eurico Brilhante Dias, Secretário de Estado da Internacionalização	Iscte	1	TRUE	2012-2022		
+2019102601	2019-10-26	Cláudia Pereira, Secretária de Estado para a Integração e as Migrações	Nacional	1	TRUE	2012-2022		
+2019102602	2019-10-26	Eurico Brilhante Dias, Secretário de Estado da Internacionalização	Nacional	1	TRUE	2012-2022		
 2019111200	2019-11-12	Nova temporada do coro ISCTE-IUL com o Maestro João Barros	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
 2019112200	2019-11-22	Aprovada a participação na associação "ISCTE. Conhecimento e Inovação. Centro de Inovação e Transferência de Tecnologias"	Iscte	1	FALSE	2012-2022	Campus	
 2019120600	2019-12-06	Criação do Doutoramento em Políticas de Administração e Gestão Escolar	Iscte	1	TRUE	2012-2022		
@@ -518,11 +518,12 @@ KEY	DATA	ACONTECIMENTO	ÂMBITO	#Fontes	Validado	Tópico 1 	Tópico 2	Tópico 3
 2022030700	2022-03-07	INDEG-IUL assina protocolo com a IAPMEI para a implementação de três programas para PMEs	Iscte	1	FALSE	2012-2022	Memória	
 2022030701	2022-03-07	Plantada Árvore de Vida pelos 50 anos do Iscte	Iscte	1	TRUE	2012-2022	Campus	
 2022030800	2022-03-08	Maria de Lurdes Rodrigues é reitora (reeleita)	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
-2022033000	2022-03-30	Helena Carreiras, ministra da Defesa	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
-2022033001	2022-03-30	Pedro Adão e Silva, ministro da Cultura	Iscte	1	TRUE	2012-2022	Comunidade	Pessoas
+2022033000	2022-03-30	Helena Carreiras, ministra da Defesa Nacional	Nacional	1	TRUE	2012-2022	Comunidade	Pessoas
+2022033001	2022-03-30	Pedro Adão e Silva, ministro da Cultura	Nacional	1	TRUE	2012-2022	Comunidade	Pessoas
 2022040300	2022-04-03	Corrida e caminhada comemorativas no âmbito das Comemorações do Cinquentenário do Iscte	Iscte	1	TRUE	2012-2022	Memória	
 2022042700	2022-04-27	Criada a Comissão Instaladora da Escola de Tecnologias Aplicadas Iscte-Sintra, presidida por Ricardo Paes Mamede	Iscte	1	TRUE	2012-2022		
 2022070800	2022-07-08	Homenagem parlamentar ao professor João Ferreira de Almeida (1941-2022)	Nacional	1	TRUE	2012-2022	Comunidade	Pessoas
 2022072800	2022-07-28	Criação do Doutoramento em Economia Política, em Associação com o Instituto Superior de Economia e Gestão - Universidade de Lisboa e a Faculdade de Economia da Universidade de Coimbra	Iscte	1	TRUE	2012-2022		
 2022090100	2022-09-01	Começa a funcionar a quinta escola do Iscte em Sintra, Escola de Tecnologias Digitais, Economia e Sociedade, com 7 cursos de licenciatura	Iscte	1	TRUE	2012-2022		
-2022121500	2022-12-15	Cinquentenário do Iscte	Iscte	4	TRUE	2012-2022	Memória							
+2022121500	2022-12-15	Cinquentenário do Iscte	Iscte	4	TRUE	2012-2022	Memória	
+		Prémio Valmora atribuido a edificio arquitetado por Raúl Hestnes Ferreira						
